@@ -29,17 +29,17 @@ public class JDBCUserDAO implements UserDAO {
 		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 		
-		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt) VALUES (?, ?, ?)",
+		jdbcTemplate.update("INSERT INTO login(username, password, salt) VALUES (?, ?, ?)",
 				userName, hashedPassword, saltString);
 	}
 
 	@Override
 	public boolean searchForUsernameAndPassword(String userName, String password) {
 		String sqlSearchForUser = "SELECT * "+
-							      "FROM app_user "+
-							      "WHERE UPPER(user_name) = ? ";
+							      "FROM login "+
+							      "WHERE LOWER(username) = ? ";
 		
-		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toUpperCase());
+		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toLowerCase());
 		if(user.next()) {
 			String dbSalt = user.getString("salt");
 			String dbHashedPassword = user.getString("password");
@@ -52,20 +52,20 @@ public class JDBCUserDAO implements UserDAO {
 
 	@Override
 	public void updatePassword(String userName, String password) {
-		jdbcTemplate.update("UPDATE app_user SET password = ? WHERE user_name = ?", password, userName);
+		jdbcTemplate.update("UPDATE login SET password = ? WHERE username = ?", password, userName);
 	}
 
 	@Override
 	public Object getUserByUserName(String userName) {
 		String sqlSearchForUsername ="SELECT * "+
-		"FROM app_user "+
-		"WHERE UPPER(user_name) = ? ";
+		"FROM login "+
+		"WHERE LOWER(username) = ? ";
 
-		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUsername, userName.toUpperCase()); 
+		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUsername, userName.toLowerCase()); 
 		User thisUser = null;
 		if(user.next()) {
 			thisUser = new User();
-			thisUser.setUserName(user.getString("user_name"));
+			thisUser.setUserName(user.getString("username"));
 			thisUser.setPassword(user.getString("password"));
 		}
 		return thisUser;

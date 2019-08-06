@@ -44,6 +44,7 @@ public class User {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+<<<<<<< HEAD
 	public String getName() {
 		return name;
 	}
@@ -74,4 +75,8 @@ public class User {
 	public void setWorkOutProfile(String workOutProfile) {
 		this.workOutProfile = workOutProfile;
 	}	
+=======
+	
+	
+>>>>>>> 6eb187ffc20cfc023ce2d423d9407bcb13a02fb7
 }
