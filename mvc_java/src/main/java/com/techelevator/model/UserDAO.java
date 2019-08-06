@@ -9,5 +9,4 @@ public interface UserDAO {
 	public void updatePassword(String userName, String password);
 
 	public Object getUserByUserName(String userName);
-
 }
