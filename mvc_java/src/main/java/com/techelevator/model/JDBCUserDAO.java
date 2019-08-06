@@ -44,7 +44,7 @@ public class JDBCUserDAO implements UserDAO {
 			String dbSalt = user.getString("salt");
 			String dbHashedPassword = user.getString("password");
 			String givenPassword = hashMaster.computeHash(password, Base64.decode(dbSalt));
-			return dbHashedPassword.equals(givenPassword);
+			return dbHashedPassword.equals(password);
 		} else {
 			return false;
 		}

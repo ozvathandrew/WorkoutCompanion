@@ -14,7 +14,7 @@
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
 
-<link rel="stylesheet" type="text/css" href="${bootstrapCss}">
+<%-- <link rel="stylesheet" type="text/css" href="${bootstrapCss}"> --%>
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 
 <script src="${jQueryJs}"></script>
@@ -40,7 +40,13 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navigation">
+		<ul>
+			<li>Home</li>
+			<li>Sign Up</li>
+			<li>Login</li>
+		</ul>
+	<%-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#"> 
 			<c:url var="homePageHref" value="/" />
 			<c:url var="imgSrc" value="/img/placeholder.png" /> 
@@ -89,7 +95,7 @@
 					</c:otherwise>
 				</c:choose>
 			</ul>
-		</div>
+		</div> --%>
 	</nav>
 
 	<c:if test="${not empty currentUser}">
