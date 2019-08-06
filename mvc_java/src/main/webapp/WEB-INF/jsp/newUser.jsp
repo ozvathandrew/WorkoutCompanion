@@ -55,6 +55,35 @@
 				<label for="confirmPassword">Confirm Password: </label>
 				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
 			</div>
+			<div class="form-group">
+				<label for="name">Name: </label>
+				<input type="text" id="name" name="name" placeHolder="Your name" class="form-control" />	
+			</div>
+			<div class="form-group">
+				<label for="email">Email: </label>
+				<input type="email" id="email" name="email" placeHolder="Email address" class="form-control" />	
+			</div>
+			<div class="form-group">
+				<label for="avatar">Avatar: </label>
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+				<input type="radio" id="avatar" name="avatar" value="here is the href" class="form-control" />	
+			</div>
+			<div class="form-group">
+				<label for="workoutgoals">Workout Goals: </label>
+				<input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" />	
+			</div>
+			<div class="form-group">
+				<label for="workoutprofile">Workout Profile: </label>
+				<input type="text" id="workoutProfile" name="workoutProfile" placeHolder="Workout Profile" class="form-control" />	
+			</div>
 			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>

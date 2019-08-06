@@ -10,13 +10,13 @@ public class User {
 	@Pattern.List({ @Pattern(regexp = ".*[a-z].*", message = "Must have a lower case"),
 			@Pattern(regexp = ".*[A-Z].*", message = "Must have a capital") })
 	private String password;
-	private String roleId;
+	private int roleId;
 	private String confirmPassword;
 	private String name;
 	private String email;
-	private String photo;
-	private String workOutGoals;
-	private String workOutProfile;
+	private String workoutGoals;
+	private String workoutProfile;
+	private String avatar;
 	
 	//Getters and setters below this line---------------------------------------------------
 	
@@ -32,10 +32,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRoleId() {
+	public int getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(String roleId) {
+	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
 	public String getConfirmPassword() {
@@ -56,22 +56,23 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoto() {
-		return photo;
+	public String getWorkoutGoals() {
+		return workoutGoals;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setWorkoutGoals(String workoutGoals) {
+		this.workoutGoals = workoutGoals;
 	}
-	public String getWorkOutGoals() {
-		return workOutGoals;
+	public String getWorkoutProfile() {
+		return workoutProfile;
 	}
-	public void setWorkOutGoals(String workOutGoals) {
-		this.workOutGoals = workOutGoals;
+	public void setWorkoutProfile(String workoutProfile) {
+		this.workoutProfile = workoutProfile;
 	}
-	public String getWorkOutProfile() {
-		return workOutProfile;
+	public String getAvatar() {
+		return avatar;
 	}
-	public void setWorkOutProfile(String workOutProfile) {
-		this.workOutProfile = workOutProfile;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}	
+	
 }
