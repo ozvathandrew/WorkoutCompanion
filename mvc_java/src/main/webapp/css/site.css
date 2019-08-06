@@ -1,0 +1,4 @@
+body {
+	background-image: url(../img/rectangle.png), url(../img/athletebackdrop.png);
+	 background-repeat: no-repeat, repeat;
+}
