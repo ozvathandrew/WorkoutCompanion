@@ -1,5 +1,8 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.bouncycastle.util.encoders.Base64;
@@ -8,7 +11,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.model.User;
 import com.techelevator.security.PasswordHasher;
 
 @Component
@@ -24,13 +26,15 @@ public class JDBCUserDAO implements UserDAO {
 	}
 	
 	@Override
-	public void saveUser(String userName, String password) {
+	public void saveMember(String userName, String password, String name, String email, String workoutGoals, String workoutProfile, String avatar) {
 		byte[] salt = hashMaster.generateRandomSalt();
 		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 		
-		jdbcTemplate.update("INSERT INTO login(username, password, salt) VALUES (?, ?, ?)",
-				userName, hashedPassword, saltString);
+		jdbcTemplate.update("INSERT INTO profile(name, email, photo, workout_goals, workout_profile, role_id) VALUES (?, ?, ?, ?, ?, ?)",
+				name, email, avatar, workoutGoals, workoutProfile, 3);
+		jdbcTemplate.update("INSERT INTO login(username, password, salt, profile_id) VALUES (?, ?, ?, (SELECT max (profile.profile_id) FROM profile))",
+				userName, hashedPassword, saltString);	
 	}
 
 	@Override
@@ -49,7 +53,17 @@ public class JDBCUserDAO implements UserDAO {
 			return false;
 		}
 	}
-
+	public List<User> getAllProfileMembers() {
+		List<User> allMembers = new ArrayList<User>();
+		String sqlSelectAllProfileMembers = "SELECT * FROM profile";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllProfileMembers);
+		while(results.next()) {
+			allMembers.add(mapToRowProfile(results));
+		}
+		
+		return allMembers;
+	}
+	
 	@Override
 	public void updatePassword(String userName, String password) {
 		jdbcTemplate.update("UPDATE login SET password = ? WHERE username = ?", password, userName);
@@ -69,5 +83,19 @@ public class JDBCUserDAO implements UserDAO {
 			thisUser.setPassword(user.getString("password"));
 		}
 		return thisUser;
+	}
+	
+	private User mapToRowProfile(SqlRowSet row) {
+		User user = new User();
+//		user.setUserName(row.getString("username"));
+//		user.setPassword(row.getString("password"));
+//		user.setSalt(row.getString("salt"));
+		user.setName(row.getString("name"));
+		user.setEmail(row.getString("email"));
+		user.setAvatar(row.getString("photo"));
+		user.setWorkoutGoals(row.getString("workout_goals"));
+		user.setWorkoutProfile(row.getString("workout_profile"));
+		user.setRoleId(row.getInt("role_id"));
+		return user;
 	}
 }

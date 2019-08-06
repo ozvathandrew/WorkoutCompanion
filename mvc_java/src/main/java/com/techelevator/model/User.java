@@ -11,6 +11,7 @@ public class User {
 			@Pattern(regexp = ".*[A-Z].*", message = "Must have a capital") })
 	private String password;
 	private int roleId;
+	private String salt;
 	private String confirmPassword;
 	private String name;
 	private String email;
@@ -73,6 +74,12 @@ public class User {
 	}
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}	
 	
 }
