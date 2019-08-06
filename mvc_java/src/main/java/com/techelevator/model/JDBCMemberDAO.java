@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 import com.techelevator.security.PasswordHasher;
 
 @Component
-public class JDBCUserDAO implements UserDAO {
+public class JDBCMemberDAO implements MemberDAO {
 
 	private JdbcTemplate jdbcTemplate;
 	private PasswordHasher hashMaster;
 
 	@Autowired
-	public JDBCUserDAO(DataSource dataSource, PasswordHasher hashMaster) {
+	public JDBCMemberDAO(DataSource dataSource, PasswordHasher hashMaster) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.hashMaster = hashMaster;
 	}
@@ -35,6 +35,11 @@ public class JDBCUserDAO implements UserDAO {
 				name, email, avatar, workoutGoals, workoutProfile, 3);
 		jdbcTemplate.update("INSERT INTO login(username, password, salt, profile_id) VALUES (?, ?, ?, (SELECT max (profile.profile_id) FROM profile))",
 				userName, hashedPassword, saltString);	
+	}
+	
+	public void updateWorkoutGoals(String updatedGoals, String email) {
+		String sqlUpdateGoals = "UPDATE profile SET workout_goals = ? WHERE email = ?";
+		jdbcTemplate.update(sqlUpdateGoals, updatedGoals, email);	
 	}
 
 	@Override
@@ -69,8 +74,7 @@ public class JDBCUserDAO implements UserDAO {
 		jdbcTemplate.update("UPDATE login SET password = ? WHERE username = ?", password, userName);
 	}
 
-	@Override
-	public Object getUserByUserName(String userName) {
+	public Object getMemberByUserName(String userName) {
 		String sqlSearchForUsername ="SELECT * "+
 		"FROM login "+
 		"WHERE LOWER(username) = ? ";
