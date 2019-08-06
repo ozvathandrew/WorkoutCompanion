@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface MemberDAO {
 
 	public void saveMember(String userName, String password, String name, String email, String workoutGoals, String workoutProfile, String avatar);
 
@@ -10,7 +10,9 @@ public interface UserDAO {
 
 	public void updatePassword(String userName, String password);
 
-	public Object getUserByUserName(String userName);
+	public Object getMemberByUserName(String userName);
 	
 	public List<User> getAllProfileMembers();
+	
+	public void updateWorkoutGoals(String updatedGoals, String email);
 }
