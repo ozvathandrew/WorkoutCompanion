@@ -2,7 +2,9 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<div>
+	<c:url var="formAction" value="/users/" />
+ </div>
 
 
-
-<c:import url="/WEB-INF/jsp/footer.jsp" /><c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/footer.jsp" />

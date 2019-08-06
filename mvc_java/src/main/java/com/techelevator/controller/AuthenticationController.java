@@ -37,6 +37,7 @@ public class AuthenticationController {
 			if(destination != null && ! destination.isEmpty()) {
 				return "redirect:" + destination;
 			} else {
+				//return "redirect:/UserDashboard"; 
 				return "redirect:/users/"+userName;
 			}
 		} else {
@@ -50,4 +51,5 @@ public class AuthenticationController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
 }
