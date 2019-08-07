@@ -44,7 +44,7 @@ public class JDBCAdministratorDAO implements AdministratorDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllProfileMembers);
 		while(results.next()) {
 			allEmployeesList.add(mapToRowEmployee(results));
-		}
+		} 
 		
 		return allEmployeesList;
 	}

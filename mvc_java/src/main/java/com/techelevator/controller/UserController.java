@@ -70,17 +70,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/updateProfile", method=RequestMethod.POST)
-	public String userDashBoardUpdatedProfile (@RequestParam String updatedGoal, ModelMap map) {
-		// Get chosen user from DB and add to the request object 
-		//Object user = userDAO.getMemberByUserName(username);
+	public String userDashBoardUpdatedProfile (@RequestParam String workoutGoals, ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		
-		userDAO.updateWorkoutGoals(updatedGoal, userName);
+		userDAO.updateWorkoutGoals(workoutGoals, userName);
 		
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
 		
-		return "redirect:/users/{username}";
+		return "redirect:/users/" + userName;
 	}
 }

@@ -46,7 +46,7 @@ public class JDBCMemberDAO implements MemberDAO {
 	public boolean searchForUsernameAndPassword(String userName, String password) {
 		String sqlSearchForUser = "SELECT * "+                                                                                        
 							      "FROM login "+
-							      "WHERE LOWER(username) = ? ";
+							      "WHERE username = ? ";
 		
 		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toLowerCase());
 		if(user.next()) {
@@ -75,9 +75,8 @@ public class JDBCMemberDAO implements MemberDAO {
 	}
 
 	public Object getMemberByUserName(String userName) {
-		String sqlSearchForUsername ="SELECT * "+
-		"FROM login "+
-		"WHERE LOWER(username) = ? ";
+		String sqlSearchForUsername = "SELECT * FROM login JOIN profile on login.profile_id = profile.profile_id "+
+		"WHERE username = ?";
 
 		SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUsername, userName.toLowerCase()); 
 		User thisUser = null;
@@ -85,15 +84,21 @@ public class JDBCMemberDAO implements MemberDAO {
 			thisUser = new User();
 			thisUser.setUserName(user.getString("username"));
 			thisUser.setPassword(user.getString("password"));
+			thisUser.setName(user.getString("name"));
+			thisUser.setEmail(user.getString("email"));
+			thisUser.setAvatar(user.getString("photo"));
+			thisUser.setWorkoutGoals(user.getString("workout_goals"));
+			thisUser.setWorkoutProfile(user.getString("workout_profile"));
+			thisUser.setRoleId(user.getInt("role_id"));
 		}
 		return thisUser;
 	}
 	
 	private User mapToRowProfile(SqlRowSet row) {
 		User user = new User();
-//		user.setUserName(row.getString("username"));
-//		user.setPassword(row.getString("password"));
-//		user.setSalt(row.getString("salt"));
+		user.setUserName(row.getString("username"));
+		user.setPassword(row.getString("password"));
+		user.setSalt(row.getString("salt"));
 		user.setName(row.getString("name"));
 		user.setEmail(row.getString("email"));
 		user.setAvatar(row.getString("photo"));

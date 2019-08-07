@@ -41,9 +41,11 @@
 </head>
 <body>
 	<ul class="navigation">
-		<li><a href="/capstone/login">Home</a></li>
-		<li><a href="/capstone/users/new">Sign Up</a></li>
-		<li><a href="/capstone/login">Login</a></li>
+	<li>
+		<a href="/capstone/login">Home</a>
+		<a href="/capstone/users/new">SignUp</a>
+		<a href="/capstone/login">Login</a>
+	</li>
 	</ul>
 	<%-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#"> 
@@ -99,4 +101,4 @@
 <%-- 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>
 	</c:if> --%>
-	<div class="container"> 
+	

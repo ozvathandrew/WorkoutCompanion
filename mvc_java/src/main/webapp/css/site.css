@@ -3,71 +3,73 @@ html {
 }
 
 body {
-	background-image: url(../img/illustrativebackdrop.png);
+	background-image: url(../img/athletebackdrop.png);
 	background-repeat: no-repeat;
-	background-position: right bottom;
-	color: #DADADA;
-	
-} 
+	background-size: cover;
+}
 
 .container {
 	background-image: url(../img/rectangle.png);
 	background-repeat: no-repeat;
-	height: 100%;
+	background-size: contain;
+	height: 100vh;
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
-  grid-template-areas: ". . ." ". Member ." ". Start-Workout ." ". Member-Analytics ." ". . .";
-  background-color: rgba(255, 98, 4, 0.8700000047683716);
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
+	grid-template-areas: ". . ." ". member ." ". start-workout ."
+		". member-analytics ." ". . .";
+	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	margin-left: 10%;
+	margin-top: 3%;
 }
 
-.Member {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "Avatar Member-Links Admin-buttons" "Avatar . .";
-  grid-area: Member;
+.member {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: "avatar member-links admin-buttons" "avatar . .";
+	grid-area: member;
 }
 
-.Avatar { 
-	grid-area: Avatar; 
+.avatar {
+	grid-area: avatar;
 }
 
-.Member-Links { 
-	grid-area: Member-Links; 
+.member-Links {
+	grid-area: member-links;
 }
 
-.Admin-buttons { 
-	grid-area: Admin-buttons; 
+.admin-buttons {
+	grid-area: admin-buttons;
 }
 
-.Start-Workout  {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: ". ." "Start-Workout-Button End-Workout-Button";
-  grid-area: Start-Workout ;
-  
+.start-workout {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: ". ." "start-workout-button end-workout-button" ". .";
+	grid-area: start-workout;
 }
 
-.Start-Workout-Button { 
-	grid-area: Start-Workout-Button; 
+.start-workout-button {
+	grid-area: start-workout-button;
 }
 
-.End-Workout-Button { 
-	grid-area: End-Workout-Button; 
+.end-workout-button {
+	grid-area: end-workout-button;
 }
 
-.Member-Analytics { 
-	grid-area: Member-Analytics; 
+.member-analytics {
+	grid-area: member-analytics;
 }
 
 .login-header {
 	display: flex;
 	padding-top: 5%;
+	padding-left: 5%;
 }
 
 .login {
@@ -80,19 +82,24 @@ body {
 }
 
 .navigation li {
+	list-style-type: none;
+	word-spacing: 10px;
+}
+
+.navigation a {
 	color: #FF6204;
 	font-family: Montserrat;
 	font-size: 18px;
 	font-weight: 600;
 	letter-spacing: 1.28px;
 	line-height: 22px;
-	display: inline-block;
+	text-decoration: none;
 }
 
 .workout-companion-header {
 	float: center;
 	text-align: center;
-	padding-left: 25%;
+	padding-left: 45%;
 }
 
 .signup {
@@ -104,7 +111,7 @@ body {
 }
 
 .workout-companion-header h4 {
-	color: #191502;
+	color: white;
 	font-family: Montserrat;
 	font-size: 25px;
 	font-weight: 500;
@@ -115,7 +122,7 @@ body {
 }
 
 .workout-companion-header p {
-	color: #191502;
+	color: white;
 	font-family: Montserrat;
 	font-size: 18px;
 	font-weight: 300;
@@ -141,7 +148,8 @@ body {
 
 .create-member {
 	display: flex;
-	padding-top: 5%;
+	padding-top: 10%;
+	padding-left: 2%
 }
 
 .create-member th {
@@ -151,4 +159,8 @@ body {
 .btn-signup {
 	margin-top: 2%;
 	margin-left: 40%;
+}
+
+.member-form {
+	width: 100%;
 }

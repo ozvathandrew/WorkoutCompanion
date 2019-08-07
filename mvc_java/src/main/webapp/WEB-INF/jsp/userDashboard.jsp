@@ -7,36 +7,36 @@
  </div>
  
 <div class="grid-container">
-  <div class="Member">
-    <div class="Avatar">
-     <img src="#" alt="Avatar Image" >
+  <div class="member">
+    <div class="avatar">
+     <img src="#" alt="avatar image" >
     </div>
-    <div class="Member-Links">
-    <h2> Hello ${profile.name} </h2>
-    <h2> Workout Profile </h2>
-    <h2> Workout Goals </h2>
+    <div class="member-Links">
+    <h2> Hello, ${user.name} </h2>
+    <h2> ${user.workoutGoals} </h2>
+    <h2> ${user.workoutProfile}</h2>
     
     <form action="../editProfile" method="get">
 		<button> Edit Profile</button>
 	</form>
     
     </div>
-    <div class="Admin-buttons">
+    <div class="admin-buttons">
     	<h1> Add Employee </h1>
     	<h2> Add Member </h2>
     	<h2> All User Details</h2>
     </div>
   </div>
-  <div class="Start-Workout">
-    <div class="Start-Workout-Button">
+  <div class="start-workout">
+    <div class="start-workout-button">
     	<button> Start Workout! </button>
     </div>
-    <div class="End-Workout-Button">
+    <div class="end-workout-button">
     	<button> End Workout! </button>
     	
     </div>
   </div>
-  <div class="Member-Analytics">
+  <div class="member-analytics">
   	<h1> Member Analytics </h1>
   </div>
 </div>

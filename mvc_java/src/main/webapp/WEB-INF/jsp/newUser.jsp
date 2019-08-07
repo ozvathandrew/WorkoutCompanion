@@ -41,7 +41,9 @@
 					});
 </script>
 
+<div class="container"> 
 <div class="create-member">
+	<div class="member-form">
 	<c:url var="formAction" value="/users" />
 	<form method="POST" action="${formAction}">
 
@@ -125,6 +127,7 @@
 		<button type="submit">Create User</button>
 </div>
 </form>
+</div>
 
 <div class="workout-companion-header">
 	<h4>THE ULTIMATE WORKOUT COMPANION</h4>

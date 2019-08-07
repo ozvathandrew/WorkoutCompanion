@@ -1,19 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
-<%-- <%@include file="/WEB-INF/jsp/header.jsp"%> --%>
 
+<div class="container"> 
 <c:url var="formAction" value="/updateProfile" />
 <form method="POST" action="${formAction}">
-<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-	<div class="row">
+	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+	<table>
+		<tr>
 			<div class="form-group">
-				<label for="workoutgoals">Workout Goals: </label>
-				<input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" />	
+				<th><label for="workoutgoals">Workout Goals: </label></th>
+				<td><input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" /></td>
 			</div>
-	<div class="form-group">
-			<button type="submit" class="btn btn-primary">Edit Profile</button>
+		</tr>
+		<tr>
+		<div class="form-group">
+			<th><button type="submit" class="btn btn-primary">Edit Profile</button></th>
 		</div>
-	</div>
+		</tr>
+		</div>
+	</table>
 </form>
 
 <div class="workout-companion-header">
