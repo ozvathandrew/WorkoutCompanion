@@ -12,7 +12,7 @@
      <img src="#" alt="Avatar Image" >
     </div>
     <div class="Member-Links">
-    <h2> Member Name </h2>
+    <h2> Hello ${profile.name} </h2>
     <h2> Workout Profile </h2>
     <h2> Workout Goals </h2>
     
