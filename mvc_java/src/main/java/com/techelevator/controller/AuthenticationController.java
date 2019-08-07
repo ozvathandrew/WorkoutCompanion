@@ -8,10 +8,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.MemberDAO;
+import com.techelevator.model.User;
 
 @Controller
+@SessionAttributes({"synergyUser"})
 public class AuthenticationController {
 
 	private MemberDAO userDAO;
@@ -30,7 +33,7 @@ public class AuthenticationController {
 	public String login(@RequestParam String userName, 
 						@RequestParam String password, 
 						@RequestParam(required=false) String destination,
-						HttpSession session) {
+						HttpSession session, ModelMap map) {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			session.setAttribute("currentUser", userDAO.getMemberByUserName(userName));
 			
@@ -38,7 +41,10 @@ public class AuthenticationController {
 				return "redirect:" + destination;
 			} else {
 				//return "redirect:/UserDashboard"; 
-				return "redirect:/users/"+userName;
+				User user = new User();
+				user.setUserName(userName);
+				map.addAttribute("synergyUser", user);
+				return "redirect:/users/" + userName;
 			}
 		} else {
 			return "redirect:/login";

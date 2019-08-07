@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.User;
 import com.techelevator.model.MemberDAO;
 
 @Controller
+@SessionAttributes({"synergyUser"})
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -54,24 +56,31 @@ public class UserController {
 		Object user = userDAO.getMemberByUserName(username);
 		
 		map.addAttribute("user", user);
+		map.addAttribute("synergyUser", user);
 		
 		return "userDashboard";
 	}
 	
 	@RequestMapping(path="/editProfile", method=RequestMethod.GET)
-	public String displayEditProfile() {
+	public String displayEditProfile(ModelMap map) {
+		User user = (User) map.get("synergyUser");
+		
+		map.addAttribute("synergyUser", user);
 		return "/editProfile";
 	}
 	
 	@RequestMapping(path="/updateProfile", method=RequestMethod.POST)
-	public String userDashBoardUpdatedProfile (@RequestParam String username, @RequestParam String updatedGoal, ModelMap map) {
+	public String userDashBoardUpdatedProfile (@RequestParam String updatedGoal, ModelMap map) {
 		// Get chosen user from DB and add to the request object 
-		Object user = userDAO.getMemberByUserName(username);
+		//Object user = userDAO.getMemberByUserName(username);
+		User user = (User) map.get("synergyUser");
+		String userName = user.getUserName();
 		
-		userDAO.updateWorkoutGoals(updatedGoal, username);
+		userDAO.updateWorkoutGoals(updatedGoal, userName);
 		
 		map.addAttribute("user", user);
+		map.addAttribute("synergyUser", user);
 		
-		return "redirect:/userDashboard";
+		return "redirect:/users/{username}";
 	}
 }
