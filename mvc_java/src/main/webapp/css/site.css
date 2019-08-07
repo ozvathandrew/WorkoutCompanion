@@ -96,3 +96,12 @@ body {
 	display: flex;
 	padding-top: 5%;
 }
+
+.create-member th {
+	text-align: right;
+}
+
+.btn-signup {
+	margin-top: 2%;
+	margin-left: 40%;
+}
