@@ -36,25 +36,33 @@
 		});
 	});
 </script>
-
+<div class="create-member">
 <c:url var="formAction" value="/users" />
 <form method="POST" action="${formAction}">
+<table>
+
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
 	<div class="row">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
+			<tr>
 			<div class="form-group">
-				<label for="userName">User Name: </label>
-				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+				<th><label for="userName">User Name: </label></th>
+				<td><input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" /></td>
 			</div>
+			</tr>
+			<tr>
 			<div class="form-group">
-				<label for="password">Password: </label>
-				<input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
+				<th><label for="password">Password: </label></th>
+				<td><input type="password" id="password" name="password" placeHolder="Password" class="form-control" /></td>
 			</div>
+			</tr>
+			<tr>
 			<div class="form-group">
-				<label for="confirmPassword">Confirm Password: </label>
-				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
+				<th><label for="confirmPassword">Confirm Password: </label></th>
+				<td><input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" /></td>	
 			</div>
+			</tr>
 			<div class="form-group">
 				<label for="name">Name: </label>
 				<input type="text" id="name" name="name" placeHolder="Your name" class="form-control" />	
@@ -84,10 +92,17 @@
 				<label for="workoutprofile">Workout Profile: </label>
 				<input type="text" id="workoutProfile" name="workoutProfile" placeHolder="Workout Profile" class="form-control" />	
 			</div>
+			</table>
 			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>
 	</div>
 </form>
+
+<div class="workout-companion-header">
+	<h4>THE ULTIMATE WORKOUT COMPANION</h4>
+	<p>Sign up to begin your journey!</p>
+</div>
+</div>
 		
 <c:import url="/WEB-INF/jsp/footer.jsp" />

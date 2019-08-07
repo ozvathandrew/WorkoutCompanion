@@ -65,6 +65,15 @@ body {
 	height: 100%;
 }
 
+.login-header {
+	display: flex;
+	padding-top: 5%;
+}
+
+.login {
+	padding-top: 5%;
+}
+
 .navigation {
 	float: right;
 	margin-right: 25px;
@@ -83,6 +92,15 @@ body {
 .workout-companion-header {
 	float: center;
 	text-align: center;
+	padding-left: 25%;
+}
+
+.signup {
+	padding-left: 30%;
+}
+
+.login {
+	padding-left: 5%
 }
 
 .workout-companion-header h4 {
@@ -93,6 +111,7 @@ body {
 	letter-spacing: 1.78px;
 	line-height: 30px;
 	text-align: center;
+	margin-bottom: 1%;
 }
 
 .workout-companion-header p {
@@ -105,7 +124,7 @@ body {
 	text-align: center;
 }
 
-.workout-companion-header h6{
+.workout-companion-header h6 {
 	background-image: url(../img/signupbutton.png);
 	background-repeat: no-repeat;
 	color: #F7F7FF;
@@ -120,6 +139,7 @@ body {
 	height: 25px;
 }
 
-.signup {
-	padding-left: 650px;
+.create-member {
+	display: flex;
+	padding-top: 5%;
 }

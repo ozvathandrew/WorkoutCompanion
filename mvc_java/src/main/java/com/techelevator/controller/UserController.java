@@ -55,8 +55,23 @@ public class UserController {
 		
 		map.addAttribute("user", user);
 		
-		return "userDashboard";
+		return "UserDashboard";
 	}
 	
+	@RequestMapping(path="/editProfile", method=RequestMethod.GET)
+	public String displayEditProfile() {
+		return "/editProfile";
+	}
 	
+	@RequestMapping(path="/updateProfile", method=RequestMethod.POST)
+	public String userDashBoardUpdatedProfile (@RequestParam String username, @RequestParam String updatedGoal, ModelMap map) {
+		// Get chosen user from DB and add to the request object 
+		Object user = userDAO.getMemberByUserName(username);
+		
+		userDAO.updateWorkoutGoals(updatedGoal, username);
+		
+		map.addAttribute("user", user);
+		
+		return "redirect:/UserDashboard";
+	}
 }
