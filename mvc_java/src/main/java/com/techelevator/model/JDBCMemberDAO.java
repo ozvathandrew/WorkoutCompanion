@@ -37,14 +37,14 @@ public class JDBCMemberDAO implements MemberDAO {
 				userName, hashedPassword, saltString);	
 	}
 	
-	public void updateWorkoutGoals(String updatedGoals, String email) {
-		String sqlUpdateGoals = "UPDATE profile SET workout_goals = ? WHERE email = ?";
-		jdbcTemplate.update(sqlUpdateGoals, updatedGoals, email);	
+	public void updateWorkoutGoals(String updatedGoals, String username) {
+		String sqlUpdateGoals = "UPDATE profile SET workout_goals = ? FROM login WHERE username = ? AND login.profile_id = profile.profile_id";
+		jdbcTemplate.update(sqlUpdateGoals, updatedGoals, username);	
 	}
 
 	@Override
 	public boolean searchForUsernameAndPassword(String userName, String password) {
-		String sqlSearchForUser = "SELECT * "+
+		String sqlSearchForUser = "SELECT * "+                                                                                        
 							      "FROM login "+
 							      "WHERE LOWER(username) = ? ";
 		

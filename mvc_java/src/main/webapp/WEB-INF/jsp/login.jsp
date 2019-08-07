@@ -25,6 +25,7 @@
 	});
 </script>
 
+<div class="login-header">
 <div class="login">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
@@ -33,7 +34,8 @@
 			<input type="hidden" name="destination" value="${param.destination}" />
 			<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 			<div class="form-group">
-				<label for="userName">User Name: </label> <input type="text"
+			<label for="userName">User Name: </label> 
+				<input type="text"
 					id="userName" name="userName" placeHolder="User Name"
 					class="form-control" />
 			</div>
@@ -55,5 +57,5 @@
 		<h6>SIGNUP NOW</h6>
 	</div>
 </div>
-
+</div>
 <c:import url="/WEB-INF/jsp/footer.jsp" />

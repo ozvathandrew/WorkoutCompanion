@@ -44,7 +44,7 @@ public class JDBCMemberDAOTest extends DAOIntegrationTest{
 	@Test
 	public void updateWorkoutGoalsTest() {
 		String updatedGoalsTest = "Lifting";
-		dao.updateWorkoutGoals(updatedGoalsTest, "mickey@icloud.com");
+		dao.updateWorkoutGoals(updatedGoalsTest, "test");
 		List<User> allMembersTest = dao.getAllProfileMembers();
 		Integer size = allMembersTest.size();
 		
