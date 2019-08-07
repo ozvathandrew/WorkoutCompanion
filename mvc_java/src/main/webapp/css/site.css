@@ -5,11 +5,58 @@ html {
 body {
 	background-image: url(../img/illustrativebackdrop.png);
 	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: 88% 83%;
-	background-color: #DADADA;
-	width: 100%;
-	height: 100%;
+	background-position: right bottom;
+	color: #DADADA;
+	
+} 
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
+  grid-template-areas: ". . ." ". Member ." ". Start-Workout ." ". Member-Analytics ." ". . .";
+  background-color: rgba(255, 98, 4, 0.8700000047683716);
+}
+
+.Member {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "Avatar Member-Links Admin-buttons" "Avatar . .";
+  grid-area: Member;
+}
+
+.Avatar { 
+	grid-area: Avatar; 
+}
+
+.Member-Links { 
+	grid-area: Member-Links; 
+}
+
+.Admin-buttons { 
+	grid-area: Admin-buttons; 
+}
+
+.Start-Workout  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: ". ." "Start-Workout-Button End-Workout-Button";
+  grid-area: Start-Workout ;
+  
+}
+
+.Start-Workout-Button { 
+	grid-area: Start-Workout-Button; 
+}
+
+.End-Workout-Button { 
+	grid-area: End-Workout-Button; 
+}
+
+.Member-Analytics { 
+	grid-area: Member-Analytics; 
 }
 
 .container {
