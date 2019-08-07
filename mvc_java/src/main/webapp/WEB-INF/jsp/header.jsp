@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Workout Companion</title>
+<title>Synergy</title>
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
 <c:url var="siteCss" value="/css/site.css" />
 
@@ -40,12 +40,11 @@
 
 </head>
 <body>
-	<nav class="navigation">
-		<ul>
-			<li>Home</li>
-			<li>Sign Up</li>
-			<li>Login</li>
-		</ul>
+	<ul class="navigation">
+		<li>Home</li>
+		<li>Sign Up</li>
+		<li>Login</li>
+	</ul>
 	<%-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#"> 
 			<c:url var="homePageHref" value="/" />
@@ -96,7 +95,6 @@
 				</c:choose>
 			</ul>
 		</div> --%>
-	</nav>
 
 <%-- 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>

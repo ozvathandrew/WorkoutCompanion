@@ -9,28 +9,36 @@
 <div class="grid-container">
   <div class="Member">
     <div class="Avatar">
-    	<h2> Avatar Image </h2>
+     <img src="#" alt="Avatar Image" >
     </div>
-    
     <div class="Member-Links">
-    	<h2> Member Links</h2>
-    </div>
- 
-    <div class="Admin-buttons">
+    <h2> Member Name </h2>
+    <h2> Workout Profile </h2>
+    <h2> Workout Goals </h2>
     
+    <form action="/my/link/location" method="get">
+	    <input type="submit" value="Go to my link location" 
+	         name="Submit" id="frm1_submit" />
+	</form>
+    <button> Edit Profile</button>
+    </div>
+    <div class="Admin-buttons">
+    	<h1> Add Employee </h1>
+    	<h2> Add Member </h2>
+    	<h2> All User Details</h2>
     </div>
   </div>
-  
-  <div class="Start-Workout\ ">
-    <div class="Start-Workout">
-    	<h2> Start Workout button</h2>
+  <div class="Start-Workout">
+    <div class="Start-Workout-Button">
+    	<button> Start Workout! </button>
     </div>
-    <div class="End-Workout">
-    	<h2> End Workout Button</h2>
+    <div class="End-Workout-Button">
+    	<button> End Workout! </button>
+    	
     </div>
   </div>
   <div class="Member-Analytics">
-  	<h2> Member Analytics</h2>
+  	<h1> Member Analytics </h1>
   </div>
 </div>
 

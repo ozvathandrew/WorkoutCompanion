@@ -1,3 +1,7 @@
+html {
+	height: 100%;
+}
+
 body {
 	background-image: url(../img/illustrativebackdrop.png);
 	background-repeat: no-repeat;
@@ -10,7 +14,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
-  grid-template-areas: ". . ." ". Member ." ". Start-Workout\  ." ". Member-Analytics ." ". . .";
+  grid-template-areas: ". . ." ". Member ." ". Start-Workout ." ". Member-Analytics ." ". . .";
+  background-color: rgba(255, 98, 4, 0.8700000047683716);
 }
 
 .Member {
@@ -33,29 +38,36 @@ body {
 	grid-area: Admin-buttons; 
 }
 
-.Start-Workout\  {
+.Start-Workout  {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: ". ." "Start-Workout End-Workout";
-  grid-area: Start-Workout\ ;
-  background-color: rgba(255, 98, 4, 0.8700000047683716);
+  grid-template-areas: ". ." "Start-Workout-Button End-Workout-Button";
+  grid-area: Start-Workout ;
+  
 }
 
-.Start-Workout { 
-	grid-area: Start-Workout; 
+.Start-Workout-Button { 
+	grid-area: Start-Workout-Button; 
 }
 
-.End-Workout { 
-	grid-area: End-Workout; 
+.End-Workout-Button { 
+	grid-area: End-Workout-Button; 
 }
 
 .Member-Analytics { 
 	grid-area: Member-Analytics; 
 }
 
+.container {
+	background-image: url(../img/rectangle.png);
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
 .navigation {
-	text-align: center;
+	float: right;
+	margin-right: 25px;
 }
 
 .navigation li {
@@ -66,4 +78,48 @@ body {
 	letter-spacing: 1.28px;
 	line-height: 22px;
 	display: inline-block;
+}
+
+.workout-companion-header {
+	float: center;
+	text-align: center;
+}
+
+.workout-companion-header h4 {
+	color: #191502;
+	font-family: Montserrat;
+	font-size: 25px;
+	font-weight: 500;
+	letter-spacing: 1.78px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.workout-companion-header p {
+	color: #191502;
+	font-family: Montserrat;
+	font-size: 18px;
+	font-weight: 300;
+	letter-spacing: 1.28px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.workout-companion-header h6{
+	background-image: url(../img/signupbutton.png);
+	background-repeat: no-repeat;
+	color: #F7F7FF;
+	font-family: Montserrat;
+	font-size: 17px;
+	font-weight: 600;
+	letter-spacing: 1.21px;
+	text-align: center;
+	background-color: #FF6204;
+	border-radius: 20.5px;
+	width: 175px;
+	height: 25px;
+}
+
+.signup {
+	padding-left: 650px;
 }
