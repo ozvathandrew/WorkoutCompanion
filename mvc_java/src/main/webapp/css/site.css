@@ -1,16 +1,21 @@
 body {
-	background-image: url(../img/rectangle.png), url(../img/athletebackdrop.png);
-	background-repeat: no-repeat, repeat;
+	background-image: url(../img/illustrativebackdrop.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	color: #DADADA;
+	
 }
+
 .navigation {
 	text-align: center;
 }
+
 .navigation li {
-  color: #FF6204;
-  font-family: Montserrat;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 1.28px;
-  line-height: 22px;
-  display: inline-block;
+	color: #FF6204;
+	font-family: Montserrat;
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: 1.28px;
+	line-height: 22px;
+	display: inline-block;
 }
