@@ -51,7 +51,7 @@ public class UserController {
 	@RequestMapping(path="/users/{username}", method=RequestMethod.GET)
 	public String userDashboard (@PathVariable String username, ModelMap map) {
 		// Get chosen user from DB and add to the request object 
-		Object user = userDAO.getUserByUserName(username);
+		Object user = userDAO.getMemberByUserName(username);
 		
 		map.addAttribute("user", user);
 		
