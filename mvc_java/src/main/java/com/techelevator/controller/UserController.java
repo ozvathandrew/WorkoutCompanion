@@ -55,7 +55,7 @@ public class UserController {
 		
 		map.addAttribute("user", user);
 		
-		return "UserDashboard";
+		return "userDashboard";
 	}
 	
 	@RequestMapping(path="/editProfile", method=RequestMethod.GET)
@@ -72,6 +72,6 @@ public class UserController {
 		
 		map.addAttribute("user", user);
 		
-		return "redirect:/UserDashboard";
+		return "redirect:/userDashboard";
 	}
 }

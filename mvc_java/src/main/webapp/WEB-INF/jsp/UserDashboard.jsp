@@ -16,11 +16,10 @@
     <h2> Workout Profile </h2>
     <h2> Workout Goals </h2>
     
-    <form action="/my/link/location" method="get">
-	    <input type="submit" value="Go to my link location" 
-	         name="Submit" id="frm1_submit" />
+    <form action="../editProfile" method="get">
+		<button> Edit Profile</button>
 	</form>
-    <button> Edit Profile</button>
+    
     </div>
     <div class="Admin-buttons">
     	<h1> Add Employee </h1>
