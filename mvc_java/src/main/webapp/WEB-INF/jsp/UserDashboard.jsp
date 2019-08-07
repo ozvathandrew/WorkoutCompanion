@@ -1,10 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="/WEB-INF/jsp/header.jsp" />
+<c:import url="/WEB-INF/jsp/header.jsp" /> 
 
-<div>
+ <div>
 	<c:url var="formAction" value="/users/" />
  </div>
+ 
+<!-- <div class="container">
+<h1> Hey Man!</h1>
+
+</div> -->
 
 
-<c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/footer.jsp" /> 

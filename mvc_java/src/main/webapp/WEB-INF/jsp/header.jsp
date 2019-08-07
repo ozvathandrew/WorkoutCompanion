@@ -96,7 +96,7 @@
 			</ul>
 		</div> --%>
 
-	<c:if test="${not empty currentUser}">
+<%-- 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>
 	</c:if>
-	<div class="container">
+	<div class="container"> --%>

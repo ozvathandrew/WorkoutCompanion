@@ -55,14 +55,8 @@ public class UserController {
 		
 		map.addAttribute("user", user);
 		
-		return "UserDashboard";
+		return "userDashboard";
 	}
-	
-//	@RequestMapping(path = "/parkDetails", method = RequestMethod.GET)
-//	public String getParkDetails(@RequestParam String parkId, ModelMap map) {
-//		// Get chosen park from DB and add to the request object
-//		Park park = parkDao.getParkByCode(parkId);
-//		map.addAttribute("park", park);
 	
 	
 }
