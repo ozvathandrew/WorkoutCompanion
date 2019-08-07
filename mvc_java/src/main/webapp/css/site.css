@@ -10,6 +10,12 @@ body {
 	
 } 
 
+.container {
+	background-image: url(../img/rectangle.png);
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
@@ -57,12 +63,6 @@ body {
 
 .Member-Analytics { 
 	grid-area: Member-Analytics; 
-}
-
-.container {
-	background-image: url(../img/rectangle.png);
-	background-repeat: no-repeat;
-	height: 100%;
 }
 
 .login-header {
@@ -142,4 +142,13 @@ body {
 .create-member {
 	display: flex;
 	padding-top: 5%;
+}
+
+.create-member th {
+	text-align: right;
+}
+
+.btn-signup {
+	margin-top: 2%;
+	margin-left: 40%;
 }
