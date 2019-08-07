@@ -4,6 +4,54 @@ body {
 	background-position: right bottom;
 	color: #DADADA;
 	
+} 
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
+  grid-template-areas: ". . ." ". Member ." ". Start-Workout\  ." ". Member-Analytics ." ". . .";
+}
+
+.Member {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "Avatar Member-Links Admin-buttons" "Avatar . .";
+  grid-area: Member;
+}
+
+.Avatar { 
+	grid-area: Avatar; 
+}
+
+.Member-Links { 
+	grid-area: Member-Links; 
+}
+
+.Admin-buttons { 
+	grid-area: Admin-buttons; 
+}
+
+.Start-Workout\  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: ". ." "Start-Workout End-Workout";
+  grid-area: Start-Workout\ ;
+  background-color: rgba(255, 98, 4, 0.8700000047683716);
+}
+
+.Start-Workout { 
+	grid-area: Start-Workout; 
+}
+
+.End-Workout { 
+	grid-area: End-Workout; 
+}
+
+.Member-Analytics { 
+	grid-area: Member-Analytics; 
 }
 
 .navigation {
