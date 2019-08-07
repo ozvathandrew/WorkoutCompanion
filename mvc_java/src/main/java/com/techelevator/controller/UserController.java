@@ -51,18 +51,12 @@ public class UserController {
 	@RequestMapping(path="/users/{username}", method=RequestMethod.GET)
 	public String userDashboard (@PathVariable String username, ModelMap map) {
 		// Get chosen user from DB and add to the request object 
-		Object user = userDAO.getUserByUserName(username);
+		Object user = userDAO.getMemberByUserName(username);
 		
 		map.addAttribute("user", user);
 		
-		return "UserDashboard";
+		return "userDashboard";
 	}
-	
-//	@RequestMapping(path = "/parkDetails", method = RequestMethod.GET)
-//	public String getParkDetails(@RequestParam String parkId, ModelMap map) {
-//		// Get chosen park from DB and add to the request object
-//		Park park = parkDao.getParkByCode(parkId);
-//		map.addAttribute("park", park);
 	
 	
 }
