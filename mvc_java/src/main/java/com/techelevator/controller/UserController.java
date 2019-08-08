@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.model.AdministratorDAO;
+import com.techelevator.model.Classes;
+import com.techelevator.model.ClassesDAO;
 import com.techelevator.model.MemberDAO;
 import com.techelevator.model.User;
 
@@ -22,11 +24,13 @@ public class UserController {
 
 	private MemberDAO userDAO;
 	private AdministratorDAO adminDAO;
+	private ClassesDAO classesDAO;
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
+		this.classesDAO = classesDAO;
 	}
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
@@ -49,16 +53,11 @@ public class UserController {
 				user.getWorkoutGoals(), user.getWorkoutProfile(), user.getAvatar());
 		return "redirect:/login";
 	}
-<<<<<<< HEAD
-	
-	@RequestMapping(path="/users/{username}", method=RequestMethod.GET)
-	public String userDashboard (@PathVariable String username, ModelMap map) {
-=======
 
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
 		// Get chosen user from DB and add to the request object
->>>>>>> 4ca84b17c07c6bc6a4e974a32202140fbed080aa
+
 		Object user = userDAO.getMemberByUserName(username);
 
 		map.addAttribute("user", user);
@@ -87,12 +86,13 @@ public class UserController {
 
 		return "redirect:/users/" + userName;
 	}
-<<<<<<< HEAD
+
 	
 	@RequestMapping(path="/calendar", method=RequestMethod.GET)
-	public String calendar() {
+	public String calendar(ModelMap map) {
 		return "calendar";
-=======
+		
+	}
 
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
 	public String displayAddUser(ModelMap map) {
@@ -120,6 +120,6 @@ public class UserController {
 		String adminName = admin.getUserName();
 		
 		return "redirect:/users/" + adminName;
->>>>>>> 4ca84b17c07c6bc6a4e974a32202140fbed080aa
+
 	}
 }
