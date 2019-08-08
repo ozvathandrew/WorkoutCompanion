@@ -50,11 +50,6 @@ public class UserController {
 		return "redirect:/login";
 	}
 
-	
-//	@RequestMapping(path="/users/{username}", method=RequestMethod.GET)
-//	public String userDashboard (@PathVariable String username, ModelMap map) {
-//	}
-
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
 		// Get chosen user from DB and add to the request object
