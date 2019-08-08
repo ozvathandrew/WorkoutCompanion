@@ -27,7 +27,8 @@ public class JDBCAdministratorDAOTest extends DAOIntegrationTest {
 		String workoutGoalsTest = "Goofing around";
 		String workoutProfileTest = "Lifting";
 		String avatarTest = "goofy";
-		dao.addEmployee(usernameTest, passwordTest, nameTest, emailTest, workoutGoalsTest, workoutProfileTest, avatarTest);
+		int roleId = 1; 
+		dao.addEmployee(usernameTest, passwordTest, nameTest, emailTest, workoutGoalsTest, workoutProfileTest, avatarTest, roleId);
 	}
 
 	@Test

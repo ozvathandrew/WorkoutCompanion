@@ -22,7 +22,7 @@
     
     </div>
     <div class="admin-buttons">
-    	<h1> Add Employee </h1>
+    	<h1><a href="/capstone/addUser">Add Employee </a></h1>
     	<h2> Add Member </h2>
     	<h2> All User Details</h2>
     </div>
