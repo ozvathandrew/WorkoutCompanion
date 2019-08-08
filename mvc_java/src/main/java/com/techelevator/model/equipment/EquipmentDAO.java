@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public interface EquipmentDAO {
 	
-	public void saveEquipment(Equipment equipment);
+	public void addEquipment(Equipment equipment);
 	public List<Equipment> getAllEquipments();
 }

@@ -4,14 +4,14 @@ public class Equipment {
 	
 	private Integer equipment_id;
 	private String name;
-	private String bodyGroup;
-	private String instruction;
+	private String muscleGroup;
+	private String description;
 	private String video;
 	
 	//getters and setters
 	
-	public String getBodyGroup() {
-		return bodyGroup;
+	public String getMuscleGroup() {
+		return muscleGroup;
 	}
 	public Integer getEquipment_id() {
 		return equipment_id;
@@ -25,14 +25,14 @@ public class Equipment {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setBodyGroup(String bodyGroup) {
-		this.bodyGroup = bodyGroup;
+	public void setMuscleGroup(String muscleGroup) {
+		this.muscleGroup = muscleGroup;
 	}
-	public String getInstruction() {
-		return instruction;
+	public String getDescription() {
+		return description;
 	}
-	public void setInstruction(String instruction) {
-		this.instruction = instruction;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getVideo() {
 		return video;
