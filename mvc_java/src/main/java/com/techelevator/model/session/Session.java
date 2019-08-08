@@ -1,10 +1,15 @@
 package com.techelevator.model.session;
 
+import java.sql.Time;
+
 public class Session {
 	
 	private Integer sets;
 	private Integer reps;
 	private Integer weights;
+	private Time start;
+	private Time end;
+	
 	public Integer getSets() {
 		return sets;
 	}
@@ -22,6 +27,18 @@ public class Session {
 	}
 	public void setWeights(Integer weights) {
 		this.weights = weights;
+	}
+	public Time getStart() {
+		return start;
+	}
+	public void setStart(Time start) {
+		this.start = start;
+	}
+	public Time getEnd() {
+		return end;
+	}
+	public void setEnd(Time end) {
+		this.end = end;
 	}
 	
 	

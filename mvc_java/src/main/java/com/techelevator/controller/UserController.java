@@ -90,10 +90,6 @@ public class UserController {
 
 		return "redirect:/users/" + userName;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 85d940ac2ae6a7f5112cc7cfeb065a173638348a
 	
 	@RequestMapping(path="/calendar", method=RequestMethod.GET)
 	public String calendar(ModelMap map) {
@@ -102,10 +98,6 @@ public class UserController {
 		map.addAttribute("user", workoutClass);
 		
 		return "calendar";
-<<<<<<< HEAD
-=======
-		
->>>>>>> 85d940ac2ae6a7f5112cc7cfeb065a173638348a
 	}
 
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)

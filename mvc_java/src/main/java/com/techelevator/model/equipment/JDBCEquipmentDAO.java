@@ -3,12 +3,22 @@ package com.techelevator.model.equipment;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JDBCEquipmentDAO implements EquipmentDAO {
 	
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public JDBCEquipmentDAO(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
 
 	@Override
 	public void addEquipment(Equipment equipment) {

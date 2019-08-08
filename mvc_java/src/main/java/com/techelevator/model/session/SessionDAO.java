@@ -1,15 +1,24 @@
 package com.techelevator.model.session;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.techelevator.model.equipment.Equipment;
-
 @Component
 public interface SessionDAO {
 
-	public void saveSession(Session session, Equipment equipment);
+	public void saveSession(String username, Integer equipment_id, Integer reps, Integer sets, Integer weight, Time start, Time end);
 	
 	public List<Session> getAllSessions();
+	
+	public List<Session> getAllSessionsPerMember(String username);
+	
+	public List<Session> getAllSessionsPerMemberByDate(String username, Date date);
+	
+	public List<Session> getAllSessionsPerMemberByMonth(String username, String month);
+	
+	public Integer getTotalTime(String username, Date date);
+
 }
