@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.model.AdministratorDAO;
+import com.techelevator.model.Classes;
+import com.techelevator.model.ClassesDAO;
 import com.techelevator.model.MemberDAO;
 import com.techelevator.model.User;
 
@@ -22,11 +24,13 @@ public class UserController {
 
 	private MemberDAO userDAO;
 	private AdministratorDAO adminDAO;
+	private ClassesDAO classesDAO;
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
+		this.classesDAO = classesDAO;
 	}
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
@@ -82,10 +86,18 @@ public class UserController {
 
 		return "redirect:/users/" + userName;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85d940ac2ae6a7f5112cc7cfeb065a173638348a
 	
 	@RequestMapping(path="/calendar", method=RequestMethod.GET)
-	public String calendar() {
+	public String calendar(ModelMap map) {
 		return "calendar";
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 85d940ac2ae6a7f5112cc7cfeb065a173638348a
 	}
 
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
