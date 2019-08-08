@@ -1,17 +1,18 @@
-package com.techelevator.model.equipment;
+package com.techelevator.misc;
 
-public class ShoulderPress extends Equipment {
+import com.techelevator.model.equipment.Equipment;
+
+public class LegPress extends Equipment {
 	
 	private String name;
-	
 	private String bodyGroup;
 	private String instruction;
 	private String video;
 
-	public ShoulderPress(String name, String bodyGroup, String instruction, String video) {
-		this.bodyGroup = "Shoulders";
-		this.name = "Shoulder Press";
-		this.instruction = "Don't shoulder press so hard";
+	public LegPress(String name, String bodyGroup, String instruction, String video) {
+		this.bodyGroup = "Legs";
+		this.name = "Leg Press";
+		this.instruction = "Don't leg press so hard";
 		this.video = "/video/url";
 	}
 	public String getName() {

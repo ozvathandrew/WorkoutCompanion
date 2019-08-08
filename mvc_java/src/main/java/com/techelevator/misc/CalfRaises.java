@@ -1,18 +1,19 @@
-package com.techelevator.model.equipment;
+package com.techelevator.misc;
 
-public class BicepCurl extends Equipment {
+import com.techelevator.model.equipment.Equipment;
+
+public class CalfRaises extends Equipment {
 
 	private String name;
 	private String bodyGroup;
 	private String instruction;
 	private String video;
-	
 
-	public BicepCurl(String name, String bodyGroup, String instruction,
+	public CalfRaises(String name, String bodyGroup, String instruction,
 			String video) {
-		this.bodyGroup = "arms";
-		this.name = "Bicep Curl";
-		this.instruction = "Don't curl so hard";
+		this.bodyGroup = "legs";
+		this.name = "Calf Raises";
+		this.instruction = "Don't calf raise so hard";
 		this.video = "/video/url";
 	}
 
@@ -47,6 +48,5 @@ public class BicepCurl extends Equipment {
 	public void setVideo(String video) {
 		this.video = video;
 	}
-	
-	
+
 }

@@ -1,17 +1,18 @@
-package com.techelevator.model.equipment;
+package com.techelevator.misc;
 
-public class Rower extends Equipment {
+import com.techelevator.model.equipment.Equipment;
+
+public class FreeWeights extends Equipment {
 	
 	private String name;
-	
 	private String bodyGroup;
 	private String instruction;
 	private String video;
 
-	public Rower(String name, String bodyGroup, String instruction, String video) {
-		this.bodyGroup = "Back";
-		this.name = "Rower";
-		this.instruction = "Don't row so hard";
+	public FreeWeights(String name, String bodyGroup, String instruction, String video) {
+		this.bodyGroup = "All";
+		this.name = "Free Weights";
+		this.instruction = "Don't free weights so hard";
 		this.video = "/video/url";
 	}
 	public String getName() {

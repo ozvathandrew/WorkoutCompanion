@@ -2,20 +2,28 @@ package com.techelevator.model.equipment;
 
 public class Equipment {
 	
+	private Integer equipment_id;
+	private String name;
 	private String bodyGroup;
 	private String instruction;
 	private String video;
-	
-//	public Equipment(String bodyGroup, String instruction, String video) {
-//		this.bodyGroup = bodyGroup;
-//		this.instruction = instruction;
-//		this.video = video;
-//	}
 	
 	//getters and setters
 	
 	public String getBodyGroup() {
 		return bodyGroup;
+	}
+	public Integer getEquipment_id() {
+		return equipment_id;
+	}
+	public void setEquipment_id(Integer equipment_id) {
+		this.equipment_id = equipment_id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setBodyGroup(String bodyGroup) {
 		this.bodyGroup = bodyGroup;
