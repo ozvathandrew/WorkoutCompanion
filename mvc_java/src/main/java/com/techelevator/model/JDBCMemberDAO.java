@@ -36,7 +36,6 @@ public class JDBCMemberDAO implements MemberDAO {
 		jdbcTemplate.update("INSERT INTO login(username, password, salt, profile_id) VALUES (?, ?, ?, (SELECT max (profile.profile_id) FROM profile))",
 				userName, password, saltString);	
 	}
-	
 	public void updateWorkoutGoals(String updatedGoals, String username) {
 		String sqlUpdateGoals = "UPDATE profile SET workout_goals = ? FROM login WHERE username = ? AND login.profile_id = profile.profile_id";
 		jdbcTemplate.update(sqlUpdateGoals, updatedGoals, username);	

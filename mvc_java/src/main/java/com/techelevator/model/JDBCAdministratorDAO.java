@@ -9,9 +9,10 @@ import org.bouncycastle.util.encoders.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-
+import org.springframework.stereotype.Component;
 import com.techelevator.security.PasswordHasher;
 
+@Component
 public class JDBCAdministratorDAO implements AdministratorDAO {
 
 	private JdbcTemplate jdbcTemplate;
@@ -25,16 +26,15 @@ public class JDBCAdministratorDAO implements AdministratorDAO {
 	
 	@Override
 	public void addEmployee(String userName, String password, String name, String email, String workoutGoals,
-			String workoutProfile, String avatar) {
+			String workoutProfile, String avatar, int roleId) {
 		byte[] salt = hashMaster.generateRandomSalt();
 		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 		
 		jdbcTemplate.update("INSERT INTO profile(name, email, photo, workout_goals, workout_profile, role_id) VALUES (?, ?, ?, ?, ?, ?)",
-				name, email, avatar, workoutGoals, workoutProfile, 2);
+				name, email, avatar, workoutGoals, workoutProfile, roleId);
 		jdbcTemplate.update("INSERT INTO login(username, password, salt, profile_id) VALUES (?, ?, ?, (SELECT max (profile.profile_id) FROM profile))",
-				userName, hashedPassword, saltString);	
-		
+				userName, password, saltString);	
 	}
 
 	@Override

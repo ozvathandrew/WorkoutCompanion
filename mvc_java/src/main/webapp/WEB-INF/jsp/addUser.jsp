@@ -44,9 +44,8 @@
 <div class="container">
 	<div class="create-member">
 		<div class="member-form">
-			<c:url var="formAction" value="/users" />
+			<c:url var="formAction" value="/addNewUser" />
 			<form method="POST" action="${formAction}">
-
 
 				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 				<table>
@@ -123,16 +122,27 @@
 								class="form-control" /></td>
 						</div>
 					</tr>
+					<tr>
+						<div class="form-group">
+							<th><label for="roleId">Please select user access: </label></th>
+							<td><select name="roleId">
+									<option value="0" disabled selected>Select your option</option>
+									<option value="1">Administrator</option>
+									<option value="2">Employee</option>
+									<option value="3">Member</option>
+							</select></td>
+						</div>
+					</tr>
 				</table>
 				<div class="btn-signup">
-					<button type="submit">Create User</button>
+					<button type="submit">Add User</button>
 				</div>
 			</form>
 		</div>
 
 		<div class="workout-companion-header">
-			<h4>THE ULTIMATE WORKOUT COMPANION</h4>
-			<p>Sign up to begin your journey!</p>
+			<h4>Admin add user page</h4>
+			<p>Add a new member, employee, or additional admin</p>
 		</div>
 	</div>
 

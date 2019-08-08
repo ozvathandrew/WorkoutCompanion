@@ -2,6 +2,9 @@ package com.techelevator.model;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface MemberDAO {
 
 	public void saveMember(String userName, String password, String name, String email, String workoutGoals, String workoutProfile, String avatar);
@@ -15,4 +18,5 @@ public interface MemberDAO {
 	public List<User> getAllProfileMembers();
 	
 	public void updateWorkoutGoals(String updatedGoals, String email);
+	
 }
