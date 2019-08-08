@@ -49,10 +49,16 @@ public class UserController {
 				user.getWorkoutGoals(), user.getWorkoutProfile(), user.getAvatar());
 		return "redirect:/login";
 	}
+<<<<<<< HEAD
+	
+	@RequestMapping(path="/users/{username}", method=RequestMethod.GET)
+	public String userDashboard (@PathVariable String username, ModelMap map) {
+=======
 
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
 		// Get chosen user from DB and add to the request object
+>>>>>>> 4ca84b17c07c6bc6a4e974a32202140fbed080aa
 		Object user = userDAO.getMemberByUserName(username);
 
 		map.addAttribute("user", user);
@@ -81,6 +87,12 @@ public class UserController {
 
 		return "redirect:/users/" + userName;
 	}
+<<<<<<< HEAD
+	
+	@RequestMapping(path="/calendar", method=RequestMethod.GET)
+	public String calendar() {
+		return "calendar";
+=======
 
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
 	public String displayAddUser(ModelMap map) {
@@ -108,5 +120,6 @@ public class UserController {
 		String adminName = admin.getUserName();
 		
 		return "redirect:/users/" + adminName;
+>>>>>>> 4ca84b17c07c6bc6a4e974a32202140fbed080aa
 	}
 }
