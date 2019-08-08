@@ -1,5 +1,9 @@
 package com.techelevator.controller;
 
+	
+
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,6 +94,10 @@ public class UserController {
 	
 	@RequestMapping(path="/calendar", method=RequestMethod.GET)
 	public String calendar(ModelMap map) {
+		List<Classes> workoutClass = classesDAO.getClassesByClassName();
+		
+		map.addAttribute("user", workoutClass);
+		
 		return "calendar";
 		
 	}
