@@ -28,30 +28,25 @@
 	<div class="login-header">
 		<div class="login">
 			<c:url var="formAction" value="/login" />
+
 			<form method="POST" action="${formAction}">
-					<input type="hidden" name="destination"
-						value="${param.destination}" />
-					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-					<table>
-					<tr>
-						<div class="form-group">
-							<th><label for="userName">User Name: </label></th>
-							<td><input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="password">Password: </label></th>
-							<td><input type="password" id="password" name="password" placeHolder="Password" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<th><button type="submit" class="btn btn-primary">Login</button></th>
-					</tr>
-				</table>
+				<input type="hidden" name="destination" value="${param.destination}" />
+				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				<div class="loginTextField">
+					<div>
+						<input type="text" id="userNameInput" name="userNameInput"
+							placeHolder="User Name" class="userNameInput" />
+					</div>
+					<div>
+						<input type="password" id="passwordInput" name="passwordInput"
+							placeHolder="Password" class="passwordInput" />
+					</div>
+					<div>
+						<button type="submit" class="loginSubmitBTN">Login</button>
+					</div>
+				</div>
 			</form>
 		</div>
-		<div class="col-sm-4"></div>
 	</div>
 
 	<div class="workout-companion-header">

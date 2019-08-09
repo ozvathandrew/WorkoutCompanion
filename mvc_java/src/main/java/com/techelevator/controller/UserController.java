@@ -144,7 +144,6 @@ public class UserController {
 		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
 		map.addAttribute("equipment", gymEquipment);
 		map.addAttribute("synergyUser", user);
-
 		return "/gymSessionLog";
 	}
 	

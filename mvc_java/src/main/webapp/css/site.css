@@ -6,7 +6,11 @@ body {
 	background-image: url(../img/athletebackdrop.png);
 	background-repeat: no-repeat;
 	background-size: cover;
+<<<<<<< HEAD
 	background-attachment: fixed;
+=======
+	background-attachment: fixed; 
+>>>>>>> b4aa8c1aecb8b8a29f534f737269b84f4b7d1d7b
 }
 
 .container {
@@ -175,6 +179,7 @@ body {
 	align-content: center;
 }
 
+<<<<<<< HEAD
 .session {
 	display: flex;
 	padding: 5% 5% 5% 5%;
@@ -182,4 +187,41 @@ body {
 
 .equipment-description {
 	text-align: center;
+=======
+.userNameInput {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: #FF6204;
+	background-image: url(../img/userName.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+.passwordInput {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 2px;
+	font-size: 16px;
+	background-color: #FF6204;
+	background-image: url(../img/password.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+.loginSubmitBTN {
+	background-color: white;
+	text-align: center;
+	color: #FF6204;
+	font-size: 20px;
+	padding: 10px 40px;
+	border-radius: 20px;
+>>>>>>> b4aa8c1aecb8b8a29f534f737269b84f4b7d1d7b
 }
