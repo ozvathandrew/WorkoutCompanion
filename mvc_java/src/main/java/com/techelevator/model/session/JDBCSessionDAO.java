@@ -1,9 +1,15 @@
 package com.techelevator.model.session;
 
+
+import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.sql.DataSource;
 
@@ -34,18 +40,17 @@ public class JDBCSessionDAO implements SessionDAO {
 	}
 
 	@Override
-	public void saveSession(String username, Integer equipment_id, Integer reps, Integer sets, Integer weight,
-			Time start, Time end) {
-		String sqlMemberSession = "INSERT INTO workout_log (workout_log_start, workout_log_end, workout_log_username, workout_log_equipment_id, workout_log_reps, workout_log_sets, workout_log_weights) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(sqlMemberSession, username, equipment_id, reps, sets, weight, start, end);
-
+	public void saveSession(String username, Integer equipment_id, Integer reps, Integer sets, Integer weight, Date date) {
+		date = getCurrentTime();
+		String sqlMemberSession = "INSERT INTO workout_log (workout_log_username, workout_log_equipment_id, workout_log_reps, workout_log_sets, workout_log_weight, workout_log_date) "
+				+ "VALUES (?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sqlMemberSession, username, equipment_id, reps, sets, weight, date);
 	}
 
 	@Override
 	public List<Session> getAllSessionsPerMember(String username) {
 		List<Session> perMemberSessions = new ArrayList<Session>();
-		String sqlSessionPerMember = "SELECT * FROM workout_log WHERE username = ?";
+		String sqlSessionPerMember = "SELECT * FROM workout_log WHERE workout_log_username = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSessionPerMember, username);
 		while (results.next()) {
 			perMemberSessions.add(mapToRowSession(results));
@@ -57,16 +62,19 @@ public class JDBCSessionDAO implements SessionDAO {
 		Session session = new Session();
 		session.setSets(row.getInt("workout_log_sets"));
 		session.setReps(row.getInt("workout_log_reps"));
-		session.setWeights(row.getInt("workout_log_weights"));
+		session.setWeights(row.getInt("workout_log_weight"));
 		session.setStart(row.getTime("workout_log_start"));
 		session.setEnd(row.getTime("workout_log_end"));
+		session.setUsername(row.getString("workout_log_username"));
+		session.setEquipmentId(row.getInt("workout_log_equipment_id"));
+		session.setDate(row.getDate("workout_log_date"));
 		return session;
 	}
 
 	@Override
 	public List<Session> getAllSessionsPerMemberByDate(String username, Date date) {
 		List<Session> perMemberSessionsByDate = new ArrayList<Session>();
-		String sessions = "SELECT * FROM workout_log WHERE username = ? AND date = ?";
+		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sessions, username, date);
 		while (results.next()) {
 			perMemberSessionsByDate.add(mapToRowSession(results));
@@ -158,4 +166,33 @@ public class JDBCSessionDAO implements SessionDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Date getCurrentTime() {
+		LocalDateTime ldt = LocalDateTime.now();
+		String dateString = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH).format(ldt);
+		Integer month = Integer.valueOf(dateString.substring(5, 7));
+		Integer year = Integer.valueOf(dateString.substring(0, 4));
+		Integer day = Integer.valueOf(dateString.substring(8));
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.YEAR, year);
+		cal.set(Calendar.MONTH, month - 1);
+		cal.set(Calendar.DAY_OF_MONTH, day);
+
+		java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
+		
+		return date;
+	}
+
+	@Override
+	public List<Session> getAllSessionsPerMemberByDateTime(String username, Date date, Time start) {
+		List<Session> perMemberSessionsByDateTime = new ArrayList<Session>();
+		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ? AND workout_log_start";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sessions, username, date, start);
+		while (results.next()) {
+			perMemberSessionsByDateTime.add(mapToRowSession(results));
+		}
+		return perMemberSessionsByDateTime;
+
+	}
+	
 }

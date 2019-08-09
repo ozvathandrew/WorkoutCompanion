@@ -36,7 +36,9 @@ role_name varchar
 CREATE TABLE classes (
 class_id int,
 class_name varchar,
-class_time timestamp
+class_start_time time,
+class_end_time time,
+class_date date
 );
 
 CREATE TABLE workout_log (
@@ -53,15 +55,15 @@ workout_log_weight int
 
 INSERT INTO equipment (equipment_name, equipment_description, equipment_video, muscle_group) 
 VALUES ('Seated Bicep Curls', 'The seated bicep curl exercise uses the machine and a seated position to isolate the bicep muscles.', 'https://www.youtube.com/embed/M_uPvGrMx_o', 'Bicep'),
-('Standing Calf Raises', 'Calf raises are a method of exercising the gastrocnemius, tibialis posterior and soleus muscles of the lower leg.', 'https://www.youtube.com/watch?v=YMmgqO8Jo-k', 'Legs'),
-('Seated Chest Press', 'The seated chest press machine is an upright version of the standard lying bench press machine. The chest press helps build the pectoral muscles as well as the biceps, deltoids, and latissimus dorsi muscles.', 'https://www.youtube.com/watch?v=xUm0BiZCWlQ', 'Chest'),
-('Tricep Extension', ' The triceps extension is an exercise you can do with a weight machine to work the muscle in the back of the upper arm. As the name implies, the triceps extension targets the triceps muscle, located here in the back of the upper arm.', 'https://www.youtube.com/watch?v=cBt1X8fwKKc', 'Tricep'), 
-('Lat Pull Down', 'The pulldown exercise is a strength training exercise designed to develop the latissimus dorsi muscle. It performs the functions of downward rotation and depression of the scapulae combined with adduction and extension of the shoulder joint.', 'https://www.youtube.com/watch?v=CAwf7n6Luuc', 'Back'),
-('Leg Press', 'The leg press is a weight training exercise in which the individual pushes a weight or resistance away from them using their legs.', 'https://www.youtube.com/watch?v=IZxyjW7MPJQ', 'Legs'), 
-('Ab Crunch', 'You use the ab trainer to primarily train your front abdominal muscles, focusing on the rectus abdominis muscle. The front abdominal muscles are responsible for bending the trunk and are part of the muscular core of your body.', 'https://www.youtube.com/watch?v=_O1xunCfYEM', 'Abs'),
-('Assisted Pull-Ups', 'Use an assisted pull-up machine or securely attach a heavy-duty band to a pull-up station, securing it around just one knee. The tension should be taut enough to pull that lower leg up. Grasp the bar with an overhand grip just outside shoulder width and hang at full arm extension.', 'https://www.youtube.com/watch?v=YLU74ayuejU', 'Back'),
-('Seated Row Machine', 'The seated row is an exercise you can do with a weight machine to work the muscles in your upper back. Specifically, the seated row targets the muscles in your upper back and also the latissimus dorsi — a muscle on the outer side of the chest wall. ... You will feel tension in your back and arms.', 'https://www.youtube.com/watch?v=8MKGArS7w7c', 'Back'), 
-('Shoulder Press', 'The machine shoulder press is a variation of the seated barbell shoulder press used to strengthen the muscles of the shoulders.', 'https://www.youtube.com/watch?v=Wqq43dKW1TU', 'Shoulder'); 
+('Standing Calf Raises', 'Calf raises are a method of exercising the gastrocnemius, tibialis posterior and soleus muscles of the lower leg.', 'https://www.youtube.com/embed/YMmgqO8Jo-k', 'Legs'),
+('Seated Chest Press', 'The seated chest press machine is an upright version of the standard lying bench press machine. The chest press helps build the pectoral muscles as well as the biceps, deltoids, and latissimus dorsi muscles.', 'https://www.youtube.com/embed/xUm0BiZCWlQ', 'Chest'),
+('Tricep Extension', ' The triceps extension is an exercise you can do with a weight machine to work the muscle in the back of the upper arm. As the name implies, the triceps extension targets the triceps muscle, located here in the back of the upper arm.', 'https://www.youtube.com/embed/cBt1X8fwKKc', 'Tricep'), 
+('Lat Pull Down', 'The pulldown exercise is a strength training exercise designed to develop the latissimus dorsi muscle. It performs the functions of downward rotation and depression of the scapulae combined with adduction and extension of the shoulder joint.', 'https://www.youtube.com/embed/CAwf7n6Luuc', 'Back'),
+('Leg Press', 'The leg press is a weight training exercise in which the individual pushes a weight or resistance away from them using their legs.', 'https://www.youtube.com/embed/IZxyjW7MPJQ', 'Legs'), 
+('Ab Crunch', 'You use the ab trainer to primarily train your front abdominal muscles, focusing on the rectus abdominis muscle. The front abdominal muscles are responsible for bending the trunk and are part of the muscular core of your body.', 'https://www.youtube.com/embed/_O1xunCfYEM', 'Abs'),
+('Assisted Pull-Ups', 'Use an assisted pull-up machine or securely attach a heavy-duty band to a pull-up station, securing it around just one knee. The tension should be taut enough to pull that lower leg up. Grasp the bar with an overhand grip just outside shoulder width and hang at full arm extension.', 'https://www.youtube.com/embed/YLU74ayuejU', 'Back'),
+('Seated Row Machine', 'The seated row is an exercise you can do with a weight machine to work the muscles in your upper back. Specifically, the seated row targets the muscles in your upper back and also the latissimus dorsi — a muscle on the outer side of the chest wall. ... You will feel tension in your back and arms.', 'https://www.youtube.com/embed/8MKGArS7w7c', 'Back'), 
+('Shoulder Press', 'The machine shoulder press is a variation of the seated barbell shoulder press used to strengthen the muscles of the shoulders.', 'https://www.youtube.com/embed/Wqq43dKW1TU', 'Shoulder'); 
 
 INSERT INTO access (role_id, role_name)
 VALUES (1, 'Administrator'), (2, 'Employee'), (3 , 'Member');
@@ -92,17 +94,32 @@ VALUES ('Brent Scherf', 'bscherf@wc.com', 'null', 'I would love to do a push up!
 ('Fred Johnosn', 'fredj@hotmail.com', 'null', 'My wife is making me come here...', 'Crossfit', 3), 
 ('Paula Schultz', 'paual_schultz@gmail.com', 'null', 'Getting ready for my wedding in December!', 'Cardio', 3);
 
-INSERT INTO classes (class_id, class_name, class_time)
-VALUES (1, 'Pilates', '2019-08-15 08:00:00'),
-(2, 'Yoga', '2019-08-15 09:00:00'),
-(3, 'Body Sculpting', '2019-08-15 10:00:00'),
-(4, 'Crossfit', '2019-08-15 11:00:00'),
-(5, 'Powerlifting', '2019-08-15 12:00:00'),
-(1, 'Pilates', '2019-08-16 08:00:00'),
-(2, 'Yoga', '2019-08-16 09:00:00'),
-(3, 'Body Sculpting', '2019-08-16 10:00:00'),
-(4, 'Crossfit', '2019-08-16 11:00:00'),
-(5, 'Powerlifting', '2019-08-16 12:00:00');
+INSERT INTO classes (class_id, class_name, class_start_time, class_end_time, class_date)
+VALUES (1, 'Pilates', '08:00:00', '09:00:00', '2019-08-15'),
+(2, 'Yoga', '09:00:00', '10:00:00', '2019-08-15'),
+(3, 'Body Sculpting', '10:00:00','11:00:00','2019-08-15'),
+(4, 'Crossfit','11:00:00','12:00:00','2019-08-15'),
+(5, 'Powerlifting', '12:00:00', '1:00:00', '2019-08-15'),
+(6, 'Pilates', '08:00:00', '09:00:00', '2019-08-16'),
+(7, 'Yoga', '09:00:00', '10:00:00', '2019-08-16'),
+(8, 'Body Sculpting', '10:00:00','11:00:00','2019-08-16'),
+(9, 'Crossfit','11:00:00','12:00:00','2019-08-16'),
+(10, 'Powerlifting', '12:00:00', '1:00:00', '2019-08-16'),
+(11, 'Pilates', '08:00:00', '09:00:00', '2019-08-17'),
+(12, 'Yoga', '09:00:00', '10:00:00', '2019-08-17'),
+(13, 'Body Sculpting', '10:00:00','11:00:00','2019-08-17'),
+(14, 'Crossfit','11:00:00','12:00:00','2019-08-17'),
+(15, 'Powerlifting', '12:00:00', '1:00:00', '2019-08-17'),
+(16, 'Pilates', '08:00:00', '09:00:00', '2019-08-18'),
+(17, 'Yoga', '09:00:00', '10:00:00', '2019-08-18'),
+(18, 'Body Sculpting', '10:00:00','11:00:00','2019-08-18'),
+(19, 'Crossfit','11:00:00','12:00:00','2019-08-18'),
+(20, 'Powerlifting', '12:00:00', '1:00:00', '2019-08-18'),
+(21, 'Pilates', '08:00:00', '09:00:00', '2019-08-19'),
+(22, 'Yoga', '09:00:00', '10:00:00', '2019-08-19'),
+(23, 'Body Sculpting', '10:00:00','11:00:00','2019-08-19'),
+(24, 'Crossfit','11:00:00','12:00:00','2019-08-19'),
+(25, 'Powerlifting', '12:00:00', '1:00:00', '2019-08-19');
 
 INSERT INTO workout_log (workout_log_date, workout_log_start, workout_log_end, workout_log_username, workout_log_equipment_id, workout_log_reps, workout_log_sets, workout_log_weight)
 VALUES ('2019-08-05', '01:00', '02:00', 'awebster', 1 , 10, 3, 25),
