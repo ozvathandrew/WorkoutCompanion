@@ -50,7 +50,8 @@ body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	grid-template-areas: ". ." "start-workout-button end-workout-button" ". .";
+	grid-template-areas: ". ." "start-workout-button end-workout-button"
+		". .";
 	grid-area: start-workout;
 }
 
@@ -167,4 +168,41 @@ body {
 
 .gym-log {
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
+}
+
+.userNameInput {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: #FF6204;
+	background-image: url(../img/userName.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+.passwordInput {
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 2px;
+	font-size: 16px;
+	background-color: #FF6204;
+	background-image: url(../img/password.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+.loginSubmitBTN {
+	background-color: white;
+	text-align: center;
+	color: #FF6204;
+	font-size: 20px;
+	padding: 10px 40px;
+	border-radius: 20px;
 }
