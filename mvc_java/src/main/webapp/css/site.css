@@ -6,6 +6,7 @@ body {
 	background-image: url(../img/athletebackdrop.png);
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 .container {
@@ -50,7 +51,8 @@ body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	grid-template-areas: ". ." "start-workout-button end-workout-button" ". .";
+	grid-template-areas: ". ." "start-workout-button end-workout-button"
+		". .";
 	grid-area: start-workout;
 }
 
@@ -167,4 +169,17 @@ body {
 
 .gym-log {
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	height: 90%;
+	width: 60%;
+	margin-left: 25%;
+	align-content: center;
+}
+
+.session {
+	display: flex;
+	padding: 5% 5% 5% 5%;
+}
+
+.equipment-description {
+	text-align: center;
 }

@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import java.sql.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ import com.techelevator.model.equipment.EquipmentDAO;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
-@SessionAttributes({ "synergyUser" })
+@SessionAttributes({"synergyUser"})
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -139,20 +140,20 @@ public class UserController {
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
 	public String displayGymSessionLog(ModelMap map) {
-	//	User user = (User) map.get("synergyUser");
+		User user = (User) map.get("synergyUser");
 		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
 		map.addAttribute("equipment", gymEquipment);
-	//	map.addAttribute("synergyUser", user);
+		map.addAttribute("synergyUser", user);
 
 		return "/gymSessionLog";
 	}
 	
 	@RequestMapping(path="/gymSessionLog", method = RequestMethod.POST)
-	public String addSymSessionLog(@RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight, @RequestParam Integer equipment_id, ModelMap map) {
+	public String addSymSessionLog( @RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,  @RequestParam Integer equipmentId, ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String username = user.getUserName();
 		Date date = sessionDAO.getCurrentTime();
-		sessionDAO.saveSession(username, equipment_id, reps, sets, weight, date);
+		sessionDAO.saveSession(username, equipmentId, reps, sets, weight, date);
 		map.addAttribute("synergyUser", user);
 		
 		return "redirect:/gymSessionLog";

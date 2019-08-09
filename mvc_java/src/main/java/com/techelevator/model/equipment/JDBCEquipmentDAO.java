@@ -40,6 +40,7 @@ public class JDBCEquipmentDAO implements EquipmentDAO {
 	
 	private Equipment mapToRowEquipment(SqlRowSet row) {
 		Equipment equipment = new Equipment();
+		equipment.setEquipment_id(row.getInt("equipment_id"));
 		equipment.setName(row.getString("equipment_name"));
 		equipment.setDescription(row.getString("equipment_description"));
 		equipment.setVideo(row.getString("equipment_video"));
