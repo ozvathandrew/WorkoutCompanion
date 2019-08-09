@@ -6,11 +6,7 @@ body {
 	background-image: url(../img/athletebackdrop.png);
 	background-repeat: no-repeat;
 	background-size: cover;
-<<<<<<< HEAD
-	background-attachment: fixed;
-=======
 	background-attachment: fixed; 
->>>>>>> b4aa8c1aecb8b8a29f534f737269b84f4b7d1d7b
 }
 
 .container {
@@ -179,7 +175,6 @@ body {
 	align-content: center;
 }
 
-<<<<<<< HEAD
 .session {
 	display: flex;
 	padding: 5% 5% 5% 5%;
@@ -187,7 +182,7 @@ body {
 
 .equipment-description {
 	text-align: center;
-=======
+}
 .userNameInput {
 	width: 100%;
 	box-sizing: border-box;
@@ -223,5 +218,4 @@ body {
 	font-size: 20px;
 	padding: 10px 40px;
 	border-radius: 20px;
->>>>>>> b4aa8c1aecb8b8a29f534f737269b84f4b7d1d7b
 }

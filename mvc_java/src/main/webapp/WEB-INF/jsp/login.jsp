@@ -34,12 +34,12 @@
 				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 				<div class="loginTextField">
 					<div>
-						<input type="text" id="userNameInput" name="userNameInput"
+						<input type="text" id="userName" name="userName"
 							placeHolder="User Name" class="userNameInput" />
 					</div>
 					<div>
-						<input type="password" id="passwordInput" name="passwordInput"
-							placeHolder="Password" class="passwordInput" />
+						<input type="password" id="password" name="password"
+							placeHolder="Password" class="paddword" />
 					</div>
 					<div>
 						<button type="submit" class="loginSubmitBTN">Login</button>
