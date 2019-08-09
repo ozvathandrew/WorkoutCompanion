@@ -3,6 +3,9 @@ package com.techelevator.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,6 +14,11 @@ import org.springframework.stereotype.Component;
 public class JDBCClassesDAO implements ClassesDAO {
 	
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public JDBCClassesDAO(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
 
 	@Override
 	public List<Classes> getClassesByClassName() {

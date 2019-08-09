@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Classes {
 	
 	private int classId; 
-	private String Name; 
+	private String name; 
 	private LocalDate classTime;
 	
 	public int getClassId() {
@@ -17,10 +17,10 @@ public class Classes {
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String className) {
-		this.Name = className;
+		this.name = className;
 	}
 	public LocalDate getClassTime() {
 		return classTime;
