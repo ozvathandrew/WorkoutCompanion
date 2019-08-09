@@ -19,6 +19,9 @@
     <form action="../editProfile" method="get">
 		<button> Edit Profile</button>
 	</form>
+	<form action="../calendar" method="get">
+		<button> View Class Calendar </button>
+	</form>
     
     </div>
     <div class="admin-buttons">
