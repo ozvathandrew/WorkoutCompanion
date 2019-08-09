@@ -28,18 +28,22 @@
 	<div class="login-header">
 		<div class="login">
 			<c:url var="formAction" value="/login" />
-
 			<form method="POST" action="${formAction}">
 				<input type="hidden" name="destination" value="${param.destination}" />
 				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+
+				<div>
+					<img src="img/workout-logo.png">
+				</div>
+
 				<div class="loginTextField">
 					<div>
 						<input type="text" id="userName" name="userName"
 							placeHolder="User Name" class="userNameInput" />
 					</div>
 					<div>
-						<input type="password" id="password" name="password"
-							placeHolder="Password" class="paddword" />
+						<input type="password" id="password" name="password" placeHolder="Password" class="passwordInput" />
+
 					</div>
 					<div>
 						<button type="submit" class="loginSubmitBTN">Login</button>
