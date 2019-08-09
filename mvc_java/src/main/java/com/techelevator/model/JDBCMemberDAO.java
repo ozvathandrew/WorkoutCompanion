@@ -28,7 +28,6 @@ public class JDBCMemberDAO implements MemberDAO {
 	@Override
 	public void saveMember(String userName, String password, String name, String email, String workoutGoals, String workoutProfile, String avatar) {
 		byte[] salt = hashMaster.generateRandomSalt();
-		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 		
 		jdbcTemplate.update("INSERT INTO profile(name, email, photo, workout_goals, workout_profile, role_id) VALUES (?, ?, ?, ?, ?, ?)",

@@ -1,10 +1,9 @@
 package com.techelevator.controller;
 
-	
-
 import java.util.List;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.techelevator.model.AdministratorDAO;
 import com.techelevator.model.Classes;
 import com.techelevator.model.ClassesDAO;
 import com.techelevator.model.MemberDAO;
 import com.techelevator.model.User;
+import com.techelevator.model.equipment.Equipment;
+import com.techelevator.model.equipment.EquipmentDAO;
 
 @Controller
 @SessionAttributes({ "synergyUser" })
@@ -29,12 +31,14 @@ public class UserController {
 	private MemberDAO userDAO;
 	private AdministratorDAO adminDAO;
 	private ClassesDAO classesDAO;
+	private EquipmentDAO equipmentDAO; 
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO, EquipmentDAO equipmentDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
 		this.classesDAO = classesDAO;
+		this.equipmentDAO = equipmentDAO;
 	}
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
@@ -60,7 +64,6 @@ public class UserController {
 
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
-		// Get chosen user from DB and add to the request object
 
 		Object user = userDAO.getMemberByUserName(username);
 
@@ -90,14 +93,14 @@ public class UserController {
 
 		return "redirect:/users/" + userName;
 	}
-	
-	@RequestMapping(path="/calendar", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/calendar", method = RequestMethod.GET)
 	public String calendar(ModelMap map) {
-		
+
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
-		
+
 		map.addAttribute("calendar", workoutClass);
-		
+
 		return "calendar";
 	}
 
@@ -105,15 +108,15 @@ public class UserController {
 	public String displayAddUser(ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
-		
-//		map.addAttribute("user", user);
+
 		map.addAttribute("synergyUser", user);
-		
+
 		return "/addUser";
 	}
 
 	@RequestMapping(path = "/addNewUser", method = RequestMethod.POST)
-	public String addNewUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash, ModelMap map) {
+	public String addNewUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash,
+			ModelMap map) {
 		if (result.hasErrors()) {
 			flash.addFlashAttribute("user", user);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
@@ -125,8 +128,17 @@ public class UserController {
 
 		User admin = (User) map.get("synergyUser");
 		String adminName = admin.getUserName();
-		
+
 		return "redirect:/users/" + adminName;
 
+	}
+
+	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
+	public String displayGymSessionLog(ModelMap map) {
+
+		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
+		map.addAttribute("equipment", gymEquipment);
+
+		return "/gymSessionLog";
 	}
 }
