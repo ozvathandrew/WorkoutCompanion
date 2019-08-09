@@ -1,14 +1,18 @@
 package com.techelevator.model.session;
 
+import java.sql.Date;
 import java.sql.Time;
 
 public class Session {
 	
 	private Integer sets;
 	private Integer reps;
+	private Date date;
 	private Integer weights;
 	private Time start;
 	private Time end;
+	private Integer equipmentId;
+	private String username;
 	
 	public Integer getSets() {
 		return sets;
@@ -40,6 +44,24 @@ public class Session {
 	public void setEnd(Time end) {
 		this.end = end;
 	}
-	
+
+	public Integer getEquipmentId() {
+		return equipmentId;
+	}
+	public void setEquipmentId(Integer equipmentId) {
+		this.equipmentId = equipmentId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	
 }
