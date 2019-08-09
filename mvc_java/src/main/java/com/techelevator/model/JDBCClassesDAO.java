@@ -36,8 +36,11 @@ public class JDBCClassesDAO implements ClassesDAO {
 		Classes classes = new Classes();
 		classes.setClassId(row.getInt("class_id"));
 		classes.setName(row.getString("class_name"));
-		classes.setClassTime(row.getDate("class_time").toLocalDate());
+		classes.setClassStartTime(row.getTime("class_start_time"));
+		classes.setClassEndTime(row.getTime("class_end_time"));
+		classes.setClassDate(row.getDate("class_date"));
 		return classes;
+//		
 	}
 
 
