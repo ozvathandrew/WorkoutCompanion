@@ -139,10 +139,8 @@ public class UserController {
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
 	public String displayGymSessionLog(ModelMap map) {
-	//	User user = (User) map.get("synergyUser");
 		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
 		map.addAttribute("equipment", gymEquipment);
-	//	map.addAttribute("synergyUser", user);
 
 		return "/gymSessionLog";
 	}
