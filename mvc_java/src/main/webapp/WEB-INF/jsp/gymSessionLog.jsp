@@ -3,24 +3,25 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <div class="gym-log">
-<div>
-	///timer goes here
-	<h4>Start</h4>
-	<h4>End</h4>
-</div>
 
-<div>
-	<table>
-		<tr>
-			<th>Leg Press</th>
-			<td>Sets Reps @ Weights</td>
-		</tr>
-		<tr>
-			<th> Lat Pull Down</th>
-			<td>Sets Reps @ Weights</td>
-		</tr>
-	</table>
-</div>
+	<div>
+		<h4>End</h4>
+	</div>
+
+	<h1>TESTING TESTING TESTING</h1>
+
+	<div>
+		<c:forEach var="machine" items="${equipment}">
+			<c:out value="${machine.name}" />
+			<br>
+			<c:out value="${machine.description}" />
+			<br>
+			<c:out value="${machine.muscleGroup}" />
+			<br>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/M_uPvGrMx_o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<br>
+		</c:forEach>
+	</div>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
