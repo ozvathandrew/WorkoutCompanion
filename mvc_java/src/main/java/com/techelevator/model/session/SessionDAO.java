@@ -22,5 +22,7 @@ public interface SessionDAO {
 	public List<Session> getAllSessionsPerMemberByMonth(String username, String month);
 	
 	public Integer getTotalTime(String username, Date date);
+	
+	public Date getCurrentTime();
 
 }

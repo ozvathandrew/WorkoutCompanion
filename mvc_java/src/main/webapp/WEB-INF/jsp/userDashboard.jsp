@@ -32,7 +32,9 @@
   </div>
   <div class="start-workout">
     <div class="start-workout-button">
+    <form action="../gymSessionLog" method="get">
     	<button> Start Workout! </button>
+    		</form>
     </div>
     <div class="end-workout-button">
     	<button> End Workout! </button>

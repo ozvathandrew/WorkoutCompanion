@@ -167,7 +167,7 @@ public class JDBCSessionDAO implements SessionDAO {
 		return null;
 	}
 	
-	private Date getCurrentTime() {
+	public Date getCurrentTime() {
 		LocalDateTime ldt = LocalDateTime.now();
 		String dateString = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH).format(ldt);
 		Integer month = Integer.valueOf(dateString.substring(5, 7));
@@ -195,7 +195,4 @@ public class JDBCSessionDAO implements SessionDAO {
 
 	}
 	
-	public void updateStartTime(String username, Date date, Time start) {
-		
-	}
 }

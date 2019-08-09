@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -23,6 +24,7 @@ import com.techelevator.model.MemberDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.equipment.Equipment;
 import com.techelevator.model.equipment.EquipmentDAO;
+import com.techelevator.model.session.SessionDAO;
 
 @Controller
 @SessionAttributes({ "synergyUser" })
@@ -31,14 +33,16 @@ public class UserController {
 	private MemberDAO userDAO;
 	private AdministratorDAO adminDAO;
 	private ClassesDAO classesDAO;
-	private EquipmentDAO equipmentDAO; 
+	private EquipmentDAO equipmentDAO;
+	private SessionDAO sessionDAO;
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO, EquipmentDAO equipmentDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO, EquipmentDAO equipmentDAO, SessionDAO sessionDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
 		this.classesDAO = classesDAO;
 		this.equipmentDAO = equipmentDAO;
+		this.sessionDAO = sessionDAO;
 	}
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
@@ -135,10 +139,22 @@ public class UserController {
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
 	public String displayGymSessionLog(ModelMap map) {
-
+	//	User user = (User) map.get("synergyUser");
 		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
 		map.addAttribute("equipment", gymEquipment);
+	//	map.addAttribute("synergyUser", user);
 
 		return "/gymSessionLog";
+	}
+	
+	@RequestMapping(path="/gymSessionLog", method = RequestMethod.POST)
+	public String addSymSessionLog(@RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight, @RequestParam Integer equipment_id, ModelMap map) {
+		User user = (User) map.get("synergyUser");
+		String username = user.getUserName();
+		Date date = sessionDAO.getCurrentTime();
+		sessionDAO.saveSession(username, equipment_id, reps, sets, weight, date);
+		map.addAttribute("synergyUser", user);
+		
+		return "redirect:/gymSessionLog";
 	}
 }
