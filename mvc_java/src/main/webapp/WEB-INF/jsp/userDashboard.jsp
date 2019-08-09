@@ -33,7 +33,6 @@
     </div>
     <div class="end-workout-button">
     	<button> End Workout! </button>
-    	
     </div>
   </div>
   <div class="member-analytics">
