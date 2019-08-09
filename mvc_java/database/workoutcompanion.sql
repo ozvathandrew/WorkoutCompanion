@@ -52,7 +52,7 @@ workout_log_weight int
 ); 
 
 INSERT INTO equipment (equipment_name, equipment_description, equipment_video, muscle_group) 
-VALUES ('Seated Bicep Curls', 'The seated bicep curl exercise uses the machine and a seated position to isolate the bicep muscles.', 'https://www.youtube.com/watch?v=M_uPvGrMx_o', 'Bicep'),
+VALUES ('Seated Bicep Curls', 'The seated bicep curl exercise uses the machine and a seated position to isolate the bicep muscles.', 'https://www.youtube.com/embed/M_uPvGrMx_o', 'Bicep'),
 ('Standing Calf Raises', 'Calf raises are a method of exercising the gastrocnemius, tibialis posterior and soleus muscles of the lower leg.', 'https://www.youtube.com/watch?v=YMmgqO8Jo-k', 'Legs'),
 ('Seated Chest Press', 'The seated chest press machine is an upright version of the standard lying bench press machine. The chest press helps build the pectoral muscles as well as the biceps, deltoids, and latissimus dorsi muscles.', 'https://www.youtube.com/watch?v=xUm0BiZCWlQ', 'Chest'),
 ('Tricep Extension', ' The triceps extension is an exercise you can do with a weight machine to work the muscle in the back of the upper arm. As the name implies, the triceps extension targets the triceps muscle, located here in the back of the upper arm.', 'https://www.youtube.com/watch?v=cBt1X8fwKKc', 'Tricep'), 

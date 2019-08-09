@@ -18,7 +18,10 @@
 			<br>
 			<c:out value="${machine.muscleGroup}" />
 			<br>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/M_uPvGrMx_o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<iframe width="560" height="315"
+				src="${machine.video}" frameborder="0"
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen></iframe>
 			<br>
 		</c:forEach>
 	</div>
