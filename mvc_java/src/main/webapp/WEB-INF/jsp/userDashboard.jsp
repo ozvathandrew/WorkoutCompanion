@@ -9,7 +9,7 @@
 <div class="grid-container">
   <div class="member">
     <div class="avatar">
-     <img src="#" alt="avatar image" >
+     <img src="${user.avatar}" alt="avatar image" >
     </div>
     <div class="member-Links">
     <h2> Hello, ${user.name} </h2>

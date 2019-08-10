@@ -135,7 +135,6 @@ public class UserController {
 		String adminName = admin.getUserName();
 
 		return "redirect:/users/" + adminName;
-
 	}
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
