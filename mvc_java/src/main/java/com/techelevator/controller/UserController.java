@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -101,14 +102,27 @@ public class UserController {
 
 	@RequestMapping(path = "/calendar", method = RequestMethod.GET)
 	public String calendar(ModelMap map) {
-
+		User user = (User) map.get("synergyUser"); 
+		String userName = user.getUserName();
+		map.addAttribute("synergyUser", user);
+		
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
-
 		map.addAttribute("calendar", workoutClass);
-
+		
 		return "calendar";
 	}
-
+	
+	@RequestMapping(path = "/calendar", method = RequestMethod.POST)
+	public String addToClassSchdule(ModelMap map, @Valid @ModelAttribute Classes classes) {
+		User user = (User) map.get("synergyUser"); 
+		String userName = user.getUserName();
+		map.addAttribute("synergyUser", user);
+		
+		classesDAO.updateClassSchedule(userName, classes.getWorkoutClassName(), classes.getClassStartTime(), classes.getClassEndTime(), classes.getClassDate());
+		
+		return "redirect:/calendar";
+	}
+	
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
 	public String displayAddUser(ModelMap map) {
 		User user = (User) map.get("synergyUser");
@@ -135,7 +149,6 @@ public class UserController {
 		String adminName = admin.getUserName();
 
 		return "redirect:/users/" + adminName;
-
 	}
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)

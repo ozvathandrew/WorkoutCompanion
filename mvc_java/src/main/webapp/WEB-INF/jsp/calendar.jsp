@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="/WEB-INF/jsp/header.jsp" /> 
 
@@ -54,19 +55,30 @@ button {
 
 </style>
 		
+<c:url var="formAction" value="/calendar" />
 
 <div id="workout-table">
 	<c:forEach var="clazz" items="${calendar}" begin="0" end="0" > 
-	<h1>Thursday - ${clazz.classDate}</h1>
-	</c:forEach>
-	<c:forEach var="clazz" items="${calendar}" begin="0" end="4" > 
-	<li style="list-style: none;">
-		<ul id="class-name">${clazz.name}</ul>
-		<ul id="class-time"><b>Time:</b> ${clazz.classStartTime} - ${clazz.classEndTime}</ul>
-		<ul id="class-time"><button>Add to Your Schedule</button></ul>
+	<form method="POST" action="${formAction}">
+		<h1>Thursday - <c:out value="${clazz.classDate}" /></h1>
+		</c:forEach>
+		<c:forEach var="clazz" items="${calendar}" begin="0" end="4" > 
+		<li style="list-style: none;">
+			<ul id="class-time"> 
+			<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classStartTime}" />
+			-  
+         	<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classEndTime}" />
+           </ul>
+         
+			<ul id="class-name"><c:out value ="${clazz.workoutClassName}" /></ul>
+			<ul id="class-time"><button>Add to Your Schedule</button></ul>
+		</form>
+		
 	</li>
 	</c:forEach>
 </div>	
+	
+<%-- <fmt:formatNumber type="percent" maxIntegerDigits="3" value="${accountBalance}" />	 --%>
 	
   
 
