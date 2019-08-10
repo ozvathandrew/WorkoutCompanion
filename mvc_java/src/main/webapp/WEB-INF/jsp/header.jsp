@@ -12,20 +12,20 @@
 <c:url var="jqTimeagoJs" value="/js/jquery.timeago.js" />
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
-<link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Droid+Serif"
+	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 
 </head>
 
 <body>
 	<header class="header">
-		<a href="/capstone/login" class="logo">Synergy</a> <input class="menu-btn"
-			type="checkbox" id="menu-btn" /> <label class="menu-icon"
-			for="menu-btn"><span class="navicon"></span></label>
+		<input
+			class="menu-btn" type="checkbox" id="menu-btn" /> <label
+			class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 		<ul class="menu">
 			<li><a href="/capstone/login">LOGIN</a></li>
 			<li><a href="/capstone/users/new">SIGNUP</a></li>
 			<li><a href="/capstone/login">HOME</a></li>
 		</ul>
 	</header>
-	

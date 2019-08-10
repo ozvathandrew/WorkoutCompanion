@@ -32,7 +32,7 @@
 				<input type="hidden" name="destination" value="${param.destination}" />
 				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 
-				<div>
+				<div class="synergyLogo">
 					<img src="img/workout-logo.png">
 				</div>
 
@@ -42,7 +42,8 @@
 							placeHolder="User Name" class="userNameInput" />
 					</div>
 					<div>
-						<input type="password" id="password" name="password" placeHolder="Password" class="passwordInput" />
+						<input type="password" id="password" name="password"
+							placeHolder="Password" class="passwordInput" />
 
 					</div>
 					<div>
@@ -53,12 +54,22 @@
 		</div>
 	</div>
 
-	<div class="workout-companion-header">
-		<h4>THE ULTIMATE WORKOUT COMPANION</h4>
-		<p>Let us help you get in the best shape of your life.</p>
-		<div class="signup">
-			<h6>SIGNUP NOW</h6>
+	<div class="loginHeaderGroup">
+		<div class="loginHeader">
+			<h1>THE ULTIMATE WORKOUT COMPANION</h1>
+			<h2>Let us help you get in the best shape of your life.</h2>
 		</div>
+		<button type="submit" class="loginSignInBTN">Sign Up Now</button>
+	</div>
+
+	<div class="stonesEndorsment">
+		<h2>
+			<i>"Synergy, a new hope for American Fitness" <br> -Rolling
+				Stones Magazine-
+			</i>
+		</h2>
 	</div>
 </div>
+
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />
