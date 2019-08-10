@@ -19,7 +19,7 @@ body {
 .grid-container {
 	display: grid;
 	grid-template-columns: 1fr 4fr 1fr;
-	grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
+	grid-template-rows: 0.5fr 1fr 0.5fr 5fr 0.5fr;
 	grid-template-areas: ". . ." ". member ." ". start-workout ."
 		". member-analytics ." ". . .";
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
@@ -30,8 +30,8 @@ body {
 .member {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: "avatar member-links admin-buttons" "avatar . .";
+	grid-template-rows: 0.5fr;
+	grid-template-areas: "avatar member-links admin-buttons";
 	grid-area: member;
 }
 
@@ -49,10 +49,10 @@ body {
 
 .start-workout {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
-	grid-template-areas: ". ." "start-workout-button end-workout-button"
-		". .";
+	grid-template-areas: "start-workout-button edit-profile-button calendar-button"
+		". . .";
 	grid-area: start-workout;
 }
 
@@ -60,8 +60,12 @@ body {
 	grid-area: start-workout-button;
 }
 
-.end-workout-button {
-	grid-area: end-workout-button;
+.edit-profile-button {
+	grid-area: edit-profile-button;
+}
+
+.calendar-button {
+	grid-area: calendar-button;
 }
 
 .member-analytics {

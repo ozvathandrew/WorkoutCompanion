@@ -12,22 +12,14 @@
      <img src="#" alt="avatar image" >
     </div>
     <div class="member-Links">
-    <h2> Hello, ${user.name} </h2>
-    <h2> ${user.workoutGoals} </h2>
-    <h2> ${user.workoutProfile}</h2>
-    
-    <form action="../editProfile" method="get">
-		<button> Edit Profile</button>
-	</form>
-	<form action="../calendar" method="get">
-		<button> View Class Calendar </button>
-	</form>
-    
+    <h4> Hello, ${user.name} </h4>
+    <h6> ${user.workoutGoals} </h6>
+    <h6> ${user.workoutProfile}</h6>
     </div>
+    
     <div class="admin-buttons">
-    	<h1><a href="/capstone/addUser">Add Employee </a></h1>
-    	<h2> Add Member </h2>
-    	<h2> All User Details</h2>
+    	<h4><a href="/capstone/addUser">Add Employee </a></h4>
+    	<h4> Add Member </h4>
     </div>
   </div>
   <div class="start-workout">
@@ -36,12 +28,35 @@
     	<button> Start Workout! </button>
     		</form>
     </div>
-    <div class="end-workout-button">
-    	<button> End Workout! </button>
+    <div class="edit-profile-button">
+    <form action="../editProfile" method="get">
+		<button> Edit Profile</button>
+	</form>
+	</div>
+	<div class="calendar-button">
+	<form action="../calendar" method="get">
+		<button> View Class Calendar </button>
+	</form>
     </div>
   </div>
   <div class="member-analytics">
-  	<h1> Member Analytics </h1>
+  <h4>Your gym session history: </h4>
+  <c:forEach var="data" items="${gymSession}">
+  <table>
+  <tr>
+  	<th>Date</th>
+  	<th>Reps</th>
+  	<th>Weights</th>
+  </tr>
+  <tr>
+  	<td>${data.date}</td>
+  	<td>${data.duration}</td>
+  	<td>${data.reps}</td>
+  	<td>${data.sets}</td>
+  	<td>${data.weights}</td>
+  </tr>
+  	</table>
+  	</c:forEach>
   </div>
 </div>
 

@@ -3,7 +3,6 @@ package com.techelevator.controller;
 import java.sql.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +24,7 @@ import com.techelevator.model.MemberDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.equipment.Equipment;
 import com.techelevator.model.equipment.EquipmentDAO;
+import com.techelevator.model.session.Session;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
@@ -71,9 +71,11 @@ public class UserController {
 	public String userDashboard(@PathVariable String username, ModelMap map) {
 
 		Object user = userDAO.getMemberByUserName(username);
+		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
+		map.addAttribute("gymSession", sessionsData);
 
 		return "userDashboard";
 	}

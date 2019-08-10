@@ -67,6 +67,7 @@ public class JDBCSessionDAO implements SessionDAO {
 		session.setEnd(row.getTime("workout_log_end"));
 		session.setUsername(row.getString("workout_log_username"));
 		session.setEquipmentId(row.getInt("workout_log_equipment_id"));
+		session.setDuration(row.getTime("duration"));
 		session.setDate(row.getDate("workout_log_date"));
 		return session;
 	}
@@ -186,13 +187,29 @@ public class JDBCSessionDAO implements SessionDAO {
 	@Override
 	public List<Session> getAllSessionsPerMemberByDateTime(String username, Date date, Time start) {
 		List<Session> perMemberSessionsByDateTime = new ArrayList<Session>();
-		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ? AND workout_log_start";
+		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ? AND workout_log_start = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sessions, username, date, start);
 		while (results.next()) {
 			perMemberSessionsByDateTime.add(mapToRowSession(results));
 		}
 		return perMemberSessionsByDateTime;
 
+	}
+
+	@Override
+	public List<Session> getMemberSessionData(String username) {
+		List<Session> getMemberSessionData = new ArrayList<Session>();
+		String data = "SELECT workout_log_date, workout_log_end - workout_log_start AS duration, SUM(workout_log_reps) AS reps, SUM(workout_log_sets) AS sets, SUM(workout_log_weight) AS weight " + 
+				"FROM workout_log " + 
+				"WHERE workout_log_username = ? " + 
+				"GROUP BY workout_log_date, workout_log_end - workout_log_start " + 
+				"ORDER BY workout_log_date DESC " + 
+				"LIMIT 30";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(data, username);
+		while(results.next()) {
+			getMemberSessionData.add(mapToRowSession(results));
+		}
+		return getMemberSessionData;
 	}
 	
 }

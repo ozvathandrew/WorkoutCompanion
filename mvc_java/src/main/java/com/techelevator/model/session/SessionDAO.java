@@ -24,5 +24,7 @@ public interface SessionDAO {
 	public Integer getTotalTime(String username, Date date);
 	
 	public Date getCurrentTime();
+	
+	public List<Session> getMemberSessionData(String username);
 
 }
