@@ -78,10 +78,6 @@ body {
 	padding-left: 5%;
 }
 
-.login {
-	padding-top: 5%;
-}
-
 .navigation {
 	float: right;
 	margin-right: 25px;
@@ -110,46 +106,6 @@ body {
 
 .signup {
 	padding-left: 30%;
-}
-
-.login {
-	padding-left: 5%
-}
-
-.workout-companion-header h4 {
-	color: white;
-	font-family: Montserrat;
-	font-size: 25px;
-	font-weight: 500;
-	letter-spacing: 1.78px;
-	line-height: 30px;
-	text-align: center;
-	margin-bottom: 1%;
-}
-
-.workout-companion-header p {
-	color: white;
-	font-family: Montserrat;
-	font-size: 18px;
-	font-weight: 300;
-	letter-spacing: 1.28px;
-	line-height: 22px;
-	text-align: center;
-}
-
-.workout-companion-header h6 {
-	background-image: url(../img/signupbutton.png);
-	background-repeat: no-repeat;
-	color: #F7F7FF;
-	font-family: Montserrat;
-	font-size: 17px;
-	font-weight: 600;
-	letter-spacing: 1.21px;
-	text-align: center;
-	background-color: #FF6204;
-	border-radius: 20.5px;
-	width: 175px;
-	height: 25px;
 }
 
 .create-member {
@@ -205,24 +161,39 @@ body {
 	padding-top: 4%;
 }
 
+.login {
+	position: absoulte;
+	
+}
+
+.synergyLogo>img {
+	margin-left: 100px;
+	height: 90px;
+	width: 75px;
+}
+
 .userNameInput {
 	width: 100%;
 	box-sizing: border-box;
-	border-bottom: 2px solid #ccc;
+	border-bottom: 2px solid white;
 	border-radius: 2px;
 	font-size: 14px;
-	background: transparent;
+	background-color: transparent;
 	background-image: url(../img/userName.png);
 	background-size: 25px;
 	background-position: 10px 10px;
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
 }
 
 .passwordInput {
 	width: 100%;
 	box-sizing: border-box;
-	border-bottom: 2px solid #ccc;
+	border-bottom: 2px solid white;
 	border-radius: 2px;
 	font-size: 16px;
 	background: transparent;
@@ -231,6 +202,10 @@ body {
 	background-position: 10px 10px;
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
 }
 
 .add-session-button {
@@ -259,6 +234,8 @@ body {
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
 	cursor: pointer;
+	margin: 25px;
+	margin-left: 75px;
 }
 
 .set-table {
@@ -279,30 +256,23 @@ body {
 }
 
 .header {
-	background-color: #fff;
-	box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+	background-color: transparent;
 	position: fixed;
 	width: 100%;
-	z-index: 3;
 }
 
 .header ul {
-	margin: 0;
+	margin: 3%;
 	padding: 0;
 	list-style: none;
 	overflow: hidden;
-	background-color: #fff;
+	background-color: transparent;
 }
 
 .header li a {
 	display: block;
-	padding: 20px 20px;
-	border-right: 1px solid #f4f4f4;
+	padding: 5px 5px;
 	text-decoration: none;
-}
-
-.header li a:hover {
-	background-color: #f4f4f4;
 }
 
 .header .logo {
@@ -323,8 +293,8 @@ body {
 	cursor: pointer;
 	display: inline-block;
 	float: right;
-	padding: 28px 20px;
-	position: relative;
+	padding: 28px 25px;
+	position: absolute;
 	user-select: none;
 }
 
@@ -334,7 +304,7 @@ body {
 	height: 2px;
 	position: relative;
 	transition: background .2s ease-out;
-	width: 18px;
+	width: 30px;
 }
 
 .header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
@@ -378,4 +348,47 @@ body {
 .header .menu-btn:checked ~ .menu-icon:not (.steps ) .navicon:before,
 	.header .menu-btn:checked ~ .menu-icon:not (.steps ) .navicon:after {
 	top: 0;
+}
+
+.loginSignInBTN {
+	background-color: white;
+	text-align: center;
+	color: #FF6204;
+	font-size: 20px;
+	padding: 8px 40px;
+	border-radius: 20px;
+	border: none;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin: 25px;
+}
+
+.loginSignInBTN:hover, .add-session-button:hover {
+	background-color: #FF6204;
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.loginHeaderGroup {
+	position: absolute;
+	left: 850px;
+	top: 300px;
+	color: white;
+	text-align: center;
+}
+
+.stonesEndorsment {
+	position: absolute;
+	left: 1300px;
+	top: 850px;
+	color: white;
+	text-align: center;
+}
+
+.login {
+	position: absolute; 
+	left: 100px;
+	top: 200px;
 }

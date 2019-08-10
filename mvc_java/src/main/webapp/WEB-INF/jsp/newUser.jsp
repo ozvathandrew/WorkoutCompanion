@@ -86,28 +86,31 @@
 								placeHolder="Email address" class="form-control" /></td>
 						</div>
 					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="avatar">Avatar: </label></th>
-							<td><input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /></td>
+					<div class="avatarRadioGroup">
+						<div class="avatarLAbel">
+							<label for="avatar">Avatar: </label>
 						</div>
-					</tr>
+						<div class="boxingAvatar">
+							<input type="radio" id="avatar" name="avatar"
+								value="img/boxing.png" /> <img src="../img/boxing.png" />
+						</div>
+						<div class="liftingAvatar">
+							<input type="radio" id="avatar" name="avatar"
+								value="img/lifting.png" /> <img src="../img/lifting.png" />
+						</div>
+						<div class="pushUpAvatar">
+							<input type="radio" id="avatar" name="avatar"
+								value="img/pushUp.png" /> <img src="../img/pushUp.png" />
+						</div>
+						<div class="boxingAvatar">
+							<input type="radio" id="avatar" name="avatar"
+								value="img/running.png" /> <img src="../img/running.png" />
+						</div>
+						<div class="yogaAvatar">
+							<input type="radio" id="avatar" name="avatar"
+								value="img/yoga.png" /> <img src="../img/yoga.png" />
+						</div>
+					</div>
 					<tr>
 						<div class="form-group">
 							<th><label for="workoutgoals">Workout Goals: </label></th>
