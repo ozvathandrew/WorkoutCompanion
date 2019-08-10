@@ -45,12 +45,13 @@
   <table>
   <tr>
   	<th>Date</th>
+  	<th>Duration</th>
   	<th>Reps</th>
   	<th>Weights</th>
   </tr>
   <tr>
   	<td>${data.date}</td>
-  	<td>${data.duration}</td>
+	<td>${data.duration}</td>
   	<td>${data.reps}</td>
   	<td>${data.sets}</td>
   	<td>${data.weights}</td>
