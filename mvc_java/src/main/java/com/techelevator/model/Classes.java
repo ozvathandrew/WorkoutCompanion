@@ -7,8 +7,9 @@ import java.time.LocalDate;
 
 public class Classes {
 	
-	private int classId; 
-	private String name; 
+	private int classId;
+	private String userName; 
+	private String workoutClassName; 
 	private Time classStartTime;
 	private Time classEndTime; 
 	private Date classDate; 
@@ -19,12 +20,12 @@ public class Classes {
 	public void setClassId(int classId) {
 		this.classId = classId;
 	}
-
-	public String getName() {
-		return name;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setName(String className) {
-		this.name = className;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public Time getClassStartTime() {
 		return classStartTime;
@@ -44,9 +45,11 @@ public class Classes {
 	public void setClassDate(Date classDate) {
 		this.classDate = classDate;
 	}
+	public String getWorkoutClassName() {
+		return workoutClassName;
+	}
+	public void setWorkoutClassName(String workoutClassName) {
+		this.workoutClassName = workoutClassName;
+	}
 
-
-	
-	
-	
 }
