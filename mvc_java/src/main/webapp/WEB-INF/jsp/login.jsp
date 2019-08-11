@@ -59,7 +59,10 @@
 			<h1>THE ULTIMATE WORKOUT COMPANION</h1>
 			<h2>Let us help you get in the best shape of your life.</h2>
 		</div>
-		<button type="submit" class="loginSignInBTN">Sign Up Now</button>
+		<c:url var="action" value="/users/new" />
+		<form method="GET" action="${action}">
+			<button type="submit" class="loginSignInBTN">Sign Up Now</button>
+		</form>
 	</div>
 
 	<div class="stonesEndorsment">

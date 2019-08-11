@@ -90,7 +90,7 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		Integer setsTest = 5;
 		Integer year = 2019;
 		Integer month = 8;
-		Integer day = 9;
+		Integer day = 10;
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month - 1);
@@ -102,6 +102,13 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		
 		assertEquals(repsTest, allSessionsPerMemberListByDate.get(size - 1).getReps());
 		assertEquals(setsTest, allSessionsPerMemberListByDate.get(size - 1).getSets());
+	}
+	
+	@Test
+	public void getMemberSessionDataTest() {
+		String username = "mickey";
+		List<Session> data = dao.getMemberSessionData(username);
+		
 	}
 	
 	//not done

@@ -18,50 +18,61 @@ body {
 
 .grid-container {
 	display: grid;
-	grid-template-columns: 1fr 4fr 1fr;
-	grid-template-rows: 0.5fr 2fr 0.5fr 2fr 0.5fr;
-	grid-template-areas: ". . ." ". member ." ". start-workout ."
-		". member-analytics ." ". . .";
+	grid-template-columns: 0.5fr 1.5fr 0.5fr 4fr 0.5fr;
+	grid-template-rows: 0.5fr 0.5fr 5fr 0.5fr;
+	grid-template-areas: ". . . . ." ". . . start-workout ."
+		". member . member-analytics .";
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100vh;
 	margin-left: 10%;
 	margin-top: 3%;
 }
 
 .member {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: "avatar member-links admin-buttons" "avatar . .";
+	display: flex;
+	padding-top: 5%;
+	flex-direction: column;
 	grid-area: member;
+	background-color: rgba(220, 220, 220, 0.90);
 }
 
 .avatar {
 	grid-area: avatar;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .member-Links {
 	grid-area: member-links;
+	text-align: center;
+	/* border-bottom: 2px solid black;
+	border-bottom-width: thin; */
 }
 
 .admin-buttons {
 	grid-area: admin-buttons;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .start-workout {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: ". ." "start-workout-button end-workout-button"
-		". .";
 	grid-area: start-workout;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.start-workout-button {
-	grid-area: start-workout-button;
+.edit-profile-button {
+	grid-area: edit-profile-button;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.end-workout-button {
-	grid-area: end-workout-button;
+.calendar-button {
+	grid-area: calendar-button;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .member-analytics {
@@ -159,7 +170,6 @@ body {
 
 .login {
 	position: absoulte;
-	
 }
 
 .synergyLogo>img {
@@ -295,7 +305,7 @@ body {
 }
 
 .header .menu-icon .navicon {
-	background: #333;
+	background: white;
 	display: block;
 	height: 2px;
 	position: relative;
@@ -304,7 +314,7 @@ body {
 }
 
 .header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
-	background: #333;
+	background: white;
 	content: '';
 	display: block;
 	height: 100%;
@@ -346,6 +356,11 @@ body {
 	top: 0;
 }
 
+.menu a {
+	 text-decoration: none;
+	 color: white;
+}
+
 .loginSignInBTN {
 	background-color: white;
 	text-align: center;
@@ -370,7 +385,7 @@ body {
 .loginHeaderGroup {
 	position: absolute;
 	left: 850px;
-	top: 300px;
+	top: 320px;
 	color: white;
 	text-align: center;
 }
@@ -384,7 +399,220 @@ body {
 }
 
 .login {
-	position: absolute; 
+	position: absolute;
 	left: 100px;
 	top: 200px;
+}
+
+.createNewUserBTN {
+	background-color: white;
+	text-align: center;
+	color: #FF6204;
+	font-size: 20px;
+	padding: 8px 40px;
+	border-radius: 20px;
+	border: none;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin: 25px;
+}
+
+.createNewUserBTN:hover, .add-session-button:hover {
+	background-color: #FF6204;
+	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.newUserNameInput {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/name.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserPassword {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/password.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserConfirmPassword {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/confirmPassword.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserName {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/userName.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserName {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/name.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserEmail {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/email.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserWorkoutGoals {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/goal.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+.newUserWorkoutProfile {
+	width: 15%;
+	box-sizing: border-box;
+	border-bottom: 2px solid white;
+	border-radius: 2px;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url(../img/profile.png);
+	background-size: 25px;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	border-right: transparent;
+	border-left: transparent;
+	border-top: transparent;
+	margin: 15px;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: rgba(220, 220, 220, 0.90);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #FC9E65;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #FC9E65;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: rgba(220, 220, 220, 0.90);
+}
+
+.member-analytics table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.member-analytics th {
+	background-color: #FC9E65;
+	color: black;
 }

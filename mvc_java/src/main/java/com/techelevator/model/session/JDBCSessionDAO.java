@@ -186,13 +186,50 @@ public class JDBCSessionDAO implements SessionDAO {
 	@Override
 	public List<Session> getAllSessionsPerMemberByDateTime(String username, Date date, Time start) {
 		List<Session> perMemberSessionsByDateTime = new ArrayList<Session>();
-		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ? AND workout_log_start";
+		String sessions = "SELECT * FROM workout_log WHERE workout_log_username = ? AND workout_log_date = ? AND workout_log_start = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sessions, username, date, start);
 		while (results.next()) {
 			perMemberSessionsByDateTime.add(mapToRowSession(results));
 		}
 		return perMemberSessionsByDateTime;
 
+	}
+
+	@Override
+	public List<Session> getMemberSessionData(String username) {
+		List<Session> getMemberSessionData = new ArrayList<Session>();
+		String data = "SELECT workout_log_date, workout_log_end - workout_log_start AS duration, SUM(workout_log_reps) AS workout_log_reps, SUM(workout_log_sets) AS workout_log_sets, SUM(workout_log_weight) AS workout_log_weight " + 
+				"FROM workout_log " + 
+				"WHERE workout_log_username = ? " + 
+				"GROUP BY workout_log_date, workout_log_end - workout_log_start " + 
+				"ORDER BY workout_log_date DESC " + 
+				"LIMIT 30";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(data, username);
+		while(results.next()) {
+			getMemberSessionData.add(mapToRowData(results));
+		}
+		return getMemberSessionData;
+	}
+	
+	private Session mapToRowData(SqlRowSet row) {
+		Session session = new Session();
+		session.setSets(row.getInt("workout_log_sets"));
+		session.setReps(row.getInt("workout_log_reps"));
+		session.setDuration(row.getString("duration").substring(30, 37));
+		session.setDate(row.getDate("workout_log_date"));
+		session.setWeights(row.getInt("workout_log_weight"));
+		return session;
+	}
+	//add key constraints to connect equipment and workout log
+	@Override
+	public List<Session> getAllSessionsPerMemberWithEquipment(String username) {
+		List<Session> sessionsWithEquipment = new ArrayList<Session>();
+		String sqlSessionPerMember = "SELECT * FROM workout_log WHERE workout_log_username = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSessionPerMember, username);
+		while (results.next()) {
+			sessionsWithEquipment.add(mapToRowSession(results));
+		}
+		return sessionsWithEquipment;
 	}
 	
 }

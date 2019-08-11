@@ -21,8 +21,8 @@
 <body>
 	<header class="header">
 		<input
-			class="menu-btn" type="checkbox" id="menu-btn" /> <label
-			class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+			class="menu-btn" type="checkbox" id="menu-btn" /> 
+			<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 		<ul class="menu">
 			<li><a href="/capstone/login">LOGIN</a></li>
 			<li><a href="/capstone/users/new">SIGNUP</a></li>
