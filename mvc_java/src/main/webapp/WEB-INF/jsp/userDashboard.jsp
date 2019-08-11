@@ -43,10 +43,10 @@ document.getElementById("defaultOpen").click();
 		</div>
 
 		<div class="admin-buttons">
-			<h4>
-				<a href="/capstone/addUser">Add Employee </a>
-			</h4>
-			<h4>Add Member</h4>
+			<form action="../addUser" method="GET">
+				<button>Add Employee</button>
+			</form>
+			<button>Add Member</button>
 		</div>
 		<div class="edit-profile-button">
 			<form action="../editProfile" method="get">
@@ -60,11 +60,9 @@ document.getElementById("defaultOpen").click();
 		</div>
 	</div>
 	<div class="start-workout">
-		<!-- <div class="start-workout-button"> -->
 			<form action="../gymSessionLog" method="get">
 				<button>Start Workout!</button>
 			</form>
-	<!-- 	</div>	 -->	
 	</div>
 	<div class="member-analytics">
 			<!-- Tab links -->
@@ -73,10 +71,10 @@ document.getElementById("defaultOpen").click();
 				<button class="tablinks" onclick="openCity(event, 'Total')">Total</button>
 				<button class="tablinks" onclick="openCity(event, 'Employee')">Employee</button>
 			</div>
-		<c:forEach var="data" items="${gymSession}">
-			<!-- Tab content -->
+		
+			<!-- Tab Monthly content -->
 			<div id="Monthly" class="tabcontent">
-				<h3>Monthly</h3>
+			
 			<table>
 				<tr>
 					<th>Date</th>
@@ -85,6 +83,7 @@ document.getElementById("defaultOpen").click();
 					<th>Reps</th>
 					<th>Weights</th>
 				</tr>
+				<c:forEach var="data" items="${gymSession}">
 				<tr>
 					<td>${data.date}</td>
 					<td>${data.duration}</td>
@@ -92,20 +91,44 @@ document.getElementById("defaultOpen").click();
 					<td>${data.sets}</td>
 					<td>${data.weights}</td>
 				</tr>
+				</c:forEach>
 			</table>
+		
 			</div>
 
+			<!-- Tab Total content -->
 			<div id="Total" class="tabcontent">
-				<h3>Total</h3>
-				<p>Total data of each session gym member ever did lives here</p>
+		
+			<table>
+				<tr>
+					<th>Date</th>
+					<th>Start time</th>
+					<th>End time</th>
+					<th>Sets</th>
+					<th>Reps</th>
+					<th>Weights</th>
+				</tr>
+				<c:forEach var="total" items="${allSessions}">
+				<tr>
+					<td>${total.date}</td>
+					<td>${total.start}</td>
+					<td>${total.end}</td>
+					<td>${total.sets}</td>
+					<td>${total.reps}</td>
+					<td>${total.weights}</td>
+				</tr>
+				</c:forEach>
+			</table>
+			
 			</div>
-
+			
+		<!-- Tab Employee content -->
 			<div id="Employee" class="tabcontent">
 				<h3>Employee</h3>
 				<p>Employee data lives here</p>
 			</div>
 
-		</c:forEach>
+		
 	</div>
 </div>
 

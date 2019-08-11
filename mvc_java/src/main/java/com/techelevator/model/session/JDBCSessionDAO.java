@@ -212,14 +212,24 @@ public class JDBCSessionDAO implements SessionDAO {
 	}
 	
 	private Session mapToRowData(SqlRowSet row) {
-		//
 		Session session = new Session();
 		session.setSets(row.getInt("workout_log_sets"));
 		session.setReps(row.getInt("workout_log_reps"));
-		session.setDuration(row.getString("duration").substring(22));
+		session.setDuration(row.getString("duration").substring(30, 37));
 		session.setDate(row.getDate("workout_log_date"));
 		session.setWeights(row.getInt("workout_log_weight"));
 		return session;
+	}
+	//add key constraints to connect equipment and workout log
+	@Override
+	public List<Session> getAllSessionsPerMemberWithEquipment(String username) {
+		List<Session> sessionsWithEquipment = new ArrayList<Session>();
+		String sqlSessionPerMember = "SELECT * FROM workout_log WHERE workout_log_username = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSessionPerMember, username);
+		while (results.next()) {
+			sessionsWithEquipment.add(mapToRowSession(results));
+		}
+		return sessionsWithEquipment;
 	}
 	
 }
