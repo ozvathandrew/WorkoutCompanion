@@ -55,11 +55,11 @@ button {
 
 </style>
 		
-<c:url var="formAction" value="/calendar" />
+<c:url var="formAction" value="/calendarUpdate" />
 
 <div id="workout-table">
 	<c:forEach var="clazz" items="${calendar}" begin="0" end="0" > 
-	<form method="POST" action="${formAction}">
+	<form method="GET" action="${formAction}">
 		<h1>Thursday - <c:out value="${clazz.classDate}" /></h1>
 		</c:forEach> 
 		<c:forEach var="clazz" items="${calendar}" begin="0" end="4" > 
