@@ -52,27 +52,26 @@
 				</div>
 			</form>
 		</div>
-	</div>
 
-	<div class="loginHeaderGroup">
-		<div class="loginHeader">
-			<h1>THE ULTIMATE WORKOUT COMPANION</h1>
-			<h2>Let us help you get in the best shape of your life.</h2>
+		<div class="loginHeaderGroup">
+			<div class="loginHeader">
+				<h1>THE ULTIMATE WORKOUT COMPANION</h1>
+				<h2>Let us help you get in the best shape of your life.</h2>
+			</div>
+			<c:url var="action" value="/users/new" />
+			<form method="GET" action="${action}">
+				<button type="submit" class="loginSignInBTN">Sign Up Now</button>
+			</form>
 		</div>
-		<c:url var="action" value="/users/new" />
-		<form method="GET" action="${action}">
-			<button type="submit" class="loginSignInBTN">Sign Up Now</button>
-		</form>
-	</div>
-
-	<div class="stonesEndorsment">
-		<h2>
-			<i>"Synergy, a new hope for American Fitness" <br> -Rolling
-				Stones Magazine-
-			</i>
-		</h2>
 	</div>
 </div>
 
+<div class="stonesEndorsment">
+	<h2>
+		<i>"Synergy, a new hope for American Fitness" <br> -Rolling
+			Stones Magazine-
+		</i>
+	</h2>
+</div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

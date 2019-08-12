@@ -54,11 +54,8 @@ workout_log_weight int
 ); 
 
 CREATE TABLE class_schedule (
-username varchar,
-class_name varchar,
-class_start_time time,
-class_end_time time,
-class_date date
+class_schedule_id int,
+class_schedule_username varchar
 );
 
 INSERT INTO equipment (equipment_name, equipment_description, equipment_video, muscle_group) 
@@ -372,6 +369,19 @@ VALUES ('2019-08-05', '01:00', '02:00', 'awebster', 1 , 10, 3, 25),
 ('2019-08-16', '09:15', '10:00', 'bbrown', 7, 15, 3, 90),
 ('2019-08-16', '09:15', '10:00', 'bbrown', 9 , 15, 3, 15),
 ('2019-08-16', '09:15', '10:00', 'bbrown', 10 , 15, 3, 45);
+
+INSERT INTO class_schedule (class_schedule_id, class_schedule_username) 
+VALUES (1, 'bbrown'), 
+(2, 'jsmith'), 
+(3, 'aozvath'), 
+(4, 'ebaillargeon'),
+(5,'lfitriana'), 
+(6, 'bscherf'),
+(7, 'pschultz'), 
+(8, 'fjohnson'), 
+(9, 'tburton'), 
+(10, 'cweathers'), 
+(11, 'awebster');
 
 ALTER TABLE login
 ADD CONSTRAINT pk_login_id PRIMARY KEY (login_id);
