@@ -13,14 +13,6 @@
 	border-radius: 15px;
 }
 
-table {
-	margin-right: auto;
-	margin-left: auto;
-}
-
-td {
-	border: 1px solid black;
-}
 
 h1 {
 	margin-right: auto;

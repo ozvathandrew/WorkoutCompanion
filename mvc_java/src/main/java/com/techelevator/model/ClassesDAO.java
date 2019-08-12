@@ -13,6 +13,8 @@ public interface ClassesDAO {
 	
 	public void updateClassSchedule(int classId, String userName);
 	
+	public List<Classes> getClassesScheduled(String userName);
+	
 //	public List<Classes> getMemberByClass(String userNameTest); 
 	
 }
