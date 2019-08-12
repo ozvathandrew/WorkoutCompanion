@@ -41,7 +41,7 @@
 					});
 </script>
 
-<div class="container">
+<div class="newUserContainer">
 	<div class="create-member">
 		<div class="member-form">
 			<c:url var="formAction" value="/users" />

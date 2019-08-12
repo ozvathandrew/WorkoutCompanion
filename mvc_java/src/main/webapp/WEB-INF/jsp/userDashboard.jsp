@@ -18,8 +18,7 @@
     </div>
     
     <div class="admin-buttons">
-    	<h4><a href="/capstone/addUser">Add Employee </a></h4>
-    	<h4> Add Member </h4>
+    	<h4><a href="/capstone/addUser">Add New User </a></h4>
     </div>
   </div>
   <div class="start-workout">
