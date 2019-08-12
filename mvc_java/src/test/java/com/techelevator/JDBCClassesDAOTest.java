@@ -30,12 +30,12 @@ public class JDBCClassesDAOTest extends DAOIntegrationTest {
 
 	@Before
 	public void setUp() throws Exception {
-		String userNameTest = "test";
-		String name = "name";
-		Time classStartTime = new Time(11, 0, 0);
-		Time classEndTime = new Time(12, 0, 0);
-		Date classDate = new Date(2019 - 12 - 02);
-		dao.updateClassSchedule(userNameTest, name, classStartTime, classStartTime, classDate);
+//		String userNameTest = "test";
+//		String name = "name";
+//		Time classStartTime = new Time(11, 0, 0);
+//		Time classEndTime = new Time(12, 0, 0);
+//		Date classDate = new Date(2019 - 12 - 02);
+//		dao.updateClassSchedule(userNameTest, name, classStartTime, classStartTime, classDate);
 
 	}
 

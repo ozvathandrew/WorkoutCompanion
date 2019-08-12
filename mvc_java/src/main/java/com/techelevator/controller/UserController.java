@@ -123,14 +123,11 @@ public class UserController {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		int classId = Integer.parseInt(request.getParameter("classId"));
-		String workoutClassName = request.getParameter("workoutClassName");
-		Time classStartTime = java.sql.Time.valueOf(request.getParameter("classStartTime"));
-		Time classEndTime = java.sql.Time.valueOf(request.getParameter("classEndTime"));
-		Date classDate = java.sql.Date.valueOf(request.getParameter("classDate"));
-		classesDAO.updateClassSchedule(classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
+		classesDAO.updateClassSchedule(classId, userName);
 		map.addAttribute("synergyUser", user);
 
 		return "redirect:/users/" + userName;
+
 	}
 
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)

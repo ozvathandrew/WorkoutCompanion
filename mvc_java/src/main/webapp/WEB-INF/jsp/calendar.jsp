@@ -50,31 +50,26 @@ button {
 }
 </style>
 
-
 <div id="workout-table">
-	<c:url var="formAction" value="/calendarUpdate" />
-	<form method="GET" action="${formAction}">
-		<c:forEach var="clazz" items="${calendar}" begin="0" end="4">
-			<li style="list-style: none;"> 
-				<ul id="class-time">
-					<fmt:formatDate type="time" timeStyle="short"
-						value="${clazz.classStartTime}" />
-
-					<fmt:formatDate type="time" timeStyle="short"
-						value="${clazz.classEndTime}" />
-				</ul>
-
-				<ul id="class-name">
-					<c:out value="${clazz.workoutClassName}" />
-				</ul>
-				<ul id="class-time">
-				</ul>
-			</li>
-			<button>Add to Your Schedule</button>
-		</c:forEach>
-	</form>
-
+	<c:forEach var="clazz" items="${calendar}" begin="0" end="4">
+		<li style="list-style: none;">
+			<ul id="class-time">
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classStartTime}" />
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classEndTime}" />
+			</ul>
+			<ul id="class-name">
+				<c:out value="${clazz.workoutClassName}" />
+			</ul>
+			<ul id="class-time">
+			</ul>
+		</li>
+		<c:url var="bookingURL" value="/calendarUpdate">
+			<c:param name="classId" value="${clazz.classId}" />
+		</c:url>
+		<a href="${bookingURL}">Add to Your Schedule</a>
+	</c:forEach>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
-
