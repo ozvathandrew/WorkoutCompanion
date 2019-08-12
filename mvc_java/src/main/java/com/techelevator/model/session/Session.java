@@ -14,6 +14,7 @@ public class Session {
 	private Integer equipmentId;
 	private String username;
 	private String duration;
+	private String equipmentName;
 	
 	public Integer getSets() {
 		return sets;
@@ -69,6 +70,12 @@ public class Session {
 	}
 	public void setDuration(String duration) {
 		this.duration = duration;
+	}
+	public String getEquipmentName() {
+		return equipmentName;
+	}
+	public void setEquipmentName(String equipmentName) {
+		this.equipmentName = equipmentName;
 	}
 	
 }

@@ -41,7 +41,7 @@ public class JDBCSessionDAO implements SessionDAO {
 
 	@Override
 	public void saveSession(String username, Integer equipment_id, Integer reps, Integer sets, Integer weight, Date date) {
-		date = getCurrentTime();
+		date = getCurrentDate();
 		String sqlMemberSession = "INSERT INTO workout_log (workout_log_username, workout_log_equipment_id, workout_log_reps, workout_log_sets, workout_log_weight, workout_log_date) "
 				+ "VALUES (?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.update(sqlMemberSession, username, equipment_id, reps, sets, weight, date);
@@ -167,7 +167,7 @@ public class JDBCSessionDAO implements SessionDAO {
 		return null;
 	}
 	
-	public Date getCurrentTime() {
+	public Date getCurrentDate() {
 		LocalDateTime ldt = LocalDateTime.now();
 		String dateString = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH).format(ldt);
 		Integer month = Integer.valueOf(dateString.substring(5, 7));
@@ -220,16 +220,50 @@ public class JDBCSessionDAO implements SessionDAO {
 		session.setWeights(row.getInt("workout_log_weight"));
 		return session;
 	}
-	//add key constraints to connect equipment and workout log
+	
 	@Override
 	public List<Session> getAllSessionsPerMemberWithEquipment(String username) {
 		List<Session> sessionsWithEquipment = new ArrayList<Session>();
-		String sqlSessionPerMember = "SELECT * FROM workout_log WHERE workout_log_username = ?";
+		String sqlSessionPerMember = "SELECT workout_log_date, workout_log_start, workout_log_end, workout_log_reps, workout_log_sets, workout_log_weight, equipment.equipment_name FROM workout_log " + 
+				"JOIN equipment on equipment.equipment_id = workout_log.workout_log_equipment_id " + 
+				"WHERE workout_log_username = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSessionPerMember, username);
 		while (results.next()) {
-			sessionsWithEquipment.add(mapToRowSession(results));
+			sessionsWithEquipment.add(mapToRowSessionEquipment(results));
 		}
 		return sessionsWithEquipment;
 	}
 	
+	private Session mapToRowSessionEquipment(SqlRowSet row) {
+		Session session = new Session();
+		session.setSets(row.getInt("workout_log_sets"));
+		session.setReps(row.getInt("workout_log_reps"));
+		session.setWeights(row.getInt("workout_log_weight"));
+		session.setStart(row.getTime("workout_log_start"));
+		session.setEnd(row.getTime("workout_log_end"));
+		session.setEquipmentName(row.getString("equipment_name"));
+		session.setDate(row.getDate("workout_log_date"));
+		return session;
+	}
+
+	@Override
+	public void updateTime(String username, Date date, Time start, Time end) {
+		String sqlUpdateTime = "UPDATE workout_log " + 
+				"SET workout_log_start = ?, workout_log_end = ? " + 
+				"WHERE workout_log_username = ? AND workout_log_date = ?";
+		jdbcTemplate.update(sqlUpdateTime, start, end, username, date);
+		
+	}
+
+	@Override
+	public Time getCurrentTime() {
+		LocalDateTime ldt = LocalDateTime.now();
+		String times = DateTimeFormatter.ofPattern("HH:mm:ss", Locale.ENGLISH).format(ldt);
+		Integer hour = Integer.valueOf(times.substring(0, 2));
+		Integer minute = Integer.valueOf(times.substring(3, 5));
+		Integer sec = Integer.valueOf(times.substring(6, 8));
+		@SuppressWarnings("deprecation")
+		Time time = new Time(hour, minute, sec);
+		return time;
+	}
 }

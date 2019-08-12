@@ -3,15 +3,15 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <div class="gym-log">
-
-	<div>
-		<h4>End</h4>
+	<div class="session-call-to-action">
+	<c:url var="formAction" value="/gymSessionEnd" />
+	<form method="GET" action="${formAction}">
+		<button type="submit" class="end-session-button">End Workout!</button>
+		</form>
 	</div>
-
-	<h6>TESTING TESTING TESTING</h6>
-
+	
+<!-- menu of workouts starts here -->
 	<c:url var="formAction" value="/gymSessionLog" />
-
 	<c:forEach var="machine" items="${equipment}">
 		<form method="POST" action="${formAction}">
 		<div class="session">

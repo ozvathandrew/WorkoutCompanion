@@ -398,4 +398,16 @@ ADD CONSTRAINT fk_profile_id FOREIGN KEY (profile_id) REFERENCES profile (profil
 ALTER TABLE profile
 ADD CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES access (role_id);
 
+ALTER TABLE workout_log
+ALTER COLUMN workout_log_equipment_id TYPE int USING workout_log_equipment_id::integer;
+
+ALTER TABLE equipment
+ADD CONSTRAINT pk_equipment_id PRIMARY KEY (equipment_id);
+
+ALTER TABLE workout_log
+ADD CONSTRAINT pk_workout_log_id PRIMARY KEY (workout_log_id); 
+
+ALTER TABLE workout_log
+ADD CONSTRAINT fk_workout_log_equipment_id FOREIGN KEY (workout_log_equipment_id) REFERENCES equipment (equipment_id);
+
 COMMIT;
