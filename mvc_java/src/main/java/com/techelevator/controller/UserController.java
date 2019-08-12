@@ -30,7 +30,11 @@ import com.techelevator.model.session.Session;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
+<<<<<<< HEAD
 @SessionAttributes({"synergyUser", "workoutTime", "workoutDate"})
+=======
+@SessionAttributes({ "synergyUser" })
+>>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -40,7 +44,8 @@ public class UserController {
 	private SessionDAO sessionDAO;
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO, EquipmentDAO equipmentDAO, SessionDAO sessionDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO,
+			EquipmentDAO equipmentDAO, SessionDAO sessionDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
 		this.classesDAO = classesDAO;
@@ -74,12 +79,22 @@ public class UserController {
 
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
+<<<<<<< HEAD
 		List<Session> allSessionsWithEquipment = sessionDAO.getAllSessionsPerMemberWithEquipment(username);
+=======
+		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
+		List<Classes> classesScheduled = classesDAO.getClassesScheduled(username);
+>>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
 		map.addAttribute("gymSession", sessionsData);
+<<<<<<< HEAD
 		map.addAttribute("equipments", allSessionsWithEquipment);
+=======
+		map.addAttribute("allSessions", allSessions);
+		map.addAttribute("classesScheduled", classesScheduled);
+>>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 
 		return "userDashboard";
 	}
@@ -107,31 +122,28 @@ public class UserController {
 
 	@RequestMapping(path = "/calendar", method = RequestMethod.GET)
 	public String calendar(ModelMap map) {
-		User user = (User) map.get("synergyUser"); 
+		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
-		
+
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
 		map.addAttribute("calendar", workoutClass);
-		
+
 		return "calendar";
 	}
-	
+
 	@RequestMapping(path = "/calendarUpdate", method = RequestMethod.GET)
 	public String addToClassSchdule(HttpServletRequest request, ModelMap map) {
-	User user = (User) map.get("synergyUser");
-	String userName = user.getUserName();
-	int classId = Integer.parseInt(request.getParameter("classId"));
-	String workoutClassName = request.getParameter("workoutClassName");
-	Time classStartTime = java.sql.Time.valueOf(request.getParameter("classStartTime"));
-	Time classEndTime = java.sql.Time.valueOf(request.getParameter("classEndTime"));
-	Date classDate = java.sql.Date.valueOf(request.getParameter("classDate"));
-	classesDAO.updateClassSchedule(classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
-	map.addAttribute("synergyUser", user);
+		User user = (User) map.get("synergyUser");
+		String userName = user.getUserName();
+		int classId = Integer.parseInt(request.getParameter("classId"));
+		classesDAO.updateClassSchedule(classId, userName);
+		map.addAttribute("synergyUser", user);
 
-	    return "redirect:/users/" + userName;
+		return "redirect:/users/" + userName;
+
 	}
-	
+
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
 	public String displayAddUser(ModelMap map) {
 		User user = (User) map.get("synergyUser");
@@ -164,22 +176,27 @@ public class UserController {
 	public String displayGymSessionLog(ModelMap map) {
 		Time start = sessionDAO.getCurrentTime();
 		User user = (User) map.get("synergyUser");
-		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
+		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments();
 		map.addAttribute("equipment", gymEquipment);
 		map.addAttribute("synergyUser", user);
 		map.addAttribute("workoutTime", start);
 		
 		return "/gymSessionLog";
 	}
-	
-	@RequestMapping(path="/gymSessionLog", method = RequestMethod.POST)
-	public String addSymSessionLog( @RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,  @RequestParam Integer equipmentId, ModelMap map) {
+
+	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.POST)
+	public String addSymSessionLog(@RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,
+			@RequestParam Integer equipmentId, ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String username = user.getUserName();
 		Date date = sessionDAO.getCurrentDate();
 		sessionDAO.saveSession(username, equipmentId, reps, sets, weight, date);
 		map.addAttribute("synergyUser", user);
+<<<<<<< HEAD
 		map.addAttribute("workoutDate", date);
+=======
+
+>>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 		return "redirect:/gymSessionLog";
 	}
 	

@@ -35,13 +35,33 @@ public class JDBCClassesDAO implements ClassesDAO {
 	}
 
 	@Override
-	public void updateClassSchedule(int classId, String userName, String workoutClassName, Time classStartTime, Time classEndTime,
-			Date classDate) {
-
-		String sqlUpdateClassSchedule = "INSERT INTO class_schedule(classId, username, class_name, class_start_time, class_end_time, class_date) VALUES (?,?,?,?,?,?)";
-		jdbcTemplate.update(sqlUpdateClassSchedule, classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
+	public void updateClassSchedule(int classId, String userName) {
+		String sqlUpdateClassSchedule = "INSERT INTO class_schedule(class_schedule_id, class_schedule_username) VALUES (?,?)";
+		jdbcTemplate.update(sqlUpdateClassSchedule, classId, userName); 		
 	}
 
+	@Override
+	public List<Classes> getClassesScheduled(String userName) {
+		List<Classes> scheduledClasses = new ArrayList<Classes>();
+		String sqlSelectScheduledClassesByUsername = "SELECT class_id, class_name, class_start_time, class_end_time, class_date FROM classes JOIN class_schedule ON classes.class_id = class_schedule.class_schedule_id WHERE class_schedule.class_schedule_username = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectScheduledClassesByUsername, userName);
+		while(results.next()) {
+			scheduledClasses.add(mapToRowClasses(results));
+		}
+		return scheduledClasses;
+	}
+	
+	public Classes mapToRowClasses(SqlRowSet row) {
+		Classes classes = new Classes();
+		classes.setClassId(row.getInt("class_id"));
+		classes.setWorkoutClassName(row.getString("class_name"));
+		classes.setClassStartTime(row.getTime("class_start_time"));
+		classes.setClassEndTime(row.getTime("class_end_time"));
+		classes.setClassDate(row.getDate("class_date"));
+		return classes;
+	}
+	
+	
 //	@Override
 //	public List<Classes> getMemberByClass(String userNameTest) {
 //		List<Classes> allClasses = new ArrayList<Classes>();
@@ -55,16 +75,6 @@ public class JDBCClassesDAO implements ClassesDAO {
 //		return allClasses;
 //
 //	}
-
-	public Classes mapToRowClasses(SqlRowSet row) {
-		Classes classes = new Classes();
-		classes.setClassId(row.getInt("class_id"));
-		classes.setWorkoutClassName(row.getString("class_name"));
-		classes.setClassStartTime(row.getTime("class_start_time"));
-		classes.setClassEndTime(row.getTime("class_end_time"));
-		classes.setClassDate(row.getDate("class_date"));
-		return classes;
-	}
 //
 //	public Classes mapToRowClassesSchedule(SqlRowSet row) {
 //		Classes classes = new Classes();
@@ -75,5 +85,7 @@ public class JDBCClassesDAO implements ClassesDAO {
 //		classes.setClassDate(row.getDate("class_date"));
 //		return classes;
 //	}
+
+
 
 }

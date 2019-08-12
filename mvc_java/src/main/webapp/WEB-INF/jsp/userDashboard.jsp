@@ -66,7 +66,7 @@
 				<button class="tablinks active" onclick="openTabs(event, 'Monthly')"
 					id="defaultOpen">Monthly</button>
 				<button class="tablinks" onclick="openTabs(event, 'Total')">Total</button>
-				<button class="tablinks" onclick="openTabs(event, 'Employee')">Employee</button>
+				<button class="tablinks" onclick="openTabs(event, 'Scheduled-Classes')">Scheduled-Classes</button>
 			</div>
 
 			<!-- Tab Monthly content -->
@@ -119,11 +119,34 @@
 					</c:forEach>
 					</table>
 			</div>
+<<<<<<< HEAD
 
 			<!-- Tab Employee content -->
 			<div id="Employee" class="tabcontent">
 
 			<p>Employee Data here</p>
+=======
+			
+		<!-- Tab Employee content -->
+			<div id="Scheduled-Classes" class="tabcontent">
+			<table>
+				<tr>
+					<th>Class</th>
+					<th>Date</th>
+					<th>Start time</th>
+					<th>End time</th>
+				</tr>
+				<c:forEach var="workoutClass" items="${classesScheduled}">
+					<tr>
+						<td>${workoutClass.workoutClassName}</td>
+						<td>${workoutClass.classDate}</td>
+						<td>${workoutClass.classStartTime}</td>
+						<td>${workoutClass.classEndTime}</td>
+					</tr>
+				</c:forEach>
+			</table>
+				
+>>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 			</div>
 		</div>
 	</div>

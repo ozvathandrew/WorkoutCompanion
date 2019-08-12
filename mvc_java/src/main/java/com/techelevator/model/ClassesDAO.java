@@ -11,7 +11,9 @@ public interface ClassesDAO {
 	
 	public List<Classes> getClassesByClassName();
 	
-	public void updateClassSchedule(int classId, String userName, String workoutClassName, Time classStartTime, Time classEndTime, Date classDate);
+	public void updateClassSchedule(int classId, String userName);
+	
+	public List<Classes> getClassesScheduled(String userName);
 	
 //	public List<Classes> getMemberByClass(String userNameTest); 
 	
