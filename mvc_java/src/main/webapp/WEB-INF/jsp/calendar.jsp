@@ -61,7 +61,7 @@ button {
 	<c:forEach var="clazz" items="${calendar}" begin="0" end="0" > 
 	<form method="POST" action="${formAction}">
 		<h1>Thursday - <c:out value="${clazz.classDate}" /></h1>
-		</c:forEach>
+		</c:forEach> 
 		<c:forEach var="clazz" items="${calendar}" begin="0" end="4" > 
 		<li style="list-style: none;">
 			<ul id="class-time"> 

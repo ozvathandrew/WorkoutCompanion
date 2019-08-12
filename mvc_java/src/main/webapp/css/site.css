@@ -27,54 +27,61 @@ body {
 
 .grid-container {
 	display: grid;
-	grid-template-columns: 1fr 4fr 1fr;
-	grid-template-rows: 0.5fr 1fr 0.5fr 5fr 0.5fr;
-	grid-template-areas: ". . ." ". member ." ". start-workout ."
-		". member-analytics ." ". . .";
+	grid-template-columns: 0.5fr 1.5fr 0.5fr 4fr 0.5fr;
+	grid-template-rows: 0.5fr 0.5fr 5fr 0.5fr;
+	grid-template-areas: ". . . . ." ". . . start-workout ."
+		". member . member-analytics .";
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100vh;
 	margin-left: 10%;
 	margin-top: 3%;
 }
 
 .member {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 0.5fr;
-	grid-template-areas: "avatar member-links admin-buttons";
+	display: flex;
+	padding-top: 5%;
+	flex-direction: column;
 	grid-area: member;
+	background-color: rgba(220, 220, 220, 0.90);
 }
 
 .avatar {
 	grid-area: avatar;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .member-Links {
 	grid-area: member-links;
+	text-align: center;
+	/* border-bottom: 2px solid black;
+	border-bottom-width: thin; */
 }
 
 .admin-buttons {
 	grid-area: admin-buttons;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .start-workout {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: "start-workout-button edit-profile-button calendar-button"
-		". . .";
 	grid-area: start-workout;
-}
-
-.start-workout-button {
-	grid-area: start-workout-button;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .edit-profile-button {
 	grid-area: edit-profile-button;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .calendar-button {
 	grid-area: calendar-button;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .member-analytics {
@@ -307,7 +314,7 @@ body {
 }
 
 .header .menu-icon .navicon {
-	background: #333;
+	background: white;
 	display: block;
 	height: 2px;
 	position: relative;
@@ -316,7 +323,7 @@ body {
 }
 
 .header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
-	background: #333;
+	background: white;
 	content: '';
 	display: block;
 	height: 100%;
@@ -356,6 +363,11 @@ body {
 .header .menu-btn:checked ~ .menu-icon:not (.steps ) .navicon:before,
 	.header .menu-btn:checked ~ .menu-icon:not (.steps ) .navicon:after {
 	top: 0;
+}
+
+.menu a {
+	 text-decoration: none;
+	 color: white;
 }
 
 .loginSignInBTN {
@@ -493,6 +505,7 @@ body {
 	border-top: transparent;
 	margin: 15px;
 }
+
 .newUserName {
 	width: 15%;
 	box-sizing: border-box;
@@ -548,7 +561,7 @@ body {
 }
 
 .newUserWorkoutProfile {
-		width: 15%;
+	width: 15%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -563,4 +576,52 @@ body {
 	border-left: transparent;
 	border-top: transparent;
 	margin: 15px;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: rgba(220, 220, 220, 0.90);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #FC9E65;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #FC9E65;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: rgba(220, 220, 220, 0.90);
+}
+
+.member-analytics table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.member-analytics th {
+	background-color: #FC9E65;
+	color: black;
 }

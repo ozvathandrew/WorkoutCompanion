@@ -73,10 +73,12 @@ public class UserController {
 
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
+		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
 		map.addAttribute("gymSession", sessionsData);
+		map.addAttribute("allSessions", allSessions);
 
 		return "userDashboard";
 	}
