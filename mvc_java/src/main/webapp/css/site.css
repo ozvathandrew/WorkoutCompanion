@@ -16,6 +16,15 @@ body {
 	height: 100vh;
 }
 
+
+.newUserContainer {
+	background-image: url(../img/rectangle.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100vh;
+}
+
+
 .grid-container {
 	display: grid;
 	grid-template-columns: 0.5fr 1.5fr 0.5fr 4fr 0.5fr;

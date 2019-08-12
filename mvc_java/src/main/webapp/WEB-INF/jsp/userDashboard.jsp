@@ -32,6 +32,18 @@ document.getElementById("defaultOpen").click();
 </div>
 
 <div class="grid-container">
+
+  <div class="start-workout">
+    <div class="start-workout-button">
+    <form action="../gymSessionLog" method="get">
+    	<button> Start Workout! </button>
+    		</form>
+    </div>
+    <div class="edit-profile-button">
+    <form action="../editProfile" method="get">
+		<button> Edit Profile</button>
+	</form>
+=======
 	<div class="member">
 		<div class="avatar">
 			<img src="${user.avatar}" alt="avatar image">
@@ -127,8 +139,6 @@ document.getElementById("defaultOpen").click();
 				<h3>Employee</h3>
 				<p>Employee data lives here</p>
 			</div>
-
-		
 	</div>
 </div>
 
