@@ -70,7 +70,7 @@ document.getElementById("defaultOpen").click();
 			<div class="tab">
 				<button class="tablinks active" onclick="openCity(event, 'Monthly')" id="defaultOpen">Monthly</button>
 				<button class="tablinks" onclick="openCity(event, 'Total')">Total</button>
-				<button class="tablinks" onclick="openCity(event, 'Employee')">Employee</button>
+				<button class="tablinks" onclick="openCity(event, 'Scheduled-Classes')">Scheduled Classes</button>
 			</div>
 		
 			<!-- Tab Monthly content -->
@@ -124,9 +124,24 @@ document.getElementById("defaultOpen").click();
 			</div>
 			
 		<!-- Tab Employee content -->
-			<div id="Employee" class="tabcontent">
-				<h3>Employee</h3>
-				<p>Employee data lives here</p>
+			<div id="Scheduled-Classes" class="tabcontent">
+			<table>
+				<tr>
+					<th>Class</th>
+					<th>Date</th>
+					<th>Start time</th>
+					<th>End time</th>
+				</tr>
+				<c:forEach var="workoutClass" items="${classesScheduled}">
+					<tr>
+						<td>${workoutClass.workoutClassName}</td>
+						<td>${workoutClass.classDate}</td>
+						<td>${workoutClass.classStartTime}</td>
+						<td>${workoutClass.classEndTime}</td>
+					</tr>
+				</c:forEach>
+			</table>
+				
 			</div>
 	</div>
 </div>
