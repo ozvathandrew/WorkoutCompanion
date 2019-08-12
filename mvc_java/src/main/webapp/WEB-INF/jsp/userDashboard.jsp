@@ -32,21 +32,7 @@ document.getElementById("defaultOpen").click();
 </div>
 
 <div class="grid-container">
-<<<<<<< HEAD
-  <div class="member">
-    <div class="avatar">
-     <img src="${user.avatar}" alt="avatar image" >
-    </div>
-    <div class="member-Links">
-    <h4> Hello, ${user.name} </h4>
-    <h6> ${user.workoutGoals} </h6>
-    <h6> ${user.workoutProfile}</h6>
-    </div>
-    
-    <div class="admin-buttons">
-    	<h4><a href="/capstone/addUser">Add New User </a></h4>
-    </div>
-  </div>
+
   <div class="start-workout">
     <div class="start-workout-button">
     <form action="../gymSessionLog" method="get">
@@ -153,9 +139,6 @@ document.getElementById("defaultOpen").click();
 				<h3>Employee</h3>
 				<p>Employee data lives here</p>
 			</div>
-
-		
->>>>>>> a285f5a506c016098246807f9223cb2ab3d8b3b6
 	</div>
 </div>
 

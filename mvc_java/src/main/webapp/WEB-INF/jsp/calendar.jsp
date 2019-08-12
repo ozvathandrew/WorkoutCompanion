@@ -66,7 +66,7 @@ button {
 		<li style="list-style: none;">
 			<ul id="class-time"> 
 			<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classStartTime}" />
-			-  
+
          	<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classEndTime}" />
            </ul>
          
@@ -77,11 +77,7 @@ button {
 	</li>
 	</c:forEach>
 </div>	
-	
-<%-- <fmt:formatNumber type="percent" maxIntegerDigits="3" value="${accountBalance}" />	 --%>
-	
-  
-
+		
 <c:import url="/WEB-INF/jsp/footer.jsp" /> 
 
   
