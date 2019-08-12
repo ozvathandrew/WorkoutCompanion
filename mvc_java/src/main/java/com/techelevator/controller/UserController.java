@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ import com.techelevator.model.session.Session;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
-@SessionAttributes({"synergyUser"})
+@SessionAttributes({ "synergyUser" })
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -39,7 +40,8 @@ public class UserController {
 	private SessionDAO sessionDAO;
 
 	@Autowired
-	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO, EquipmentDAO equipmentDAO, SessionDAO sessionDAO) {
+	public UserController(MemberDAO userDAO, AdministratorDAO adminDAO, ClassesDAO classesDAO,
+			EquipmentDAO equipmentDAO, SessionDAO sessionDAO) {
 		this.userDAO = userDAO;
 		this.adminDAO = adminDAO;
 		this.classesDAO = classesDAO;
@@ -106,27 +108,31 @@ public class UserController {
 
 	@RequestMapping(path = "/calendar", method = RequestMethod.GET)
 	public String calendar(ModelMap map) {
-		User user = (User) map.get("synergyUser"); 
+		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
-		
+
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
 		map.addAttribute("calendar", workoutClass);
-		
+
 		return "calendar";
 	}
-	
-	@RequestMapping(path = "/calendar", method = RequestMethod.POST)
-	public String addToClassSchdule(ModelMap map, @Valid @ModelAttribute Classes classes) {
-		User user = (User) map.get("synergyUser"); 
+
+	@RequestMapping(path = "/calendarUpdate", method = RequestMethod.GET)
+	public String addToClassSchdule(HttpServletRequest request, ModelMap map) {
+		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
+		int classId = Integer.parseInt(request.getParameter("classId"));
+		String workoutClassName = request.getParameter("workoutClassName");
+		Time classStartTime = java.sql.Time.valueOf(request.getParameter("classStartTime"));
+		Time classEndTime = java.sql.Time.valueOf(request.getParameter("classEndTime"));
+		Date classDate = java.sql.Date.valueOf(request.getParameter("classDate"));
+		classesDAO.updateClassSchedule(classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
 		map.addAttribute("synergyUser", user);
-		
-		classesDAO.updateClassSchedule(userName, classes.getWorkoutClassName(), classes.getClassStartTime(), classes.getClassEndTime(), classes.getClassDate());
-		
-		return "redirect:/calendar";
+
+		return "redirect:/users/" + userName;
 	}
-	
+
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)
 	public String displayAddUser(ModelMap map) {
 		User user = (User) map.get("synergyUser");
@@ -158,20 +164,21 @@ public class UserController {
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
 	public String displayGymSessionLog(ModelMap map) {
 		User user = (User) map.get("synergyUser");
-		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
+		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments();
 		map.addAttribute("equipment", gymEquipment);
 		map.addAttribute("synergyUser", user);
 		return "/gymSessionLog";
 	}
-	
-	@RequestMapping(path="/gymSessionLog", method = RequestMethod.POST)
-	public String addSymSessionLog( @RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,  @RequestParam Integer equipmentId, ModelMap map) {
+
+	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.POST)
+	public String addSymSessionLog(@RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,
+			@RequestParam Integer equipmentId, ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String username = user.getUserName();
 		Date date = sessionDAO.getCurrentTime();
 		sessionDAO.saveSession(username, equipmentId, reps, sets, weight, date);
 		map.addAttribute("synergyUser", user);
-		
+
 		return "redirect:/gymSessionLog";
 	}
 }
