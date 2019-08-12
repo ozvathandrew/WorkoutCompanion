@@ -30,11 +30,7 @@ import com.techelevator.model.session.Session;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
-<<<<<<< HEAD
 @SessionAttributes({"synergyUser", "workoutTime", "workoutDate"})
-=======
-@SessionAttributes({ "synergyUser" })
->>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -79,22 +75,17 @@ public class UserController {
 
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
-<<<<<<< HEAD
 		List<Session> allSessionsWithEquipment = sessionDAO.getAllSessionsPerMemberWithEquipment(username);
-=======
 		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
 		List<Classes> classesScheduled = classesDAO.getClassesScheduled(username);
->>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
+
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
 		map.addAttribute("gymSession", sessionsData);
-<<<<<<< HEAD
 		map.addAttribute("equipments", allSessionsWithEquipment);
-=======
 		map.addAttribute("allSessions", allSessions);
 		map.addAttribute("classesScheduled", classesScheduled);
->>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 
 		return "userDashboard";
 	}
@@ -192,11 +183,8 @@ public class UserController {
 		Date date = sessionDAO.getCurrentDate();
 		sessionDAO.saveSession(username, equipmentId, reps, sets, weight, date);
 		map.addAttribute("synergyUser", user);
-<<<<<<< HEAD
 		map.addAttribute("workoutDate", date);
-=======
 
->>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 		return "redirect:/gymSessionLog";
 	}
 	

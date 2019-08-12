@@ -119,15 +119,8 @@
 					</c:forEach>
 					</table>
 			</div>
-<<<<<<< HEAD
-
-			<!-- Tab Employee content -->
-			<div id="Employee" class="tabcontent">
-
-			<p>Employee Data here</p>
-=======
 			
-		<!-- Tab Employee content -->
+		<!-- Tab Classes content -->
 			<div id="Scheduled-Classes" class="tabcontent">
 			<table>
 				<tr>
@@ -146,7 +139,6 @@
 				</c:forEach>
 			</table>
 				
->>>>>>> 090eab6b2bf6d2fd35adaa9049a8610355128bad
 			</div>
 		</div>
 	</div>
