@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,15 +117,19 @@ public class UserController {
 		return "calendar";
 	}
 	
-	@RequestMapping(path = "/calendar", method = RequestMethod.POST)
-	public String addToClassSchdule(ModelMap map, @Valid @ModelAttribute Classes classes) {
-		User user = (User) map.get("synergyUser"); 
-		String userName = user.getUserName();
-		map.addAttribute("synergyUser", user);
-		
-		classesDAO.updateClassSchedule(userName, classes.getWorkoutClassName(), classes.getClassStartTime(), classes.getClassEndTime(), classes.getClassDate());
-		
-		return "redirect:/calendar";
+	@RequestMapping(path = "/calendarUpdate", method = RequestMethod.GET)
+	public String addToClassSchdule(HttpServletRequest request, ModelMap map) {
+	User user = (User) map.get("synergyUser");
+	String userName = user.getUserName();
+	int classId = Integer.parseInt(request.getParameter("classId"));
+	String workoutClassName = request.getParameter("workoutClassName");
+	Time classStartTime = java.sql.Time.valueOf(request.getParameter("classStartTime"));
+	Time classEndTime = java.sql.Time.valueOf(request.getParameter("classEndTime"));
+	Date classDate = java.sql.Date.valueOf(request.getParameter("classDate"));
+	classesDAO.updateClassSchedule(classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
+	map.addAttribute("synergyUser", user);
+
+	    return "redirect:/users/" + userName;
 	}
 	
 	@RequestMapping(path = "/addUser", method = RequestMethod.GET)

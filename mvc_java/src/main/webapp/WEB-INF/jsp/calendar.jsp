@@ -64,14 +64,15 @@ button {
 		</c:forEach> 
 		<c:forEach var="clazz" items="${calendar}" begin="0" end="4" > 
 		<li style="list-style: none;">
-			<ul id="class-time"> 
+			<ul id="class-time">
+			<input type="hidden" name="classStartTime" />
 			<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classStartTime}" />
-
+			<input type="hidden" name="classEndTime" />
          	<fmt:formatDate type = "time" timeStyle="short" value = "${clazz.classEndTime}" />
            </ul>
-         
+         	<input type="hidden" name="workoutClassName" />
 			<ul id="class-name"><c:out value ="${clazz.workoutClassName}" /></ul>
-			<ul id="class-time"><button>Add to Your Schedule</button></ul>
+			<ul id="class-time"><button type="submit">Add to Your Schedule</button></ul>
 		</form>
 		
 	</li>

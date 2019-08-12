@@ -35,11 +35,11 @@ public class JDBCClassesDAO implements ClassesDAO {
 	}
 
 	@Override
-	public void updateClassSchedule(String userName, String workoutClassName, Time classStartTime, Time classEndTime,
+	public void updateClassSchedule(int classId, String userName, String workoutClassName, Time classStartTime, Time classEndTime,
 			Date classDate) {
 
-		String sqlUpdateClassSchedule = "INSERT INTO class_schedule(username, class_name, class_start_time, class_end_time, class_date) VALUES (?,?,?,?,?)";
-		jdbcTemplate.update(sqlUpdateClassSchedule, userName, workoutClassName, classStartTime, classEndTime, classDate);
+		String sqlUpdateClassSchedule = "INSERT INTO class_schedule(classId, username, class_name, class_start_time, class_end_time, class_date) VALUES (?,?,?,?,?,?)";
+		jdbcTemplate.update(sqlUpdateClassSchedule, classId, userName, workoutClassName, classStartTime, classEndTime, classDate);
 	}
 
 //	@Override

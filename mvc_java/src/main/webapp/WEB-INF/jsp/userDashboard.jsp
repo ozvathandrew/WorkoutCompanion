@@ -34,16 +34,10 @@ document.getElementById("defaultOpen").click();
 <div class="grid-container">
 
   <div class="start-workout">
-    <div class="start-workout-button">
     <form action="../gymSessionLog" method="get">
     	<button> Start Workout! </button>
     		</form>
     </div>
-    <div class="edit-profile-button">
-    <form action="../editProfile" method="get">
-		<button> Edit Profile</button>
-	</form>
-=======
 	<div class="member">
 		<div class="avatar">
 			<img src="${user.avatar}" alt="avatar image">
@@ -70,11 +64,6 @@ document.getElementById("defaultOpen").click();
 				<button>View Class Calendar</button>
 			</form>
 		</div>
-	</div>
-	<div class="start-workout">
-			<form action="../gymSessionLog" method="get">
-				<button>Start Workout!</button>
-			</form>
 	</div>
 	<div class="member-analytics">
 			<!-- Tab links -->
@@ -141,7 +130,6 @@ document.getElementById("defaultOpen").click();
 			</div>
 	</div>
 </div>
-
 <c:import url="/WEB-INF/jsp/footer.jsp" />
 
 
