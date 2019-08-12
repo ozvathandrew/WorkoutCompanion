@@ -53,8 +53,11 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		Integer millisec = Integer.valueOf(times.substring(9));
 		@SuppressWarnings("deprecation")
 		Time time = new Time(hour, minute, sec);
-
+		
+		Time start = dao.getCurrentTime();
+		
 		dao.saveSession(username, equipmentId, reps, sets, weights, dates);
+		dao.updateTime(username, dates, start, start);
 		
 	}
 
@@ -90,7 +93,7 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		Integer setsTest = 5;
 		Integer year = 2019;
 		Integer month = 8;
-		Integer day = 10;
+		Integer day = 12;
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month - 1);
@@ -102,13 +105,6 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		
 		assertEquals(repsTest, allSessionsPerMemberListByDate.get(size - 1).getReps());
 		assertEquals(setsTest, allSessionsPerMemberListByDate.get(size - 1).getSets());
-	}
-	
-	@Test
-	public void getMemberSessionDataTest() {
-		String username = "mickey";
-		List<Session> data = dao.getMemberSessionData(username);
-		
 	}
 	
 	//not done
@@ -139,5 +135,29 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		List<Session> allSessionsPerMemberListByDateTime = dao.getAllSessionsPerMemberByDateTime(usernameTest, date, time);
 		Integer size = allSessionsPerMemberListByDateTime.size();
 
+	}
+	
+	@Test
+	public void getAllSessionsPerMemberWithEquipmentTest() {
+		String username = "lfitriana";
+		String equipment = "Seated Chest Press";
+		List<Session> sessionsWithEquipment = dao.getAllSessionsPerMemberWithEquipment(username);
+		Integer size = sessionsWithEquipment.size();
+		
+		assertEquals(equipment, sessionsWithEquipment.get(size - 1).getEquipmentName());
+		
+	}
+	
+	@Test
+	public void getUpdateTimeTest() {
+		Time start = dao.getCurrentTime();
+		String usernameTest = "mickey";
+		Integer repsTest = 50;
+		Integer setsTest = 5;
+		List<Session> allSessionsPerMemberList = dao.getAllSessionsPerMember(usernameTest);
+		Integer size = allSessionsPerMemberList.size();
+		
+		assertEquals(start, allSessionsPerMemberList.get(size - 1).getStart());
+		
 	}
 }

@@ -23,10 +23,14 @@ public interface SessionDAO {
 	
 	public Integer getTotalTime(String username, Date date);
 	
-	public Date getCurrentTime();
+	public Date getCurrentDate();
 	
 	public List<Session> getMemberSessionData(String username);
 	
 	public List<Session> getAllSessionsPerMemberWithEquipment(String username);
+	
+	public void updateTime(String username, Date date, Time start, Time end);
+	
+	public Time getCurrentTime();
 
 }

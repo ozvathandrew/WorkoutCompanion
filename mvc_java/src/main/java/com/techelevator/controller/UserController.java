@@ -30,7 +30,7 @@ import com.techelevator.model.session.Session;
 import com.techelevator.model.session.SessionDAO;
 
 @Controller
-@SessionAttributes({"synergyUser"})
+@SessionAttributes({"synergyUser", "workoutTime", "workoutDate"})
 public class UserController {
 
 	private MemberDAO userDAO;
@@ -74,12 +74,12 @@ public class UserController {
 
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
-		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
+		List<Session> allSessionsWithEquipment = sessionDAO.getAllSessionsPerMemberWithEquipment(username);
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
 		map.addAttribute("gymSession", sessionsData);
-		map.addAttribute("allSessions", allSessions);
+		map.addAttribute("equipments", allSessionsWithEquipment);
 
 		return "userDashboard";
 	}
@@ -162,10 +162,13 @@ public class UserController {
 
 	@RequestMapping(path = "/gymSessionLog", method = RequestMethod.GET)
 	public String displayGymSessionLog(ModelMap map) {
+		Time start = sessionDAO.getCurrentTime();
 		User user = (User) map.get("synergyUser");
 		List<Equipment> gymEquipment = equipmentDAO.getAllEquipments(); 
 		map.addAttribute("equipment", gymEquipment);
 		map.addAttribute("synergyUser", user);
+		map.addAttribute("workoutTime", start);
+		
 		return "/gymSessionLog";
 	}
 	
@@ -173,10 +176,21 @@ public class UserController {
 	public String addSymSessionLog( @RequestParam Integer sets, @RequestParam Integer reps, @RequestParam Integer weight,  @RequestParam Integer equipmentId, ModelMap map) {
 		User user = (User) map.get("synergyUser");
 		String username = user.getUserName();
-		Date date = sessionDAO.getCurrentTime();
+		Date date = sessionDAO.getCurrentDate();
 		sessionDAO.saveSession(username, equipmentId, reps, sets, weight, date);
 		map.addAttribute("synergyUser", user);
-		
+		map.addAttribute("workoutDate", date);
 		return "redirect:/gymSessionLog";
+	}
+	
+	@RequestMapping(path="/gymSessionEnd", method=RequestMethod.GET) 
+	public String endSessionLog(ModelMap map) {
+		User user = (User) map.get("synergyUser");
+		String username = user.getUserName();
+		Date date = (Date) map.get("workoutDate");
+		Time start = (Time) map.get("workoutTime");
+		Time end = sessionDAO.getCurrentTime();
+		sessionDAO.updateTime(username, date, start, end);
+		return "redirect:/users/" + username;
 	}
 }
