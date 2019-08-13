@@ -2,7 +2,9 @@ package com.techelevator.controller;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -116,9 +118,19 @@ public class UserController {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
-
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
 		map.addAttribute("calendar", workoutClass);
+		
+//		List<Classes> workoutDate = classesDAO.getDateOfClasses();
+//		List<Classes> workoutInfo = classesDAO.getEverythingElseFromClasses();
+//		Map<String, String> newMap = new HashMap<String, String>();
+//		
+//		
+//		for(int i = 0 ; i < workoutDate.size() ; i++) {
+//			for(int j = 0 ; j < workoutInfo.size() ; j++) {
+//				newMap.put( , j);
+//			}
+//		}
 
 		return "calendar";
 	}

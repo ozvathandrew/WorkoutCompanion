@@ -19,6 +19,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: contain;
 	height: 100vh;
+	padding-top: 15%;
 }
 
 .newUserContainer {
@@ -439,7 +440,19 @@ a:-webkit-any-link:hover {
 	margin: 25px;
 }
 
-.loginSignInBTN:hover, .add-session-button:hover {
+.editProfileButton {
+	background-color: white;
+	text-align: center;
+	color: #FF6204;
+	font-size: 20px;
+	border-radius: 20px;
+	border: none;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.loginSignInBTN:hover, .add-session-button:hover, .editProfileButton:hover {
 	background-color: #FF6204;
 	color: white;
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0

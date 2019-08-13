@@ -7,14 +7,14 @@
 	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 	<table>
 		<tr>
-			<div class="form-group">
-				<th><label for="workoutgoals">Workout Goals: </label></th>
-				<td><input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" /></td>
+		<div class="form-group">
+			<th><label for="workoutgoals">Workout Goals: </label></th>
+			<td><input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" /></td>
 			</div>
 		</tr>
 		<tr>
 		<div class="form-group">
-			<th><button type="submit" class="btn btn-primary">Edit Profile</button></th>
+			<th><button type="submit" class="editProfileButton">Edit Profile</button></th>
 		</div>
 		</tr>
 		</div>
