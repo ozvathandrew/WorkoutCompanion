@@ -318,7 +318,12 @@ body {
 
 a:-webkit-any-link {
 	text-decoration: none; 
-	color: black; 
+	color: #FF6204; 
+}
+
+a:-webkit-any-link:hover {
+	text-decoration: none; 
+	color: white; 
 }
 	
 
