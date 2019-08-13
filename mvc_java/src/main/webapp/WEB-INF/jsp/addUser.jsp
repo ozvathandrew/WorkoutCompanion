@@ -84,23 +84,23 @@
 					<table>
 						<tr>
 							<input type="radio" id="avatar" name="avatar" value="../img/boxing.png" />
-							<img src="../img/boxing.png" />
+							<img src="img/boxing.png" />
 						</tr>
 						<tr>
 							<input type="radio" id="avatar" name="avatar" value="../img/lifting.png" />
-							<img src="../img/lifting.png" />
+							<img src="img/lifting.png" />
 						</tr>
 						<tr>
 							<input type="radio" id="avatar" name="avatar" value="../img/pushUp.png" />
-							<img src="../img/pushUp.png" />
+							<img src="img/pushUp.png" />
 						</tr>
 						<tr>
 							<input type="radio" id="avatar" name="avatar" value="../img/running.png" />
-							<img src="../img/running.png" />
+							<img src="img/running.png" />
 						</tr>
 						<tr>
 							<input type="radio" id="avatar" name="avatar" value="../img/yoga.png" />
-							<img src="../img/yoga.png" />
+							<img src="img/yoga.png" />
 						</tr>
 						<div class="form-group">
 
