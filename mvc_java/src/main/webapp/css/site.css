@@ -1,6 +1,5 @@
 * {
 	font-family: 'Montserrat', sans-serif;
-	
 }
 
 html {
@@ -25,12 +24,13 @@ body {
 	text-align: center;
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
 	width: 70%;
-	margin-left: 15%;
+	margin-left: auto;
+	margin-right: auto;
 	height: 100vh;
 }
 
 .avatarRadioGroup {
-	padding-top: 3%;
+	padding-top: 1%;
 }
 
 .grid-container {
@@ -294,34 +294,31 @@ body {
 
 .classSignInButton {
 	background-color: white;
-    text-align: center;
-    color: #FF6204;
-    font-size: 15px;
-    padding: 8px 20px;
-    border-radius: 20px;
-    border: none;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin: 0px;
-    margin-left: -20px;
-    margin-top: -5px;
+	text-align: center;
+	color: #FF6204;
+	font-size: 15px;
+	padding: 8px 20px;
+	border-radius: 20px;
+	border: none;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	margin: 0px;
+	margin-left: -20px;
+	margin-top: -5px;
 }
 
-.classSignInButton:hover{
+.classSignInButton:hover {
 	background-color: #FF6204;
 	color: white;
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
 		rgba(0, 0, 0, 0.19);
-	
 }
 
 a:-webkit-any-link {
-	text-decoration: none; 
-	color: black; 
+	text-decoration: none;
+	color: black;
 }
-	
-
 
 .header {
 	background-color: transparent;
@@ -474,7 +471,8 @@ a:-webkit-any-link {
 	-webkit-transition-duration: 0.4s;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	margin: 25px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .createNewUserBTN:hover, .add-session-button:hover {
@@ -501,6 +499,8 @@ a:-webkit-any-link {
 	border-top: transparent;
 	margin-top: 1%;
 	box-sizing: border-box;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .newUserPassword {
@@ -519,6 +519,8 @@ a:-webkit-any-link {
 	border-left: transparent;
 	border-top: transparent;
 	margin-top: 1%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .newUserConfirmPassword {
@@ -537,6 +539,8 @@ a:-webkit-any-link {
 	border-left: transparent;
 	border-top: transparent;
 	margin-top: 1%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .newUserName {
@@ -555,6 +559,8 @@ a:-webkit-any-link {
 	border-left: transparent;
 	border-top: transparent;
 	margin-top: 1%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .newUserEmail {
@@ -591,6 +597,8 @@ a:-webkit-any-link {
 	border-left: transparent;
 	border-top: transparent;
 	margin-top: 1%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .newUserWorkoutProfile {
@@ -609,6 +617,8 @@ a:-webkit-any-link {
 	border-left: transparent;
 	border-top: transparent;
 	margin-top: 1%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /* Style the tab */
@@ -659,23 +669,83 @@ a:-webkit-any-link {
 	color: black;
 }
 
-
 .backToDashboardFromCalendar {
 	float: right;
-    margin: top;
-    margin-top: 20px;
-    margin-right: 15px;
-
+	margin: top;
+	margin-top: 20px;
+	margin-right: 15px;
 }
 
-.avatarRadioGroup > img {
-	height: 7%; 
-	width: 7%; 
-	
+.avatarRadioGroup>img {
+	height: 7%;
+	width: 7%;
 }
-	
-.newUserSignUpHeaders{
-	color: white; 
-	
+
+.newUserSignUpHeaders {
+	color: white;
+}
+
+#mainselection select {
+	border: 0;
+	color: #EEE;
+	background: transparent;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 2px 10px;
+	width: 378px;
+	*width: 350px;
+	*background: white;
+	-webkit-appearance: none;
+}
+
+#mainselection {
+	overflow: hidden;
+	width: 350px;
+	-moz-border-radius: 9px 9px 9px 9px;
+	-webkit-border-radius: 9px 9px 9px 9px;
+	border-radius: 9px 9px 9px 9px;
+	box-shadow: 1px 1px 11px #330033;
+	background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat
+		scroll 319px center;
+	content-align: center;
+}
+
+select#soflow-color {
+	-webkit-appearance: button;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-webkit-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-webkit-user-select: none;
+	background-image: url(http://i62.tinypic.com/15xvbd5.png),
+		-webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-position: 97% center;
+	background-repeat: no-repeat;
+	border: 1px solid #AAA;
+	color: #555;
+	font-size: inherit;
+	margin: 20px;
+	overflow: hidden;
+	padding: 5px 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 475px;
+margin-left: auto;
+margin-right: auto; 
+}
+
+select#soflow-color {
+	color: #FF6204;
+	background-image: url(http://i62.tinypic.com/15xvbd5.png),
+		-webkit-linear-gradient(white, white 40%, white);
+	background-color: white;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	padding-left: 15px;
+}
+.member-form {
+	margin-right: auto;
+	margin-left: auto;
 }
 
