@@ -41,109 +41,91 @@
 					});
 </script>
 
-<div class="container">
+<div class="newUserContainer">
 	<div class="create-member">
 		<div class="member-form">
 			<c:url var="formAction" value="/addNewUser" />
 			<form method="POST" action="${formAction}">
-
-				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-				<table>
-					<tr>
-						<div class="form-group">
-							<th><label for="userName">User Name: </label></th>
-							<td><input type="text" id="userName" name="userName"
-								placeHolder="User Name" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="password">Password: </label></th>
-							<td><input type="password" id="password" name="password"
-								placeHolder="Password" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="confirmPassword">Confirm Password: </label></th>
-							<td><input type="password" id="confirmPassword"
-								name="confirmPassword" placeHolder="Re-Type Password"
-								class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="name">Name: </label></th>
-							<td><input type="text" id="name" name="name"
-								placeHolder="Your name" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="email">Email: </label></th>
-							<td><input type="email" id="email" name="email"
-								placeHolder="Email address" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="avatar">Avatar: </label></th>
-							<td><input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /> <input
-								type="radio" id="avatar" name="avatar" value="here is the href"
-								class="form-control" /> <input type="radio" id="avatar"
-								name="avatar" value="here is the href" class="form-control" />
-								<input type="radio" id="avatar" name="avatar"
-								value="here is the href" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="workoutgoals">Workout Goals: </label></th>
-							<td><input type="text" id="workoutGoals" name="workoutGoals"
-								placeHolder="Workout Goals" class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="workoutprofile">Workout Profile: </label></th>
-							<td><input type="text" id="workoutProfile"
-								name="workoutProfile" placeHolder="Workout Profile"
-								class="form-control" /></td>
-						</div>
-					</tr>
-					<tr>
-						<div class="form-group">
-							<th><label for="roleId">Please select user access: </label></th>
-							<td><select name="roleId">
-									<option value="0" disabled selected>Select your option</option>
-									<option value="1">Administrator</option>
-									<option value="2">Employee</option>
-									<option value="3">Member</option>
-							</select></td>
-						</div>
-					</tr>
-				</table>
-				<div class="btn-signup">
-					<button type="submit">Add User</button>
+				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" /> <input
+					type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				<div class="newUserSignUpHeaders">
+					<h1>Begin your journey with Synergy!</h1>
+					<h3>Please enter all information to create your account</h3>
 				</div>
+				<div>
+					<input type="text" id="userName" name="userName"
+						placeHolder="User Name" class="newUserNameInput" />
+				</div>
+				<div>
+					<input type="password" id="password" name="password"
+						placeHolder="Password" class="newUserPassword" />
+				</div>
+				<div>
+					<input type="password" id="confirmPassword" name="confirmPassword"
+						placeHolder="Re-Type Password" class="newUserConfirmPassword" />
+				</div>
+				<div>
+					<input type="text" id="name" name="name" placeHolder="Your name"
+						class="newUserName" />
+				</div>
+				<div>
+					<input type="email" id="email" name="email"
+						placeHolder="Email address" class="newUserEmail" />
+				</div>
+				<div>
+					<input type="text" id="workoutGoals" name="workoutGoals"
+						placeHolder="Workout Goals" class="newUserWorkoutGoals" />
+				</div>
+				<div>
+					<input type="text" id="workoutProfile" name="workoutProfile"
+						placeHolder="Workout Profile" class="newUserWorkoutProfile" />
+				</div>
+				<div class="avatarRadioGroup">
+					<table>
+						<tr>
+							<input type="radio" id="avatar" name="avatar" value="../img/boxing.png" />
+							<img src="img/boxing.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar" value="../img/lifting.png" />
+							<img src="img/lifting.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar" value="../img/pushUp.png" />
+							<img src="img/pushUp.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar" value="../img/running.png" />
+							<img src="img/running.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar" value="../img/yoga.png" />
+							<img src="img/yoga.png" />
+						</tr>
+						<div class="form-group">
+
+							<th><label for="roleId">Please select user access: </label></th>
+
+							<td><select name="roleId">
+
+									<option value="0" disabled selected>Select your option</option>
+
+									<option value="1">Administrator</option>
+
+									<option value="2">Employee</option>
+
+									<option value="3">Member</option>
+
+							</select></td>
+
+						</div>
+
+					</table>
+				</div>
+				<button type="submit" class="createNewUserBTN">Create User</button>
 			</form>
 		</div>
-
-		<div class="workout-companion-header">
-			<h4>Admin add user page</h4>
-			<p>Add a new member, employee, or additional admin</p>
-		</div>
 	</div>
+</div>
 
-	<c:import url="/WEB-INF/jsp/footer.jsp" />
+<c:import url="/WEB-INF/jsp/footer.jsp" />
