@@ -19,10 +19,15 @@ body {
 .newUserContainer {
 	text-align: center;
 	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	width: 70%;
+	margin-left: 15%;
+	height: 100vh;
 }
-.member-form{
-	width: 100%; 
+
+.avatarRadioGroup {
+	padding-top: 3%;
 }
+
 .grid-container {
 	display: grid;
 	grid-template-columns: 0.5fr 1.5fr 0.5fr 4fr 0.5fr;
@@ -123,12 +128,6 @@ body {
 	padding-left: 30%;
 }
 
-.create-member {
-	display: flex;
-	padding-top: 10%;
-	padding-left: 2%
-}
-
 .create-member th {
 	text-align: right;
 }
@@ -136,10 +135,6 @@ body {
 .btn-signup {
 	margin-top: 2%;
 	margin-left: 40%;
-}
-
-.member-form {
-	width: 100%;
 }
 
 .gym-log {
@@ -454,7 +449,7 @@ body {
 }
 
 .newUserNameInput {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -468,11 +463,12 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
+	box-sizing: border-box;
 }
 
 .newUserPassword {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -486,11 +482,11 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 .newUserConfirmPassword {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -504,11 +500,11 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 .newUserName {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -522,29 +518,11 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
-}
-
-.newUserName {
-	width: 15%;
-	box-sizing: border-box;
-	border-bottom: 2px solid white;
-	border-radius: 2px;
-	font-size: 14px;
-	background-color: transparent;
-	background-image: url(../img/name.png);
-	background-size: 25px;
-	background-position: 10px 10px;
-	background-repeat: no-repeat;
-	padding: 12px 20px 12px 40px;
-	border-right: transparent;
-	border-left: transparent;
-	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 .newUserEmail {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -558,11 +536,11 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 .newUserWorkoutGoals {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -576,11 +554,11 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 .newUserWorkoutProfile {
-	width: 15%;
+	width: 45%;
 	box-sizing: border-box;
 	border-bottom: 2px solid white;
 	border-radius: 2px;
@@ -594,7 +572,7 @@ body {
 	border-right: transparent;
 	border-left: transparent;
 	border-top: transparent;
-	margin: 15px;
+	margin-top: 1%;
 }
 
 /* Style the tab */
@@ -643,4 +621,13 @@ body {
 .member-analytics th {
 	background-color: #FC9E65;
 	color: black;
+}
+
+.avatarRadioGroup > img {
+	height: 7%; 
+	width: 7%; 
+	}
+	.newUserSignUpHeaders{
+	color: white; 
+	}
 }
