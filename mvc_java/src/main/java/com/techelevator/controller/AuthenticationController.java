@@ -23,7 +23,13 @@ public class AuthenticationController {
 	public AuthenticationController(MemberDAO userDAO) {
 		this.userDAO = userDAO;
 	}
+	
+	@RequestMapping("/")
+	public String displayLoginAtRoot() {
 
+		return "login";
+	}
+	
 	@RequestMapping(path="/login", method=RequestMethod.GET)
 	public String displayLoginForm() {
 		return "login";
@@ -51,7 +57,7 @@ public class AuthenticationController {
 		}
 	}
 
-	@RequestMapping(path="/logout", method=RequestMethod.POST)
+	@RequestMapping(path="/logout", method=RequestMethod.GET)
 	public String logout(ModelMap model, HttpSession session) {
 		model.remove("currentUser");
 		session.invalidate();
