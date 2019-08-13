@@ -659,11 +659,23 @@ a:-webkit-any-link {
 	color: black;
 }
 
+
+.backToDashboardFromCalendar {
+	float: right;
+    margin: top;
+    margin-top: 20px;
+    margin-right: 15px;
+
+}
+
 .avatarRadioGroup > img {
 	height: 7%; 
 	width: 7%; 
-	}
-	.newUserSignUpHeaders{
-	color: white; 
-	}
+	
 }
+	
+.newUserSignUpHeaders{
+	color: white; 
+	
+}
+
