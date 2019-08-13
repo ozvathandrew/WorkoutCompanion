@@ -52,7 +52,6 @@
 				</div>
 			</form>
 		</div>
-
 		<div class="loginHeaderGroup">
 			<div class="loginHeader">
 				<h1>THE ULTIMATE WORKOUT COMPANION</h1>

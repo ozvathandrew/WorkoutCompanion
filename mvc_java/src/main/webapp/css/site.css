@@ -17,12 +17,12 @@ body {
 }
 
 .newUserContainer {
-	background-image: url(../img/rectangle.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	height: 100vh;
+	text-align: center;
+	background-color: rgba(255, 98, 4, 0.8700000047683716);
 }
-
+.member-form{
+	width: 100%; 
+}
 .grid-container {
 	display: grid;
 	grid-template-columns: 0.5fr 1.5fr 0.5fr 4fr 0.5fr;
@@ -412,24 +412,24 @@ body {
 
 .loginHeaderGroup {
 	position: absolute;
-	left: 850px;
-	top: 320px;
+	left: 600px;
+	top: 285px;
 	color: white;
 	text-align: center;
 }
 
 .stonesEndorsment {
 	position: absolute;
-	left: 1300px;
-	top: 850px;
+	left: 950px;
+	top: 700px;
 	color: white;
 	text-align: center;
 }
 
 .login {
 	position: absolute;
-	left: 100px;
-	top: 200px;
+	left: 85px;
+	top: 150px;
 }
 
 .createNewUserBTN {
