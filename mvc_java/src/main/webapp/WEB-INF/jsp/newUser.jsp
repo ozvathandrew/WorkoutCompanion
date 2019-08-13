@@ -48,6 +48,10 @@
 			<form method="POST" action="${formAction}">
 				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" /> <input
 					type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				<div class="newUserSignUpHeaders">
+					<h1>Begin your journey with Synergy!</h1>
+					<h3>Please enter all information to create your account</h3>
+				</div>
 				<div>
 					<input type="text" id="userName" name="userName"
 						placeHolder="User Name" class="newUserNameInput" />
@@ -79,30 +83,30 @@
 				<div class="avatarRadioGroup">
 					<table>
 						<tr>
-							<div class="avatarLabel">
-								<th><label for="avatar">Avatars</label></th>
-							</div>
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/boxing.png" />
+							<img src="../img/boxing.png" />
 						</tr>
-						<div class="boxingAvatar">
-							<td><input type="radio" id="avatar" name="avatar"
-								value="../img/boxing.png" /> <img src="../img/boxing.png" /></td>
-						</div>
-						<div class="liftingAvatar">
-							<td><input type="radio" id="avatar" name="avatar"
-								value="../img/lifting.png" /> <img src="../img/lifting.png" /></td>
-						</div>
-						<div class="pushUpAvatar">
-							<td><input type="radio" id="avatar" name="avatar"
-								value="../img/pushUp.png" /> <img src="../img/pushUp.png" /></td>
-						</div>
-						<div class="boxingAvatar">
-							<td><input type="radio" id="avatar" name="avatar"
-								value="../img/running.png" /> <img src="../img/running.png" /></td>
-						</div>
-						<div class="yogaAvatar">
-							<td><input type="radio" id="avatar" name="avatar"
-								value="../img/yoga.png" /> <img src="../img/yoga.png" /></td>
-						</div>
+						<tr>
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/lifting.png" />
+							<img src="../img/lifting.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/pushUp.png" />
+							<img src="../img/pushUp.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/running.png" />
+							<img src="../img/running.png" />
+						</tr>
+						<tr>
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/yoga.png" />
+							<img src="../img/yoga.png" />
+						</tr>
 					</table>
 				</div>
 				<button type="submit" class="createNewUserBTN">Create User</button>
