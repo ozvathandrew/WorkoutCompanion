@@ -69,16 +69,20 @@ public class UserController {
 				user.getWorkoutGoals(), user.getWorkoutProfile(), user.getAvatar());
 		return "redirect:/login";
 	}
+	
+	//catching when user attempts to go to their dashboard prior to login in
+	@RequestMapping(path="/users", method=RequestMethod.GET)
+	public String invalidUserdashboard() {
+		return "redirect:/login";	
+	}
 
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
-
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
 		List<Session> allSessionsWithEquipment = sessionDAO.getAllSessionsPerMemberWithEquipment(username);
 		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
 		List<Classes> classesScheduled = classesDAO.getClassesScheduled(username);
-
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
@@ -88,6 +92,7 @@ public class UserController {
 		map.addAttribute("classesScheduled", classesScheduled);
 
 		return "userDashboard";
+
 	}
 
 	@RequestMapping(path = "/editProfile", method = RequestMethod.GET)

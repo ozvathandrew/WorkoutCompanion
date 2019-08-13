@@ -262,12 +262,6 @@ public class JDBCSessionDAO implements SessionDAO {
 	}
 
 	@Override
-	public List<Session> getTotalSessionCount(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Integer getTotalTime(String username, Date date) {
 		// TODO Auto-generated method stub
 		return null;

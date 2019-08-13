@@ -33,6 +33,5 @@ public interface SessionDAO {
 	
 	public Time getCurrentTime();
 	
-	public List<Session> getTotalSessionCount(String username);
 
 }

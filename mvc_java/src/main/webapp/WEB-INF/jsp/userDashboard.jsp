@@ -66,7 +66,7 @@
 					id="defaultOpen">Monthly</button>
 				<button class="tablinks" onclick="openTabs(event, 'Total')">Total</button>
 				<button class="tablinks"
-					onclick="openTabs(event, 'Scheduled-Classes')">Scheduled-Classes</button>
+					onclick="openTabs(event, 'Scheduled-Classes')">Scheduled Classes</button>
 			</div>
 
 			<!-- Tab Monthly content -->
@@ -112,6 +112,7 @@
 						});
 					})
 				</script>
+				<br>
 				<table>
 					<tr>
 						<th>Date</th>
@@ -134,7 +135,6 @@
 
 			<!-- Tab Total content -->
 			<div id="Total" class="tabcontent">
-			
 				<table>
 					<tr>
 						<th>Date</th>

@@ -23,7 +23,13 @@ public class AuthenticationController {
 	public AuthenticationController(MemberDAO userDAO) {
 		this.userDAO = userDAO;
 	}
+	
+	@RequestMapping("/")
+	public String displayLoginAtRoot() {
 
+		return "login";
+	}
+	
 	@RequestMapping(path="/login", method=RequestMethod.GET)
 	public String displayLoginForm() {
 		return "login";
