@@ -27,6 +27,6 @@
 			<li><a href="/capstone/login">LOGIN</a></li>
 			<li><a href="/capstone/users/new">SIGNUP</a></li>
 			<li><a href="/capstone/users/${username}">DASHBOARD</a></li>
-			<li><a href="/capstone/login">LOGOUT</a></li>
+			<li><a href="/capstone/logout">LOGOUT</a></li>
 		</ul>
 	</header>
