@@ -34,20 +34,21 @@ ul {
 	padding-top: 18px;
 }
 
-button {
-	background-color: black;
-	border: 1px solid black;
-	border-radius: 15px;
-	color: white;
-}
+
 </style>
 
 <div id="workout-table">
-	<c:forEach var="clazz" items="${calendar}" begin="0" end="4">
+
+	<c:url var="action" value="/users/${synergyUser.userName}" />
+	<form method="GET" action="${action}">
+		<button type="submit" class="classSignInButton">Go Back To Your Dashboard</button>
+	</form>
+	
+	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
 		<li style="list-style: none;">
 			<ul id="class-time">
 				<fmt:formatDate type="time" timeStyle="short"
-					value="${clazz.classStartTime}" />
+					value="${clazz.classStartTime}" /> - 
 				<fmt:formatDate type="time" timeStyle="short"
 					value="${clazz.classEndTime}" />
 			</ul>
@@ -55,13 +56,15 @@ button {
 				<c:out value="${clazz.workoutClassName}" />
 			</ul>
 			<ul id="class-time">
+			<c:url var="bookingURL" value="/calendarUpdate">
+				<c:param name="classId" value="${clazz.classId}" />
+			</c:url>
+				<button class="classSignInButton"> <a href="${bookingURL}">Add to Your Schedule</a> </button>
 			</ul>
 		</li>
-		<c:url var="bookingURL" value="/calendarUpdate">
-			<c:param name="classId" value="${clazz.classId}" />
-		</c:url>
-		<a href="${bookingURL}">Add to Your Schedule</a>
 	</c:forEach>
 </div>
+
+
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
