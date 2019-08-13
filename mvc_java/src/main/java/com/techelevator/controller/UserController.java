@@ -2,7 +2,9 @@ package com.techelevator.controller;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -69,16 +71,20 @@ public class UserController {
 				user.getWorkoutGoals(), user.getWorkoutProfile(), user.getAvatar());
 		return "redirect:/login";
 	}
+	
+	//catching when user attempts to go to their dashboard prior to login in
+	@RequestMapping(path="/users", method=RequestMethod.GET)
+	public String invalidUserdashboard() {
+		return "redirect:/login";	
+	}
 
 	@RequestMapping(path = "/users/{username}", method = RequestMethod.GET)
 	public String userDashboard(@PathVariable String username, ModelMap map) {
-
 		Object user = userDAO.getMemberByUserName(username);
 		List<Session> sessionsData = sessionDAO.getMemberSessionData(username);
 		List<Session> allSessionsWithEquipment = sessionDAO.getAllSessionsPerMemberWithEquipment(username);
 		List<Session> allSessions = sessionDAO.getAllSessionsPerMember(username);
 		List<Classes> classesScheduled = classesDAO.getClassesScheduled(username);
-
 
 		map.addAttribute("user", user);
 		map.addAttribute("synergyUser", user);
@@ -88,6 +94,7 @@ public class UserController {
 		map.addAttribute("classesScheduled", classesScheduled);
 
 		return "userDashboard";
+
 	}
 
 	@RequestMapping(path = "/editProfile", method = RequestMethod.GET)
@@ -116,9 +123,19 @@ public class UserController {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
-
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
 		map.addAttribute("calendar", workoutClass);
+		
+//		List<Classes> workoutDate = classesDAO.getDateOfClasses();
+//		List<Classes> workoutInfo = classesDAO.getEverythingElseFromClasses();
+//		Map<String, String> newMap = new HashMap<String, String>();
+//		
+//		
+//		for(int i = 0 ; i < workoutDate.size() ; i++) {
+//			for(int j = 0 ; j < workoutInfo.size() ; j++) {
+//				newMap.put( , j);
+//			}
+//		}
 
 		return "calendar";
 	}

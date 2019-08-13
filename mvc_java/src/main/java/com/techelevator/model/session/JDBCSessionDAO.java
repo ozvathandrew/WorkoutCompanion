@@ -160,12 +160,6 @@ public class JDBCSessionDAO implements SessionDAO {
 		}
 		return input;
 	}
-
-	@Override
-	public Integer getTotalTime(String username, Date date) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public Date getCurrentDate() {
 		LocalDateTime ldt = LocalDateTime.now();
@@ -265,5 +259,11 @@ public class JDBCSessionDAO implements SessionDAO {
 		@SuppressWarnings("deprecation")
 		Time time = new Time(hour, minute, sec);
 		return time;
+	}
+
+	@Override
+	public Integer getTotalTime(String username, Date date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

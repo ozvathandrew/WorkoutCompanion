@@ -32,5 +32,6 @@ public interface SessionDAO {
 	public void updateTime(String username, Date date, Time start, Time end);
 	
 	public Time getCurrentTime();
+	
 
 }
