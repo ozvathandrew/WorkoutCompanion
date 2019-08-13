@@ -38,11 +38,13 @@ ul {
 </style>
 
 <div id="workout-table">
+	<div class="backToDashboardFromCalendar"> 
+		<c:url var="action" value="/users/${synergyUser.userName}" />
+		<form method="GET" action="${action}">
+			<button type="submit" class="classSignInButton">Go Back To Your Dashboard</button>
+		</form>
+	</div>
 
-	<c:url var="action" value="/users/${synergyUser.userName}" />
-	<form method="GET" action="${action}">
-		<button type="submit" class="classSignInButton">Go Back To Your Dashboard</button>
-	</form>
 	
 	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
 		<li style="list-style: none;">
