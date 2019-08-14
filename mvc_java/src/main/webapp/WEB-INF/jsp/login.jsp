@@ -52,16 +52,16 @@
 				</div>
 			</form>
 		</div>
-		<div class="loginHeaderGroup">
+
+		<span class="loginHeaderGroup">
 			<div class="loginHeader">
 				<h1>THE ULTIMATE WORKOUT COMPANION</h1>
 				<h2>Let us help you get in the best shape of your life.</h2>
-			</div>
-			<c:url var="action" value="/users/new" />
+			</div> <c:url var="action" value="/users/new" />
 			<form method="GET" action="${action}">
 				<button type="submit" class="loginSignInBTN">Sign Up Now</button>
 			</form>
-		</div>
+		</span>
 	</div>
 </div>
 

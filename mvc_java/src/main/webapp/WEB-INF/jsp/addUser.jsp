@@ -109,7 +109,7 @@
 						</tr>
 					</table>
 				</div>
-				<div class="mainselection" style="width: 200px;">
+				<div class="mainselection">
 					<select id="soflow-color">
 						<option disabled selected>Select Access:</option>
 						<option value="1">Administrator</option>

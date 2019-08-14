@@ -1,29 +1,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<div class="container"> 
-<c:url var="formAction" value="/updateProfile" />
-<form method="POST" action="${formAction}">
-	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-	<table>
-		<tr>
-		<div class="form-group">
-			<th><label for="workoutgoals">Workout Goals: </label></th>
-			<td><input type="text" id="workoutGoals" name="workoutGoals" placeHolder="Workout Goals" class="form-control" /></td>
+<div class="newUserContainer">
+	<c:url var="formAction" value="/updateProfile" />
+	<form method="POST" action="${formAction}">
+		<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+		<div class="newUserSignUpHeaders">
+			<h1>Update your fitness goals!</h1>
+			<div class="synergyLogoEP">
+				<img src="img/workout-logo.png">
 			</div>
-		</tr>
-		<tr>
-		<div class="form-group">
-			<th><button type="submit" class="editProfileButton">Edit Profile</button></th>
 		</div>
-		</tr>
+		<div>
+			<input type="text" id="workoutGoals" name="workoutGoals"
+				placeHolder="Workout Goals" class="newUserWorkoutGoals" />
 		</div>
-	</table>
-</form>
-
-<div class="workout-companion-header">
-	<h4>THE ULTIMATE WORKOUT COMPANION</h4>
-	<p>Let us help you get in the best shape of your life.</p>
+		<div>
+			<button type="submit" class="editProfileButton">Edit Profile</button>
+		</div>
+	</form>
 </div>
 
 
