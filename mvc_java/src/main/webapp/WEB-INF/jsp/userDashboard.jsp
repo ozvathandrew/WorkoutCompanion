@@ -37,26 +37,23 @@
 				<img src="${user.avatar}" alt="avatar image">
 			</div>
 			<div class="member-Links">
-				<h4>${user.name}</h4>
-				<h6>Goal: ${user.workoutGoals}</h6>
-				<h6>Summary: ${user.workoutProfile}</h6>
+				<p>${user.name}</p>
+				<p>Goal: ${user.workoutGoals}</p>
+				<p>Profile: ${user.workoutProfile}</p>
 			</div>
-
 			<div class="admin-buttons">
-				<form action="../addUser" method="GET">
-					<button>Add Employee</button>
-				</form>
-				<button>Add Member</button>
+
+				<p><a href="../addUser">Add Associate</a></p>
 			</div>
 			<div class="edit-profile-button">
-				<form action="../editProfile" method="get">
-					<button>Edit Profile</button>
-				</form>
+
+				<p><a href="../editProfile">Edit Profile</a></p>
+
 			</div>
 			<div class="calendar-button">
-				<form action="../calendar" method="get">
-					<button>View Class Calendar</button>
-				</form>
+
+				<p><a href=".../calendar">View Class Calendar</a></p>
+
 			</div>
 		</div>
 		<div class="member-analytics">
@@ -66,12 +63,13 @@
 					id="defaultOpen">Monthly</button>
 				<button class="tablinks" onclick="openTabs(event, 'Total')">Total</button>
 				<button class="tablinks"
-					onclick="openTabs(event, 'Scheduled-Classes')">Scheduled Classes</button>
+					onclick="openTabs(event, 'Scheduled-Classes')">Scheduled
+					Classes</button>
 			</div>
 
 			<!-- Tab Monthly content -->
 			<div id="Monthly" class="tabcontent">
-				<canvas id="myChart" width="200" height="100"></canvas>
+				<canvas id="myChart" width="250" height="150"></canvas>
 				<script>
 					document.addEventListener("DOMContentLoaded", function() {
 						var ctx = document.getElementById('myChart')
@@ -84,7 +82,7 @@
 								datasets : [ {
 									label : 'Consistency',
 									data : [ 2, 4, 3, 5 ],
-								backgroundColor : [
+									backgroundColor : [
 											'rgba(255, 99, 132, 0.2)',
 											'rgba(54, 162, 235, 0.2)',
 											'rgba(255, 206, 86, 0.2)',
@@ -178,7 +176,6 @@
 						</tr>
 					</c:forEach>
 				</table>
-
 			</div>
 		</div>
 	</div>

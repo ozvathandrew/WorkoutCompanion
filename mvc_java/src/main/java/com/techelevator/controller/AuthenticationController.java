@@ -59,7 +59,7 @@ public class AuthenticationController {
 
 	@RequestMapping(path="/logout", method=RequestMethod.GET)
 	public String logout(ModelMap model, HttpSession session) {
-		model.remove("currentUser");
+		model.remove("synergyUser");
 		session.invalidate();
 		return "redirect:/";
 	}

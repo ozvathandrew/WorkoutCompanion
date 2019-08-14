@@ -54,13 +54,15 @@ body {
 	padding-top: 5%;
 	flex-direction: column;
 	grid-area: member;
-	background-color: rgba(220, 220, 220, 0.90);
+	/* 	background-color: rgba(220, 220, 220, 0.90); */
 }
 
 .avatar {
 	grid-area: avatar;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: rgba(220, 220, 220, 0.60);
+	border-radius: 10px;
 }
 
 .member-Links {
@@ -68,6 +70,30 @@ body {
 	text-align: center;
 	/* border-bottom: 2px solid black;
 	border-bottom-width: thin; */
+}
+
+.member-Links p{
+	/* color: #FF6204; */
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 22px;
+	padding-bottom: 10px;	
+	border-bottom: 1px solid rgba(220, 220, 220, 0.80);
+}
+
+.admin-buttons a, .calendar-button a, .edit-profile-button a {
+	background: rgba(255, 255, 255, 0.90);
+	font-weight: bold;
+	text-align: center;
+	color: #FF6204;
+	font-size: 12px;
+	padding: 5px 20px;
+	border-radius: 8px;
+	border: none;
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	cursor: pointer;
 }
 
 .admin-buttons {
@@ -260,7 +286,7 @@ body {
 }
 
 .end-session-button, .session-start-button {
-	background: rgba(255, 255, 255, 0.90);
+	background: rgba(0, 0, 0, 0.90);
 	font-weight: bold;
 	text-align: center;
 	color: #FF6204;
@@ -298,9 +324,16 @@ body {
 	padding: 8px 16px 8px 36px;
 }
 
-.loginSubmitBTN:hover, .add-session-button:hover {
+.loginSubmitBTN:hover, .add-session-button:hover, .admin-buttons a:hover, .calendar-button a:hover, .edit-profile-button a:hover {
 	background-color: #FF6204;
 	color: white;
+	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.end-session-button:hover, .session-start-button:hover {
+	background-color: white;
+	color: #FF6204;
 	box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
 		rgba(0, 0, 0, 0.19);
 }
@@ -336,11 +369,17 @@ a:-webkit-any-link {
 color
 
 
+
+
 :
+
 
  
 
+
 #FF6204
+
+
 
 
 ;
@@ -801,13 +840,13 @@ select#soflow-color {
 }
 
 #soflow-color {
-	margin-left: 250px; 
- }
- .create-member{
+	margin-left: 250px;
+}
+
+.create-member {
 	display: grid;
 	grid-template-columns: 0.5fr 1 fr 0.5fr;
-	grid-template-areas: 
-	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	grid-template-areas: background-color: rgba(255, 98, 4, 0.8700000047683716);
 	height: 90%;
 	width: 70%;
 	margin-left: 15%;
@@ -823,5 +862,3 @@ select#soflow-color {
 	grid-area: member;
 	background-color: rgba(220, 220, 220, 0.90);
 }
- 
- 
