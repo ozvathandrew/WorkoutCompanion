@@ -93,7 +93,7 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		Integer setsTest = 5;
 		Integer year = 2019;
 		Integer month = 8;
-		Integer day = 12;
+		Integer day = 14;
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, year);
 		cal.set(Calendar.MONTH, month - 1);
@@ -107,40 +107,11 @@ public class JDBCSessionDAOTest extends DAOIntegrationTest {
 		assertEquals(setsTest, allSessionsPerMemberListByDate.get(size - 1).getSets());
 	}
 	
-	//not done
-	
-	public void getAllSessionsPerMemberByDateTimeTest() {
-		String usernameTest = "mickey";
-		Integer repsTest = 50;
-		Integer setsTest = 5;
-		Integer year = 2019;
-		Integer month = 8;
-		Integer day = 9;
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, month - 1);
-		cal.set(Calendar.DAY_OF_MONTH, day);
-		
-		
-		java.sql.Date date = new java.sql.Date(cal.getTimeInMillis());
-		
-		LocalDateTime ldt = LocalDateTime.now();
-		String dates = DateTimeFormatter.ofPattern("HH:mm:ss.SS", Locale.ENGLISH).format(ldt);
-		Integer hour = Integer.valueOf(dates.substring(0, 2));
-		Integer minute = Integer.valueOf(dates.substring(3, 5));
-		Integer sec = Integer.valueOf(dates.substring(6, 8));
-		Integer millisec = Integer.valueOf(dates.substring(9));
-		@SuppressWarnings("deprecation")
-		Time time = new Time(hour, minute, sec);
-		List<Session> allSessionsPerMemberListByDateTime = dao.getAllSessionsPerMemberByDateTime(usernameTest, date, time);
-		Integer size = allSessionsPerMemberListByDateTime.size();
-
-	}
 	
 	@Test
 	public void getAllSessionsPerMemberWithEquipmentTest() {
 		String username = "lfitriana";
-		String equipment = "Seated Chest Press";
+		String equipment = "Ab Crunch";
 		List<Session> sessionsWithEquipment = dao.getAllSessionsPerMemberWithEquipment(username);
 		Integer size = sessionsWithEquipment.size();
 		

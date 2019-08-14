@@ -196,7 +196,7 @@ public class JDBCSessionDAO implements SessionDAO {
 				"FROM workout_log " + 
 				"WHERE workout_log_username = ? " + 
 				"GROUP BY workout_log_date, workout_log_end - workout_log_start " + 
-				"ORDER BY workout_log_date DESC " + 
+				"ORDER BY workout_log_date ASC " + 
 				"LIMIT 30";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(data, username);
 		while(results.next()) {
@@ -220,7 +220,7 @@ public class JDBCSessionDAO implements SessionDAO {
 		List<Session> sessionsWithEquipment = new ArrayList<Session>();
 		String sqlSessionPerMember = "SELECT workout_log_date, workout_log_start, workout_log_end, workout_log_reps, workout_log_sets, workout_log_weight, equipment.equipment_name FROM workout_log " + 
 				"JOIN equipment on equipment.equipment_id = workout_log.workout_log_equipment_id " + 
-				"WHERE workout_log_username = ? LIMIT 10";
+				"WHERE workout_log_username = ? ORDER BY workout_log_date ASC LIMIT 15";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSessionPerMember, username);
 		while (results.next()) {
 			sessionsWithEquipment.add(mapToRowSessionEquipment(results));
