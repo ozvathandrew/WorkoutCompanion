@@ -11,10 +11,6 @@ public interface ClassesDAO {
 	
 	public List<Classes> getClassesByClassName();
 	
-//	public List<Classes> getDateOfClasses();
-//	
-//	public List<Classes> getEverythingElseFromClasses();
-	
 	public void updateClassSchedule(int classId, String userName);
 	
 	public List<Classes> getClassesScheduled(String userName);
