@@ -52,7 +52,7 @@
 			</div>
 			<div class="calendar-button">
 
-				<p><a href=".../calendar">View Class Calendar</a></p>
+				<p><a href="../calendar">View Class Calendar</a></p>
 
 			</div>
 		</div>
