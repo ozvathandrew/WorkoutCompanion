@@ -71,7 +71,7 @@ VALUES ('Seated Bicep Curls', 'The seated bicep curl exercise uses the machine a
 ('Shoulder Press', 'The machine shoulder press is a variation of the seated barbell shoulder press used to strengthen the muscles of the shoulders.', 'https://www.youtube.com/embed/Wqq43dKW1TU', 'Shoulder'); 
 
 INSERT INTO access (role_id, role_name)
-VALUES (1, 'Administrator'), (2, 'Employee'), (3 , 'Member');
+VALUES (0, 'No Selection'), (1, 'Administrator'), (2, 'Employee'), (3 , 'Member');
 
 INSERT INTO login (username, password, salt, profile_id)
 VALUES ('bscherf', 'brentscherf','EGTkpV_9mHjG_fyeo-Pt', 1), 
