@@ -94,9 +94,9 @@ public class JDBCMemberDAO implements MemberDAO {
 	
 	private User mapToRowProfile(SqlRowSet row) {
 		User user = new User();
-		user.setUserName(row.getString("username"));
-		user.setPassword(row.getString("password"));
-		user.setSalt(row.getString("salt"));
+//		user.setUserName(row.getString("username"));
+//		user.setPassword(row.getString("password"));
+//		user.setSalt(row.getString("salt"));
 		user.setName(row.getString("name"));
 		user.setEmail(row.getString("email"));
 		user.setAvatar(row.getString("photo"));

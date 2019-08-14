@@ -258,7 +258,7 @@ body {
 }
 
 .end-session-button, .session-start-button {
-	background: rgba(0, 0, 0, 0.90);
+	background: rgba(255, 255, 255, 0.90);
 	font-weight: bold;
 	text-align: center;
 	color: #FF6204;
