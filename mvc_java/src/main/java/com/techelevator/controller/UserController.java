@@ -124,19 +124,10 @@ public class UserController {
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
+		
+		
 		map.addAttribute("calendar", workoutClass);
 		
-//		List<Classes> workoutDate = classesDAO.getDateOfClasses();
-//		List<Classes> workoutInfo = classesDAO.getEverythingElseFromClasses();
-//		Map<String, String> newMap = new HashMap<String, String>();
-//		
-//		
-//		for(int i = 0 ; i < workoutDate.size() ; i++) {
-//			for(int j = 0 ; j < workoutInfo.size() ; j++) {
-//				newMap.put( , j);
-//			}
-//		}
-
 		return "calendar";
 	}
 
