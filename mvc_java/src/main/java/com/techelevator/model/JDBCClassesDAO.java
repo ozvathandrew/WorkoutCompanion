@@ -33,6 +33,32 @@ public class JDBCClassesDAO implements ClassesDAO {
 
 		return allClasses;
 	}
+	
+//	@Override
+//	public List<Classes> getDateOfClasses() {
+//		List<Classes> classDate = new ArrayList<Classes>();
+//		String sqlSelectAllClasses = "SELECT class_date FROM classes";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllClasses);
+//		while (results.next()) {
+//			classDate.add(mapToRowClasses(results));
+//		}
+//
+//		return classDate;
+//	}
+//	
+//	@Override
+//	public List<Classes> getEverythingElseFromClasses() {
+//		List<Classes> classInfo = new ArrayList<Classes>();
+//		String sqlSelectAllClasses = "SELECT class_id, class_name, class_start_time, class_end_time, class_date FROM classes";
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllClasses);
+//		while (results.next()) {
+//			classInfo.add(mapToRowClasses(results));
+//		}
+//
+//		return classInfo;
+//	}
+	
+	
 
 	@Override
 	public void updateClassSchedule(int classId, String userName) {

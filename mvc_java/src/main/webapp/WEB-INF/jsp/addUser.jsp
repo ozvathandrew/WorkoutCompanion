@@ -52,80 +52,91 @@
 					<h1>Begin your journey with Synergy!</h1>
 					<h3>Please enter all information to create your account</h3>
 				</div>
-				<div>
-					<input type="text" id="userName" name="userName"
-						placeHolder="User Name" class="newUserNameInput" />
-				</div>
-				<div>
-					<input type="password" id="password" name="password"
-						placeHolder="Password" class="newUserPassword" />
-				</div>
-				<div>
-					<input type="password" id="confirmPassword" name="confirmPassword"
-						placeHolder="Re-Type Password" class="newUserConfirmPassword" />
-				</div>
-				<div>
-					<input type="text" id="name" name="name" placeHolder="Your name"
-						class="newUserName" />
-				</div>
-				<div>
-					<input type="email" id="email" name="email"
-						placeHolder="Email address" class="newUserEmail" />
-				</div>
-				<div>
-					<input type="text" id="workoutGoals" name="workoutGoals"
-						placeHolder="Workout Goals" class="newUserWorkoutGoals" />
-				</div>
-				<div>
-					<input type="text" id="workoutProfile" name="workoutProfile"
-						placeHolder="Workout Profile" class="newUserWorkoutProfile" />
-				</div>
-				<div class="avatarRadioGroup">
-					<table>
+				<table>
+					<tr>
+						<div>
+							<input type="text" id="userName" name="userName"
+								placeHolder="User Name" class="newUserNameInput" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="password" id="password" name="password"
+								placeHolder="Password" class="newUserPassword" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="password" id="confirmPassword"
+								name="confirmPassword" placeHolder="Re-Type Password"
+								class="newUserConfirmPassword" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="text" id="name" name="name" placeHolder="Your name"
+								class="newUserName" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="email" id="email" name="email"
+								placeHolder="Email address" class="newUserEmail" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="text" id="workoutGoals" name="workoutGoals"
+								placeHolder="Workout Goals" class="newUserWorkoutGoals" />
+						</div>
+					</tr>
+					<tr>
+						<div>
+							<input type="text" id="workoutProfile" name="workoutProfile"
+								placeHolder="Workout Profile" class="newUserWorkoutProfile" />
+						</div>
+					</tr>
+					<tr>
+						<div class="mainselection" style="width: 200px;">
+							<select id="soflow-color"">
+								<option value="0" disabled selected>Select Access:</option>
+								<option value="1">Administrator</option>
+								<option value="2">Employee</option>
+								<option value="3">Member</option>
+							</select>
+						</div>
+					</tr>
+					<div class="avatarRadioGroup">
 						<tr>
-							<input type="radio" id="avatar" name="avatar" value="../img/boxing.png" />
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/boxing.png" />
 							<img src="img/boxing.png" />
 						</tr>
 						<tr>
-							<input type="radio" id="avatar" name="avatar" value="../img/lifting.png" />
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/lifting.png" />
 							<img src="img/lifting.png" />
 						</tr>
 						<tr>
-							<input type="radio" id="avatar" name="avatar" value="../img/pushUp.png" />
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/pushUp.png" />
 							<img src="img/pushUp.png" />
 						</tr>
 						<tr>
-							<input type="radio" id="avatar" name="avatar" value="../img/running.png" />
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/running.png" />
 							<img src="img/running.png" />
 						</tr>
 						<tr>
-							<input type="radio" id="avatar" name="avatar" value="../img/yoga.png" />
+							<input type="radio" id="avatar" name="avatar"
+								value="../img/yoga.png" />
 							<img src="img/yoga.png" />
 						</tr>
-						<div class="form-group">
-
-							<th><label for="roleId">Please select user access: </label></th>
-
-							<td><select name="roleId">
-
-									<option value="0" disabled selected>Select your option</option>
-
-									<option value="1">Administrator</option>
-
-									<option value="2">Employee</option>
-
-									<option value="3">Member</option>
-
-							</select></td>
-
-						</div>
-
-					</table>
-				</div>
-				<button type="submit" class="createNewUserBTN">Create User</button>
-			</form>
+				</table>
 		</div>
 	</div>
+	<button type="submit" class="createNewUserBTN">Create User</button>
+	</form>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
