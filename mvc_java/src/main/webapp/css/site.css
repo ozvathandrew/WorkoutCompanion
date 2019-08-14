@@ -802,5 +802,26 @@ select#soflow-color {
 
 #soflow-color {
 	margin-left: 250px; 
-
  }
+ .create-member{
+	display: grid;
+	grid-template-columns: 0.5fr 1 fr 0.5fr;
+	grid-template-areas: 
+	background-color: rgba(255, 98, 4, 0.8700000047683716);
+	height: 90%;
+	width: 70%;
+	margin-left: 15%;
+	height: 100vh;
+	/* 	margin-left: 10%;
+	margin-top: 3%; */
+}
+
+.member-form {
+	display: flex;
+	padding-top: 5%;
+	flex-direction: column;
+	grid-area: member;
+	background-color: rgba(220, 220, 220, 0.90);
+}
+ 
+ 
