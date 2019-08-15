@@ -123,13 +123,27 @@ public class UserController {
 		User user = (User) map.get("synergyUser");
 		String userName = user.getUserName();
 		map.addAttribute("synergyUser", user);
+//		Map<Date,Classes> newMap = new HashMap<Date, Classes>();
 		List<Classes> workoutClass = classesDAO.getClassesByClassName();
-		
+////		Integer size = workoutClass.size();
+//		for(Classes c : workoutClass ) {
+//			newMap.put(c.getClassDate(), c);
+//		}
+//		
+//		map.addAttribute("calendar", newMap);
 		
 		map.addAttribute("calendar", workoutClass);
 		
 		return "calendar";
 	}
+	
+//	Map<Date, Classes> map = new HashMap<Date, Classes>();
+//	List<Classes> allClasses = dao.getClassesByClassName();
+//	Integer size = allClasses.size();
+//	for(Classes  allClasses) {
+//	map.put(c.getClassDate(), c);
+//	}
+//	for(Classes c : allClasses)
 
 	@RequestMapping(path = "/calendarUpdate", method = RequestMethod.GET)
 	public String addToClassSchdule(HttpServletRequest request, ModelMap map) {

@@ -22,6 +22,12 @@ h1 {
 	padding-left-
 }
 
+.calendarHeader { 
+ text-align:center; 
+ 
+}
+
+
 ul {
 	display: inline-block;
 	vertical-align: top;
@@ -38,11 +44,9 @@ ul {
 
 </style>
 
-
-
 <div id="workout-table">
 
-	<div> <h2> Thursday - 8/15/16 </h2></div>
+	<div> <h2 class="calendarHeader"> Friday - 8/16/19 </h2></div>
 	<div class="backToDashboardFromCalendar"> 
 		<c:url var="action" value="/users/${synergyUser.userName}" />
 		<form method="GET" action="${action}">
@@ -72,6 +76,76 @@ ul {
 </div>
 
 <div id="workout-table">
+	<div> <h2 class="calendarHeader"> Saturday - 8/17/19 </h2></div>
+	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
+		<li style="list-style: none;">
+			<ul id="class-time">
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classStartTime}" /> - 
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classEndTime}" />
+			</ul>
+			<ul id="class-name">
+				<c:out value="${clazz.workoutClassName}" />
+			</ul>
+			<ul id="class-time">
+			<c:url var="bookingURL" value="/calendarUpdate">
+				<c:param name="classId" value="${clazz.classId}" />
+			</c:url>
+				<button class="classSignInButton"> <a href="${bookingURL}">Add to Your Schedule</a> </button>
+			</ul>
+		</li>
+	</c:forEach>
+</div>
+
+<div id="workout-table">
+	<div> <h2 class="calendarHeader"> Sunday - 8/18/19 </h2></div>
+	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
+		<li style="list-style: none;">
+			<ul id="class-time">
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classStartTime}" /> - 
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classEndTime}" />
+			</ul>
+			<ul id="class-name">
+				<c:out value="${clazz.workoutClassName}" />
+			</ul>
+			<ul id="class-time">
+			<c:url var="bookingURL" value="/calendarUpdate">
+				<c:param name="classId" value="${clazz.classId}" />
+			</c:url>
+				<button class="classSignInButton"> <a href="${bookingURL}">Add to Your Schedule</a> </button>
+			</ul>
+		</li>
+	</c:forEach>
+</div>
+
+<div id="workout-table">
+	<div> <h2 class="calendarHeader"> Monday - 8/19/19 </h2></div>
+	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
+		<li style="list-style: none;">
+			<ul id="class-time">
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classStartTime}" /> - 
+				<fmt:formatDate type="time" timeStyle="short"
+					value="${clazz.classEndTime}" />
+			</ul>
+			<ul id="class-name">
+				<c:out value="${clazz.workoutClassName}" />
+			</ul>
+			<ul id="class-time">
+			<c:url var="bookingURL" value="/calendarUpdate">
+				<c:param name="classId" value="${clazz.classId}" />
+			</c:url>
+				<button class="classSignInButton"> <a href="${bookingURL}">Add to Your Schedule</a> </button>
+			</ul>
+		</li>
+	</c:forEach>
+</div>
+
+<div id="workout-table">
+	<div> <h2 class="calendarHeader"> Tuesday - 8/20/19 </h2></div>
 	<c:forEach var="clazz" items="${calendar}" begin="20" end="24">
 		<li style="list-style: none;">
 			<ul id="class-time">
